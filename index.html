@@ -73,7 +73,7 @@
 //set global variables
 
 var vsr = window.location.href.slice(window.location.href.indexOf('#') + 1);
-const baseUrl= ; // Hardcoded Base64 URL
+const baseUrl= window.location.origin; // Hardcoded Base64 URL
 const myArray = vsr.split("&");
 vsr = myArray[0];
 var fmt = myArray[1];

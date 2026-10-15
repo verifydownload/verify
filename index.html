@@ -182,7 +182,7 @@ $(document).ready(function(){
                 spinner.style.display = 'block';
                 // Set the source URL to load the page inside the iframe
 				setTimeout(() => {
-					iframe.src = baseUrlEncoded + displayPage(DNSfieldName,vsr,fmt);
+					iframe.src = baseUrl+ displayPage(DNSfieldName,vsr,fmt);
 					// Display the full screen iframe
 					iframe.style.display = 'block';
 					iframe.style.width="100%";

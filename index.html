@@ -223,6 +223,8 @@ function isBase64(encodedString) {
 function activateIframe(dnsresult,vsr,fmt,ipInfo) {
     setTimeout(() => {
         try {
+			const $iframe = $("#my-iframe");
+            
             
             // 1. Force full viewport layout FIRST so the media query reads a wide width
             $iframe.css({
@@ -237,7 +239,7 @@ function activateIframe(dnsresult,vsr,fmt,ipInfo) {
 
             // 2. Now load the source URL (it will safely read the wide layout parameters)
             const pagePath = displayPage(dnsresult,vsr,fmt); 
-            iframe.attr("src", baseUrl + pagePath);
+            $iframe.attr("src", baseUrl + pagePath);
 
             // 3. Clean up the loading interface elements
             $("#loading-logo").hide();

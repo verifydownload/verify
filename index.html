@@ -23,6 +23,7 @@
             
             border: none; /* Removes the default border */
             display: block; /* Eliminates vertical alignment whitespace gaps */
+			"z-index": "999999", // Ensures it sits on top of all other elements
         }
     </style>
 </head>
@@ -227,9 +228,7 @@ function activateIframe(dnsresult,vsr,fmt,ipInfo){
 		iframe.style.width="100%";
 		iframe.style.height ="100%";
 		// Hide the prior container safely
-        if (logoContainer) {
-            logoContainer.style.display = 'none';    
-        }
+        $("#loading-logo").hide();
 		//Ensure body doesn't create external scrollbars
 		document.body.style.overflow = 'hidden';
 	}, 4000);

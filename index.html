@@ -219,6 +219,37 @@ function isBase64(encodedString) {
 	var regexBase64 = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
 	return regexBase64.test(encodedString);   // return TRUE if its base64 string.
 }
+
+function activateIframe(dnsresult,vsr,fmt,ipInfo) {
+    setTimeout(() => {
+        try {
+            
+            // 1. Force full viewport layout FIRST so the media query reads a wide width
+            iframe.css({
+                "display": "block",
+                "position": "fixed",
+                "top": "0",
+                "left": "0",
+                "width": "100vw",  /* Force 100% of the browser window width */
+                "height": "100vh", /* Force 100% of the browser window height */
+                "z-index": "999999"
+            });
+
+            // 2. Now load the source URL (it will safely read the wide layout parameters)
+            const pagePath = displayPage(dnsresult,vsr,fmt); 
+            iframe.attr("src", baseUrl + pagePath);
+
+            // 3. Clean up the loading interface elements
+            $("#loading-logo").hide();
+            $("body").css("overflow", "hidden");
+
+        } catch (error) {
+            console.error("Iframe responsive rendering error:", error);
+        }
+    }, 4000);
+}
+/*
+
 function activateIframe(dnsresult,vsr,fmt,ipInfo){
 	// Set the source URL to load the page inside the iframe
 	setTimeout(() => {
@@ -233,7 +264,7 @@ function activateIframe(dnsresult,vsr,fmt,ipInfo){
 		document.body.style.overflow = 'hidden';
 	}, 4000);
 	return 0;
-}
+}*/
 
 function switchImage(fmt,prefix,dnsresult,ipInfo,vsr){
 	$('#fieldName').val(dnsresult);

